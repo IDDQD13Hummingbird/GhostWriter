@@ -1,0 +1,38 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 146: expected statement.
+    TYPEWRITER_MESSAGE = "Th e qu ee  da c es, and so shall you/nSw eed sh f emal e royalty. Four l ett ers. Four umb ers."
+                       ^
+
+File "game/script.rpy", line 150: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 152: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "Clarify what the ghost meant.":
+    ^
+
+File "game/script.rpy", line 202: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
+
+File "game/script.rpy", line 215: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
+
+File "game/script.rpy", line 228: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
+
+File "game/script.rpy", line 241: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
+
+File "game/script.rpy", line 254: expected statement.
+    padlock_final = padlock_1 + padlock_2 + padlock_3 + padlock_4
+                  ^
+
+Ren'Py Version: Ren'Py 8.3.6.25022803
+Thu Aug 13 13:31:09 2026
