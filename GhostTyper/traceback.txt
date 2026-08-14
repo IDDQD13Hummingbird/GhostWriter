@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 79, in script
-    e "Games without menus are called kinetic novels, and there are dozens of them available to play."
-Exception: Sayer 'e' is not defined.
+  File "game/script.rpy", line 283, in script
+    if $ padlock_final == $ padlock_correct:
+SyntaxError: invalid syntax (game/script.rpy, line 283)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 79, in script
-    e "Games without menus are called kinetic novels, and there are dozens of them available to play."
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ast.py", line 2586, in execute
-    Say.execute(self)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ast.py", line 583, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ast.py", line 472, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'e' is not defined.
+  File "game/script.rpy", line 283, in script
+    if $ padlock_final == $ padlock_correct:
+  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ast.py", line 1856, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\python.py", line 1213, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\python.py", line 1150, in py_compile
+    raise e
+  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\python.py", line 1087, in py_compile
+    raise orig_e
+  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\python.py", line 1079, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/script.rpy, line 283)
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.6.25022803
 GhostTyper 1.0
-Thu Aug 13 12:07:58 2026
+Fri Aug 14 16:52:10 2026
