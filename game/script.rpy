@@ -284,6 +284,7 @@ label start:
 
                #Select 1221 as an answer
                "The lock opens!"
+               jump end
 
             if padlock_final == padlock_secret:
                #Select 1312 as an answer
@@ -303,6 +304,8 @@ label start:
                #     jump typewriter_give_answer
                jump typewriter_give_answer
     #Select 
+    label end:
+        "This concludes the tech demo."
 
     # This ends the game.
 
