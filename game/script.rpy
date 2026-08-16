@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-#Characters!
+# Characters!
 
 define tp = Character("Typewriter Ghost", color="#819494") 
 
@@ -12,7 +12,13 @@ define l = Character("Lafcadio", color="#4480e4")
 define w = Character("Willow", color="#6e25c0")
 define t = Character("Tequila", color="#3a8fd0")
 define g = Character("Greyson", color="#308840")
+define redd = Character("Redd", color="#B063F8")
+define reggie = Character("Reggie", color="#C86509")
+define thanos = Character("Thanos", color="#3038d4")
 
+# Variables!
+
+default cps = 25
 
 transform slightleft:
     xalign 0.25
@@ -141,168 +147,14 @@ label start:
     
     label tutorial_no:
         "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
-        
-        $ attempts = 5 # I can't figure out where to initialize the variable so that the program remembers and recognizes it.
-        jump typewriter_default
-        
-    label typewriter_default:
-    
-            show typewriter at centre
-            tp "{cps=25}Th e qu ee  da c es, and so shall you{/cps}"
-            $ TYPEWRITER_MESSAGE = "Th e qu ee  da c es, and so shall you"
-            jump typewriter_menu
-
-    label typewriter_clarified:
-        
-            show typewriter at centre
-            tp "{cps=25}Sw eed sh f emal e royalty. Four l ett ers. Four umb ers.{/cps}"
-            $ TYPEWRITER_MESSAGE = "Th e qu ee  da c es, and so shall you\nSw eed sh f emal e royalty. Four l ett ers. Four umb ers."
-            jump typewriter_menu
-
-    label typewriter_menu:
-            menu:
-                "The typewriter says : [TYPEWRITER_MESSAGE]"
-                "Clarify what the ghost meant.":
-                    jump typewriter_ghost
-                "Dancing? Queen? What is it on about? Tequila!":
-                    jump typewriter_tequila
-                "How am I supposed to give an answer on a padlock?...":
-                    jump typewriter_grayson
-                "Alright, I think I get it!":
-                    jump typewriter_give_answer
-
-               # Ask ghost to clarify
-    label typewriter_ghost:
-           show lafcadio happy at centre
-           l "Clarify."
-           hide Lafcadio
-           jump typewriter_clarified
-              
-
-               #Ask Tequila about it
-    label typewriter_tequila:
-           show lafcadio happy at centre
-           l "What is it referencing?"
-           hide Lafcadio
-           show tequila at left
-           t "You are the dancing queen~{p}Young and sweet, only seventeen~"
-           t "It's from ABBA, isn't it?"
-           hide tequila
-           jump typewriter_menu
-
-               #Ask Greyson about it
-    label typewriter_grayson:
-           show lafcadio happy at centre
-           l "I don't get what it's expecting from me."
-           hide Lafcadio
-           show grayson at right
-           g "Hm... {w=.2}Actually!" 
-           g "You know how they abstract All Cops Are Bastards down to 1312? \nI think that's what they were going for!"
-           g "Numbers are letter's position in the alphabet, I mean. \nNot ACAB. Of course not."
-           hide grayson
-           jump typewriter_menu
-
-    label typewriter_give_answer:
-        "You see a padlock. You need to put in four numbers."
-        $ padlock_1 = "0"
-        $ padlock_2 = "0"
-        $ padlock_3 = "0"
-        $ padlock_4 = "0"
-
-        $ padlock_final = "0000"
-        $ padlock_correct = "1221"
-        $ padlock_secret = "1312"
-        
-        $ attempts = 5 # I can't figure out where to initialize the variable so that the program remembers and recognizes it.
 
         menu:
-            "Would you like to attempt the padlock? You have [attempts] attempts left."
-            "Yes":
-                jump padlock
-            "On the second thought...":
-                jump typewriter_menu
+            "Padlock Puzzle":
+                jump padlock_start
 
-    label padlock:
-            "Select the first number:"
-            menu:
-                "0":
-                    $ padlock_1 = "0"
-                "1":
-                    $ padlock_1 = "1"
-                "2":
-                    $ padlock_1 = "2"
-                "3":
-                    $ padlock_1 = "3"
-                "4":
-                    $ padlock_1 = "4"
-            
-            "Select the second number:"
-            menu:
-                "0":
-                    $ padlock_2 = "0"
-                "1":        
-                    $ padlock_2 = "1"
-                "2":        
-                    $ padlock_2 = "2"
-                "3":        
-                    $ padlock_2 = "3"
-                "4":        
-                    $ padlock_2 = "4"
-                
-            "Select the third number:"
-            menu:
-                "0":
-                    $ padlock_3 = "0"
-                "1":        
-                    $ padlock_3 = "1"
-                "2":        
-                    $ padlock_3 = "2"
-                "3":        
-                    $ padlock_3 = "3"
-                "4":        
-                    $ padlock_3 = "4"
-                
-            "Select the fourth number:"
-            menu:
-                "0":
-                    $ padlock_4 = "0"
-                "1":        
-                    $ padlock_4 = "1"
-                "2":        
-                    $ padlock_4 = "2"
-                "3":        
-                    $ padlock_4 = "3"
-                "4":        
-                    $ padlock_4 = "4"
+            "Woodwind Poem":
+                jump woodwind_start
 
-            "Let's see..."
-            $ padlock_final = padlock_1 + padlock_2 + padlock_3 + padlock_4
-            "You dialed in [padlock_final]."
-            $ attempts =- 1
-
-            if padlock_final == padlock_correct:
-
-               #Select 1221 as an answer
-               "The lock opens!"
-               jump end
-
-            if padlock_final == padlock_secret:
-               #Select 1312 as an answer
-               "The lock remains closed.{p}However...!"
-               show lafcadio happy at slightleft
-               l "!"
-               hide Lafcadio
-               "A playing card fell out of the lock!"
-               show grayson at slightright
-               g "So it {i}was{/i} ACAB after all!"
-               jump typewriter_give_answer
-            else:
-               #Select wrong answer
-               "The padlock remains closed."
-               l "Well that wasn't productive."
-               #if attempts > 0:
-               #     jump typewriter_give_answer
-               jump typewriter_give_answer
     #Select 
     label end:
         "This concludes the tech demo."
