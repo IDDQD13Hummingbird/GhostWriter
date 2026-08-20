@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 214: invalid syntax
-    attempts = $ attempts
-                ^
+File "game/keypad_demo.rpy", line 24: invalid syntax
+        match keypad.combination:
+               ^
 
 Ren'Py Version: Ren'Py 8.3.6.25022803
-Fri Aug 14 16:46:56 2026
+Thu Aug 20 14:57:48 2026
