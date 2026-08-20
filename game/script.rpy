@@ -44,12 +44,12 @@ transform centre:
     yalign 1.0
 
 transform my_moveinleft:
-    xalign 0.0
+    xalign 0.0 yalign 1.0
     linear 0.5 xalign 0.15
     pause 0.5
 
 transform my_moveinright:
-    xalign 1.0
+    xalign 1.0 yalign 1.0
     linear 0.5 xalign 0.85
     pause 0.5
 
