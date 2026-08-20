@@ -43,6 +43,28 @@ transform centre:
     xalign 0.5
     yalign 1.0
 
+transform my_moveinleft:
+    xalign 0.0
+    linear 0.5 xalign 0.15
+    pause 0.5
+
+transform my_moveinright:
+    xalign 1.0
+    linear 0.5 xalign 0.85
+    pause 0.5
+
+transform my_moveoutleft:
+    xalign 0.15 yalign 0.0
+    linear 0.5 xalign 0.0
+    pause 0.5
+    
+ 
+transform my_moveoutright:
+    xalign 0.85 yalign 0.0
+    linear 3.0 xalign 1.0
+    pause 0.5
+    
+
 # The game starts here.
 
 label start:
@@ -152,26 +174,28 @@ label start:
 
     scene bg room
 
-    show willow at right
+    show willow at my_moveinright #at right
     willow "Lafcadio! May I have you?"
     willow "Certain troubled ghost requires your spiritual guidance."
 
-    hide willow
+    hide willow with moveoutright
 
     n "With a loud {i}thud{/i}, the archaic machine plopped onto the table. In it was jammed a single piece of paper, spelling \"H ELP\".\nSomething about it almost felt sympathetic."
 
-    show willow at right
+    show willow at my_moveinright #at right
 
     willow "To your attention, Alexander Minski \"The Thunderous\", a former attende that goes the long way back with the mansion."
-    show thanos_l at left
+    show thanos_l at my_moveinleft #at left
     thanos "You mean, \"The Cruel\". That was the official adaptation of his title. But go on."
     willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.\nThe only way for him to communicate right now is through this very typewriter."
-    hide thanos_l
-    show reggie_l at left
+    hide thanos_l with moveoutleft
+    show reggie_l  at my_moveinleft #at left
     reggie "This typewriter... it's garbage! Oh, poor machine..!"
+    show willow thinking
     willow "He also can be rather literal with English, as we ruled out."
-    hide willow
-    show trinity at right
+    #show willow at slide_right
+    hide willow with moveoutright
+    show trinity at my_moveinright #at right
     trinity "Sounds like we'll have a lot of fun figuring this one out! What'cha say, Laffy?"
 
     jump tutorial_no
