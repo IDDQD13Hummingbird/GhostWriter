@@ -7,14 +7,16 @@
 
 define tp = Character("Typewriter Ghost", color="#819494") 
 
-define l = Character("Lafcadio", color="#4480e4") 
-
-define w = Character("Willow", color="#6e25c0")
-define t = Character("Tequila", color="#3a8fd0")
-define g = Character("Greyson", color="#308840")
-define redd = Character("Redd", color="#B063F8")
+define aurum = Character("Aurum", color="#d9cb60")
+define clay = Character("Clay", color="#cc3a3a" )
+define greyson = Character("Greyson", color="#308840")
+define lafcadio = Character("Lafcadio", color="#4480e4") 
+define redd = Character("Redd", color="#594EAD", window_background=Frame( "gui/custom/Redd_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) )
 define reggie = Character("Reggie", color="#C86509")
+define tequila = Character("Tequila", color="#3a8fd0", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) )
 define thanos = Character("Thanos", color="#3038d4")
+define trinity = Character("Trinity", color="#308840")
+define willow = Character("Willow", color="#6e25c0")
 
 # Variables!
 
@@ -73,11 +75,11 @@ label start:
 
         # These display lines of dialogue.
 
-        l "You've created a new Ren'Py game."
+        lafcadio "You've created a new Ren'Py game."
 
-        l "Once you add a story, pictures, and music, you can release it to the world!"
+        lafcadio "Once you add a story, pictures, and music, you can release it to the world!"
 
-        l "Do you like visual novels with choices?"
+        lafcadio "Do you like visual novels with choices?"
 
         menu:
 
@@ -108,40 +110,40 @@ label start:
             # ... the game continues here.
 
 
-        l "For example, we might want to have text that is {b}bold{/b}, {i}italic{/i}, {s}struckthrough{/s}, or {u}underlined{/u}."
+        lafcadio "For example, we might want to have text that is {b}bold{/b}, {i}italic{/i}, {s}struckthrough{/s}, or {u}underlined{/u}."
         
-        l "The size tag changes the size of text. It can make text {size=+10}bigger{/size} or {size=-10}smaller{/size}, or set it to a {size=30}fixed size{/size}."
+        lafcadio "The size tag changes the size of text. It can make text {size=+10}bigger{/size} or {size=-10}smaller{/size}, or set it to a {size=30}fixed size{/size}."
  
-        l "The cps text tag {cps=25}makes text type itself out slowly{/cps}, even if slow text is off."
+        lafcadio "The cps text tag {cps=25}makes text type itself out slowly{/cps}, even if slow text is off."
 
-        l "The cps tag can also be relative to the default speed, {cps=*2}doubling{/cps} or {cps=*0.5}halving{/cps} it."
+        lafcadio "The cps tag can also be relative to the default speed, {cps=*2}doubling{/cps} or {cps=*0.5}halving{/cps} it."
 
-        l "The k tag changes kerning. It can space the letters of a word {k=-.5}closer together{/k} or {k=.5}farther apart{/k}."
+        lafcadio "The k tag changes kerning. It can space the letters of a word {k=-.5}closer together{/k} or {k=.5}farther apart{/k}."
 
-        l "The p tag breaks a paragraph,{p}and waits for the player to click."
+        lafcadio "The p tag breaks a paragraph,{p}and waits for the player to click."
 
-        l "If it is given a number as an argument,{p=1.5}it waits that many seconds."
+        lafcadio "If it is given a number as an argument,{p=1.5}it waits that many seconds."
  
-        l "The w tag also waits for a click,{w} except it doesn't break lines,{w=.5} the way p does."
+        lafcadio "The w tag also waits for a click,{w} except it doesn't break lines,{w=.5} the way p does."
 
-        l "To break a line without pausing,\none can write \\n. \\' and \\\" include quotes in the text."
+        lafcadio "To break a line without pausing,\none can write \\n. \\' and \\\" include quotes in the text."
     
         $ variable = "{i}variable value{/i}"
 
-        l "For example, this displays the [variable]."
+        lafcadio "For example, this displays the [variable]."
  
-        l "When the variable name is followed by !q, special characters are quoted. This displays the raw [variable!q], including the italics tags."
+        lafcadio "When the variable name is followed by !q, special characters are quoted. This displays the raw [variable!q], including the italics tags."
  
         $ translatable = _("translatable text")
 
-        l "When the variable name is followed by !t, it is translated to [variable!t]. It could be something else in a different language."
+        lafcadio "When the variable name is followed by !t, it is translated to [variable!t]. It could be something else in a different language."
  
-        l "Finally, certain characters are special. [[, {{, and \\ need to be doubled if included in text. The %% character should be doubled if used in dialogue."
+        lafcadio "Finally, certain characters are special. [[, {{, and \\ need to be doubled if included in text. The %% character should be doubled if used in dialogue."
  
  
 
         hide lafcadio
-        l "Tutorial done."
+        lafcadio "Tutorial done."
         jump tutorial_no
 
     
@@ -149,11 +151,14 @@ label start:
         "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
 
         menu:
-            "Padlock Puzzle":
+            "Padlock Code":
                 jump padlock_start
 
             "Woodwind Poem":
                 jump woodwind_start
+
+            "Keypad Code":
+                jump keypad_start
 
     #Select 
     label end:

@@ -73,7 +73,7 @@ style vslider:
 
 style frame:
     padding gui.frame_borders.padding
-    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+#    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
 
 
@@ -130,12 +130,13 @@ style namebox_label is say_label
 
 
 style window:
-    xalign 0.5
     xfill True
+    xalign gui.textbox_xalign
     yalign gui.textbox_yalign
+    xsize gui.textbox_width
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Frame( "gui/custom/Tequila_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) # Temporary just to get this working!
 
 style namebox:
     xpos gui.name_xpos
@@ -158,6 +159,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    line_spacing 5
 
     adjust_spacing False
 

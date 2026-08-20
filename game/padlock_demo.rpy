@@ -37,28 +37,28 @@ label padlock_menu:
 
 label padlock_ghost:
     show lafcadio happy at centre
-    l "If you'd be so kind as to clarify."
+    lafcadio "If you'd be so kind as to clarify."
     hide Lafcadio
     jump padlock_clarified
 
 label padlock_tequila:
     show lafcadio happy at centre
-    l "What is it referencing?"
+    lafcadio "What is it referencing?"
     hide Lafcadio
-    show tequila at left
-    t "You are the dancing queen~{p}Young and sweet, only seventeen~"
-    t "Doesn't ring a bell, then, I reckon? Sounds like I should bring some disco to this stage. It's Dancing Queen by ABBA. One heck of a hit, and it still is. One heck of a thing to get unstuck from your head, too, but we'll worry ourselves with that later."
+    show tequila at right
+    tequila "You are the dancing queen~{p}Young and sweet, only seventeen~"
+    tequila "Doesn't ring a bell, then, I reckon? Sounds like I should bring some disco to this stage. It's Dancing Queen by ABBA. One heck of a hit, and it still is. One heck of a thing to get unstuck from your head, too, but we'll worry ourselves with that later."
     hide tequila
     jump padlock_menu
 
 label padlock_greyson:
     show lafcadio happy at centre
-    l "I don't get what it's expecting from me."
+    lafcadio "I don't get what it's expecting from me."
     hide Lafcadio
     show greyson at right
-    g "Hm... {w=.2}Actually!" 
-    g "You know how they abstract All Cops Are Bastards down to 1312? \nI think that's what they were going for!"
-    g "Numbers as the position of letters in the alphabet, I mean. \nNot ACAB. Of course not."
+    greyson "Hm... {w=.2}Actually!" 
+    greyson "You know how they abstract All Cops Are Bastards down to 1312? \nI think that's what they were going for!"
+    greyson "Numbers as the position of letters in the alphabet, I mean. \nNot ACAB. Of course not."
     hide greyson
     jump padlock_menu
 
@@ -148,18 +148,18 @@ label padlock_give_answer_entry:
         #Select 1312 as an answer
         "The lock remains closed.{p}However...!"
         show lafcadio happy at slightleft
-        l "!"
+        lafcadio "!"
         hide Lafcadio
         "A playing card fell out of the lock!"
         show greyson at slightright
-        g "So it {i}was{/i} ACAB after all!"
+        greyson "So it {i}was{/i} ACAB after all!"
         jump padlock_give_answer
     else:
         #Select wrong answer
         "The padlock remains closed."
-        l "Well, that wasn't productive."
+        lafcadio "Well, that wasn't productive."
         if padlock_attempts > 0:
             jump padlock_give_answer
         else:
-            l "I'd better give this one a rest for now."
+            lafcadio "I'd better give this one a rest for now."
             jump end
