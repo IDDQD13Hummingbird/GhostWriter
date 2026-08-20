@@ -7,11 +7,11 @@ label woodwind_start:
 
     show lafcadio at centre
 
-    l "Let's have a look at this telegram."
+    lafcadio "Let's have a look at this telegram."
 
     python:
         for line in woodwind_puzzle_text:
-            renpy.say(l, "{cps=[cps]}[line]{/cps}")
+            renpy.say(lafcadio, "{cps=[cps]}[line]{/cps}")
 
     jump woodwind_menu
 
@@ -22,28 +22,30 @@ label woodwind_menu:
 
     menu:
         "The telegram says: [woodwind_puzzle_text_all]"
-        "Early aughts? That's just a tad before my time. Thanos, is that closer to yours?":
+        "Early aughts? That's just a tad before my time. Thanos, might it be closer to yours?":
             jump woodwind_thanos
         "Woodwind, eh? Redd, if you could - some examples would be instrumental to this cipher...":
             jump woodwind_redd
-        "I think I've got it.":
+        "I think I've got it well enough to have a gander.":
             jump woodwind_give_answer
+        "Select another puzzle":
+            jump tutorial_no
 
 label woodwind_thanos:
-    show lafcadio happy at centre
-    l "Can you tell me more about the era it's referring to?"
+    show lafcadio happy at right
+    lafcadio "Can you tell me more about the era it's referring to?"
     hide lafcadio
-    show thanos at left
+    show thanos at right
     thanos "Early aughts? That's a mere decade ago! Hardly the time of the Great War! Why, I ought to..."
     thanos "...double check my own calendar, it seems."
     hide thanos
     jump woodwind_menu
 
 label woodwind_redd:
-    show lafcadio happy at centre
-    l "I understand you're the piano man, but I'd bet you're more familiar than I am. Might you name a few possibilities?"
+    show lafcadio happy at right
+    lafcadio "I understand you're the piano man, but I'd bet you're more familiar than I am. Might you name a few possibilities?"
     hide lafcadio
-    show redd at left
+    show redd at right
     redd "Flute, clarinet, oboe. Saxophone, bassoon. Bagpipe and ocarina - those too. And they all sound like an unfortunate goose, at least the ones I've ever thought to try my hand at."
     hide redd
     jump woodwind_menu
@@ -58,4 +60,4 @@ label woodwind_give_answer:
         jump woodwind_menu
 
 label woodwind_exit:
-    jump end
+    jump woodwind_menu
