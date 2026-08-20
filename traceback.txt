@@ -1,67 +1,46 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 211, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 390, in script
-    $ __gl_test()
-  File "renpy/common/00start.rpy", line 211, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 390, in script
-    $ __gl_test()
-  File "renpy/common/00gltest.rpy", line 390, in <module>
-    $ __gl_test()
-  File "renpy/common/00gltest.rpy", line 319, in _m1_00gltest__gl_test
-    _gl_performance_test()
-  File "renpy/common/00gltest.rpy", line 342, in _gl_performance_test
-    ui.interact(suppress_underlay=True, suppress_overlay=True)
-OSError: Couldn't find file 'gui/window_icon.png'.
+NameError: name 'Willow' is not defined. Did you mean: 'willow'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 156, in script
+    Willow "Lafcadio! May I have you?"
+Exception: Sayer 'Willow' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
-Full traceback:
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\main.py", line 652, in main
-    run(restart)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\main.py", line 148, in run
-    renpy.execution.run_context(True)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\execution.py", line 958, in run_context
-    context.run()
-  File "renpy/common/00start.rpy", line 211, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 390, in script
-    $ __gl_test()
-  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
-  File "renpy/common/00start.rpy", line 211, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 390, in script
-    $ __gl_test()
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ast.py", line 834, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\python.py", line 1184, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00gltest.rpy", line 390, in <module>
-    $ __gl_test()
-  File "renpy/common/00gltest.rpy", line 319, in _m1_00gltest__gl_test
-    _gl_performance_test()
-  File "renpy/common/00gltest.rpy", line 342, in _gl_performance_test
-    ui.interact(suppress_underlay=True, suppress_overlay=True)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\display\core.py", line 2175, in interact
-    self.start()
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\display\core.py", line 1019, in start
-    self.post_init()
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\display\core.py", line 1108, in post_init
-    self.set_icon()
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\display\core.py", line 1152, in set_icon
-    with renpy.loader.load(icon, directory="images") as f:
-  File "C:\FreeFromDrive\SaveYourDesktop\renpy-8.3.6-sdk\renpy\loader.py", line 690, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'gui/window_icon.png'.
+Traceback (most recent call last):
+  File "renpy/ast.py", line 625, in eval_who
+    return renpy.python.py_eval(who)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "renpy/python.py", line 1308, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1301, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<none>", line 1, in <module>
+NameError: name 'Willow' is not defined. Did you mean: 'willow'?
 
-Windows-10-10.0.22631 AMD64
-Ren'Py 8.3.6.25022803
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 156, in script
+    Willow "Lafcadio! May I have you?"
+  File "renpy/ast.py", line 2935, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 956, in execute
+    who = eval_who(self.who, self.who_fast)
+          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 627, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Willow' is not defined.
+
+Windows-11-10.0.22631-SP0 AMD64
+Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Fri Aug 14 17:06:37 2026
+Thu Aug 20 20:37:07 2026

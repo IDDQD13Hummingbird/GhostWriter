@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/keypad_demo.rpy", line 24: invalid syntax
-        match keypad.combination:
-               ^
+File "game/script.rpy", line 177: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    jump tutorial_no
+    ^
 
-Ren'Py Version: Ren'Py 8.3.6.25022803
-Thu Aug 20 14:57:48 2026
+Ren'Py Version: Ren'Py 8.5.3.26051504
+Thu Aug 20 20:36:40 2026
