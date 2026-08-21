@@ -98,6 +98,9 @@ style frame:
 screen say(who, what):
 
     window:
+        if gui.custom.textbox_position == "centre": 
+            at screen_centre
+            
         id "window"
 
         if who is not None:
@@ -136,7 +139,7 @@ style window:
     xsize gui.textbox_width
     ysize gui.textbox_height
 
-    background Frame( "gui/custom/Tequila_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) # Temporary just to get this working!
+    background Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner )
 
 style namebox:
     xpos gui.name_xpos
@@ -145,7 +148,7 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    background Frame("gui/custom/Tequila_namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
 style say_label:
@@ -219,7 +222,7 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
+    xalign 0.95
     ypos 405
     yanchor 0.5
 

@@ -5,18 +5,18 @@
 
 # Characters!
 
-define tp = Character("Typewriter Ghost", color="#819494") 
+define tp = Character("Typewriter Ghost", window_background=Frame( "gui/custom/TypewriterGhost_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/TypewriterGhost_namebox.png", gui.namebox_borders ) ) 
 
-define aurum = Character("Aurum", color="#d9cb60")
-define clay = Character("Clay", color="#cc3a3a" )
-define greyson = Character("Greyson", color="#308840")
-define lafcadio = Character("Lafcadio", color="#4480e4") 
-define redd = Character("Redd", color="#594EAD", window_background=Frame( "gui/custom/Redd_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) )
-define reggie = Character("Reggie", color="#C86509")
-define tequila = Character("Tequila", color="#3a8fd0", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) )
-define thanos = Character("Thanos", color="#3038d4")
-define trinity = Character("Trinity", color="#308840")
-define willow = Character("Willow", color="#6e25c0")
+define aurum = Character("Aurum", window_background=Frame( "gui/custom/Aurum_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Aurum_namebox.png", gui.namebox_borders ) )
+define clay = Character("Clay", window_background=Frame( "gui/custom/Clay_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Clay_namebox.png", gui.namebox_borders ) )
+define greyson = Character("Greyson", window_background=Frame( "gui/custom/Greyson_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Greyson_namebox.png", gui.namebox_borders ) )
+define lafcadio = Character("Lafcadio", window_background=Frame( "gui/custom/Lafcadio_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Lafcadio_namebox.png", gui.namebox_borders ) )
+define redd = Character("Redd", window_background=Frame( "gui/custom/Redd_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Redd_namebox.png", gui.namebox_borders ) )
+define reggie = Character("Reggie", window_background=Frame( "gui/custom/Reggie_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Reggie_namebox.png", gui.namebox_borders ) )
+define tequila = Character("Tequila", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ) )
+define thanos = Character("Thanos", window_background=Frame( "gui/custom/Thanos_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Thanos_namebox.png", gui.namebox_borders ) )
+define trinity = Character("Trinity", window_background=Frame( "gui/custom/Trinity_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Trinity_namebox.png", gui.namebox_borders ) )
+define willow = Character("Willow", window_background=Frame( "gui/custom/Willow_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Willow_namebox.png", gui.namebox_borders ) )
 
 define n = Character(None)
 
@@ -45,25 +45,28 @@ transform centre:
 
 transform my_moveinleft:
     xalign 0.0 yalign 1.0
-    linear 0.5 xalign 0.15
+    linear 0.5 xalign 0.05
     pause 0.5
 
 transform my_moveinright:
     xalign 1.0 yalign 1.0
-    linear 0.5 xalign 0.85
+    linear 0.5 xalign 0.95
     pause 0.5
 
 transform my_moveoutleft:
-    xalign 0.15 yalign 0.0
+    xalign 0.05 yalign 0.0
     linear 0.5 xalign 0.0
     pause 0.5
     
  
 transform my_moveoutright:
-    xalign 0.85 yalign 0.0
+    xalign 0.95 yalign 0.0
     linear 3.0 xalign 1.0
     pause 0.5
     
+transform screen_centre:
+    xalign 0.5
+    yalign 0.5
 
 # The game starts here.
 
@@ -84,7 +87,6 @@ label start:
 
     
 # Variables!
-    $ TYPEWRITER_MESSAGE = "Th e qu ee  da c es, and so shall you"
 
     # menu:
 
@@ -164,7 +166,7 @@ label start:
  
     #     lafcadio "Finally, certain characters are special. [[, {{, and \\ need to be doubled if included in text. The %% character should be doubled if used in dialogue."
  
- 
+    $ gui.custom.textbox_position = "centre"
 
     #     hide lafcadio
     #    lafcadio "Tutorial done."
@@ -189,14 +191,18 @@ label start:
     thanos "You mean, \"The Cruel\". That was the official adaptation of his title. But go on."
     willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.\nThe only way for him to communicate right now is through this very typewriter."
     hide thanos_l with moveoutleft
-    show reggie_l  at my_moveinleft #at left
+    show reggie_l at my_moveinleft #at left
     reggie "This typewriter... it's garbage! Oh, poor machine..!"
+    hide reggie_l with moveoutleft
     show willow thinking
     willow "He also can be rather literal with English, as we ruled out."
     #show willow at slide_right
     hide willow with moveoutright
     show trinity at my_moveinright #at right
     trinity "Sounds like we'll have a lot of fun figuring this one out! What'cha say, Laffy?"
+    hide trinity with moveoutright
+
+    $ gui.custom.textbox_position = "default"
 
     jump tutorial_no
 
