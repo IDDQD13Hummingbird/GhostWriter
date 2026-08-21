@@ -2,21 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 49: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
+File "game/script.rpy", line 17: invalid syntax
+    Character("Thanos", window_background=Frame( "gui/custom/Thanos_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Thanos_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
+                                                                                                                                                                                                                                     ^
 
-File "game/script.rpy", line 54: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
+File "game/script.rpy", line 18: invalid syntax
+    Character("Trinity", window_background=Frame( "gui/custom/Trinity_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Trinity_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
+                                                                                                                                                                                                                                        ^
 
-File "game/script.rpy", line 59: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
-
-File "game/script.rpy", line 64: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
+File "game/script.rpy", line 19: invalid syntax
+    Character("Willow", window_background=Frame( "gui/custom/Willow_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Willow_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
+                                                                                                                                                                                                                                     ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Thu Aug 20 21:07:35 2026
+Fri Aug 21 10:53:41 2026
