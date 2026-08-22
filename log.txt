@@ -1,33 +1,34 @@
-2026-08-21 22:15:53 UTC
+2026-08-22 20:34:37 UTC
 Windows-11-10.0.22631-SP0
 Ren'Py 8.5.3.26051504
 
-Early init took 40 ms
-Loading error handling took 21 ms
-Loading script took 104 ms
-Loading save slot metadata took 26 ms
+Early init took 41 ms
+Loading error handling took 90 ms
+Loading script took 533 ms
+Loading save slot metadata took 457 ms
 Loading persistent took 0 ms
-Running init code took 38 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 3 ms
-Reloading save slot metadata took 20 ms
-Dump and make backups took 58 ms
+ - Init at game/gui.rpy:11 took 278 ms.
+Running init code took 333 ms
+Loading analysis data took 87 ms
+Analyze and compile ATL took 12 ms
+Reloading save slot metadata took 477 ms
+Dump and make backups took 100 ms
 Cleaning cache took 0 ms
-Making clean stores took 2 ms
-Initial gc took 28 ms
+Making clean stores took 1 ms
+Initial gc took 27 ms
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 405 ms
-Init translation took 1 ms
+Creating interface object took 274 ms
+Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 14 ms
-Analyze screens took 2 ms
+Load screen analysis took 42 ms
+Analyze screens took 0 ms
 Save screen analysis took 0 ms
 Save pyanalysis took 0 ms
 Save bytecode took 0 ms
-Running _start took 1 ms
-Interface start took 736 ms
+Running _start took 2 ms
+Interface start took 881 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -37,8 +38,50 @@ Vendor: 'NVIDIA Corporation'
 Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
 Version: '4.6.0 NVIDIA 591.74'
 Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(927, 521) drawable=(927, 521)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
-Resize event: <Event(65533-VIDEORESIZE h=991, mod=0, size=(1920, 991), w=1920)>
+Resetting cache.
+Early init took 7 ms
+Loading error handling took 17 ms
+Loading script took 116 ms
+Loading save slot metadata took 48 ms
+Loading persistent took 0 ms
+Running init code took 38 ms
+Loading analysis data took 8 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 10 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 46 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 36 ms
+DPI scale factor: 1.250000
+Creating interface object took 0 ms
+Init translation took 2 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 8 ms
+Save screen analysis took 10 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 2 ms
+Interface start took 266 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Cleaning stores took 1 ms
+Load screen analysis took 17 ms
+Analyze screens took 0 ms
+Running _start took 3 ms

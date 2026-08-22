@@ -171,7 +171,7 @@ label start:
     #     hide lafcadio
     #    lafcadio "Tutorial done."
     n "And so, it was time for another annual masquerade at the premises of The Sexy Brutale casino mansion."
-    n "With it's impressive rooms filled with exquisite oddities, gracious music and mysteriously dressed guests,\nit was hard to hold back anticipation for what surprises Marquis would prepare for them this year."
+    n "With it's impressive rooms filled with exquisite oddities, gracious music and mysteriously dressed guests, it was hard to hold back anticipation for what surprises Marquis would prepare for them this year."
     n "And when antique dealer rushed into the room with a half-beaten typewriter, it was evident that Marquis didn't forget to deliver."
 
     scene bg room
