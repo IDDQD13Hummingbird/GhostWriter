@@ -75,6 +75,10 @@ style frame:
     padding gui.frame_borders.padding
 #    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style frame_fancy:
+    xsize 650
+    yminimum 200
+    background Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner )
 
 
 ################################################################################
@@ -163,6 +167,7 @@ style say_dialogue:
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
     line_spacing 5
+    justify True
 
     adjust_spacing False
 

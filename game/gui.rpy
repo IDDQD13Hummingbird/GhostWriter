@@ -65,7 +65,7 @@ define gui.name_text_font = "Amarante-Regular.ttf"
 define gui.name_text_color = '#896752'
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "Amarante-Regular.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 27

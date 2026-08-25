@@ -7,12 +7,7 @@ default cocktail.typewriter_message = cocktail.typewriter_message_start
 
 default cocktail.ingredient.input = [ 0, 0, 0, 0 ]
 default cocktail.ingredient.answer = "1457" # Index order, not clued order - Grinmaw, Jolly Roger, railroad, fire
-default cocktail.ingredient.secret = "0367" # Lucas needs to learn fire safety #OH GOD
-
-default cocktail.mix.input = [ 0, 0, 0, 0 ]
-default cocktail.mix.answer = [ 1, 2, 3, 2 ]
-
-# Couldn't get VariableValue to use array indices, so here we are
+default cocktail.ingredient.secret = "0367" # FIRE!
 
 default cocktail.mix1 = 1
 default cocktail.mix2 = 1
@@ -269,8 +264,6 @@ screen cocktail_mix_interactive:
 label cocktail_start:
     $ gui.custom.textbox_position = "centre"
 
-    
-
     play music "SlowTheme.mp3" fadein 2.0
 
     scene bg bar with wave
@@ -351,13 +344,13 @@ label cocktail_menu:
         "[cocktail.typewriter_message]"
         "I'm rather at a loss here. Clay, you look as if this might ring a bell -" if not cocktail.choice_answer_solved:
             jump cocktail_clay
-        "The ingredients are sorted - now the mix." if cocktail.choice_answer_solved:
+        "The ingredients are sorted - now for the mix." if cocktail.choice_answer_solved and not cocktail.mix_solved:
             jump cocktail_give_mix_answer
-        "I'm rather at a loss with these proportions. The hot stuff calls for a heavy pour -" if cocktail.choice_answer_solved:
+        "I'm perplexed about these proportions. The hot stuff calls for a heavy pour -" if cocktail.choice_answer_solved and not cocktail.mix_solved:
             jump cocktail_mix_help
         "Let's gin this up, now, shall we?" if not cocktail.choice_answer_solved:
             jump cocktail_give_choice_answer
-        "Perhaps there's another possibility. Might we go for a second round?" if cocktail.choice_answer_solved:
+        "A second round, perhaps? Mr. Minski seems suspiciously fond of that hot stuff -" if cocktail.choice_answer_solved and not cocktail.choice_secret_solved:
             jump cocktail_give_choice_answer
         "Select another puzzle":
             jump tutorial_no
@@ -378,13 +371,17 @@ label cocktail_clay:
 label cocktail_mix_help:
     $ gui.custom.textbox_position = "centre"
     show clay_m happy at my_moveinright
-    clay "Don't ask me. What I get, I get, and it's all good. I'm the last one to be faffing about with a beaker."
+    clay "Don't ask me. What I get, I get, and it's all good. I'm the last to be faffing about with a beaker."
     show aurum at my_moveinleft
-    aurum "I'm one to put the fun in formulation - but we might not need to be that exact. Just close enough according to some measure."
+    aurum "I'm one to put the fun in formulation - but I doubt we need to be exact. Just close enough according to some measure."
 
     clay "Don't be stingy with that hot stuff. Got that. The song rather does make a show of that bit."
 
-    aurum "At the end of a long line, nonetheless. If that's all we have to go on..."
+    aurum "At the end of the longest line, nonetheless. So if that one's the most -"
+
+    clay "And Jolly Roger's the least -"
+
+    aurum "And the other two are in the middle -"
     if not cocktail.asked_mix_help:
         $ cocktail.typewriter_message = cocktail.typewriter_message_highlight
 
@@ -439,19 +436,22 @@ label cocktail_process_choice_answer:
 label cocktail_process_choice_secret:
     hide screen cocktail_ingredient_interactive
     show screen cocktail_ingredient_answer( grid_xalign = 0.5, grid_yalign = 0.5, grid_x = 2, grid_y = 2, answer = cocktail.ingredient.secret )
-    "Bloody hell - Lucas needs to learn about fire safety. This somehow results in a playing card."
+    show acespades at my_moveinright
+    ace "Doubling down on that hot stuff with a hat tip to fire safety. Well done."
+    hide acespades
     hide screen cocktail_ingredient_answer
     jump cocktail_menu
 
 label cocktail_give_mix_answer:
     show screen cocktail_mix_interactive
     menu( screen="choice_h" ):
+        "[cocktail.typewriter_message]"
         "Back to Clues":
             hide screen cocktail_mix_interactive
             jump cocktail_menu
 
 label cocktail_process_mix_answer:
-    "w00t, you mixed it. Next up, a proper victory sequence!"
+    "Cocktail mixed correctly. Next up, a proper victory sequence!"
     menu( screen="choice_h" ):
         "Back to Clues":
             hide screen cocktail_mix_interactive

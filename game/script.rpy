@@ -223,7 +223,7 @@ label start:
     hide trinity_m with moveoutright
 
     $ gui.custom.textbox_position = "default"
-
+    hide typewriter
     jump tutorial_no
 
     
@@ -243,6 +243,9 @@ label start:
 
             "Cocktail Break":
                 jump cocktail_start
+
+            "Lockbox":
+                jump lockbox_start
 
     #Select 
     label end:
