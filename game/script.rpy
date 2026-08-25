@@ -5,20 +5,21 @@
 
 # Characters!
 
-define tp = Character("Typewriter Ghost", window_background=Frame( "gui/custom/TypewriterGhost_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/TypewriterGhost_namebox.png", gui.namebox_borders ), what_size=27) 
+define tp = Character("Typewriter Ghost", window_background=Frame( "gui/custom/TypewriterGhost_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/TypewriterGhost_namebox.png", gui.namebox_borders ) ) 
+define ace = Character("Ace of Spades", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
 
-define aurum = Character("Aurum", window_background=Frame( "gui/custom/Aurum_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Aurum_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define clay = Character("Clay", window_background=Frame( "gui/custom/Clay_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Clay_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define greyson = Character("Greyson", window_background=Frame( "gui/custom/Greyson_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Greyson_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define lafcadio = Character("Lafcadio", window_background=Frame( "gui/custom/Lafcadio_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Lafcadio_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define redd = Character("Redd", window_background=Frame( "gui/custom/Redd_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Redd_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define reggie = Character("Reggie", window_background=Frame( "gui/custom/Reggie_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Reggie_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define tequila = Character("Tequila", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define thanos = Character("Thanos", window_background=Frame( "gui/custom/Thanos_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Thanos_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define trinity = Character("Trinity", window_background=Frame( "gui/custom/Trinity_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Trinity_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
-define willow = Character("Willow", window_background=Frame( "gui/custom/Willow_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Willow_namebox.png", gui.namebox_borders ), what_justify = True, what_text_align=0.5, what_size=27 )
+define aurum = Character("Aurum", window_background=Frame( "gui/custom/Aurum_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Aurum_namebox.png", gui.namebox_borders ), what_justify = True )
+define clay = Character("Clay", window_background=Frame( "gui/custom/Clay_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Clay_namebox.png", gui.namebox_borders ), what_justify = True )
+define greyson = Character("Greyson", window_background=Frame( "gui/custom/Greyson_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Greyson_namebox.png", gui.namebox_borders ), what_justify = True )
+define lafcadio = Character("Lafcadio", window_background=Frame( "gui/custom/Lafcadio_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Lafcadio_namebox.png", gui.namebox_borders ), what_justify = True )
+define redd = Character("Redd", window_background=Frame( "gui/custom/Redd_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Redd_namebox.png", gui.namebox_borders ), what_justify = True )
+define reggie = Character("Reggie", window_background=Frame( "gui/custom/Reggie_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Reggie_namebox.png", gui.namebox_borders ), what_justify = True )
+define tequila = Character("Tequila", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
+define thanos = Character("Thanos", window_background=Frame( "gui/custom/Thanos_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Thanos_namebox.png", gui.namebox_borders ), what_justify = True )
+define trinity = Character("Trinity", window_background=Frame( "gui/custom/Trinity_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Trinity_namebox.png", gui.namebox_borders ), what_justify = True )
+define willow = Character("Willow", window_background=Frame( "gui/custom/Willow_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Willow_namebox.png", gui.namebox_borders ), what_justify = True )
 
-define n = Character(None, what_justify = True, what_text_align=0.5, what_size=33)
+define n = Character( None, window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), what_justify = True, what_size=33 )
 
 # Variables!
 
@@ -68,6 +69,11 @@ transform screen_centre:
     xalign 0.5
     yalign 0.5
 
+# Inline zoom imagebutton upon declaration with at button_zoom( whatever )
+
+transform button_zoom( amount ):
+    zoom amount
+    
 # The game starts here.
 
 label start:
@@ -196,9 +202,9 @@ label start:
     thanos "You mean, \"The Cruel\". {p}That was the official adaptation of his title. {p}But go on."
     willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.{p}The only way for him to communicate right now is through this very typewriter."
     hide thanos_l with moveoutleft
-    show reggie_l at my_moveinleft #at left
+    show reggie_m at my_moveinleft #at left
     reggie "{cps=20}Oh dear... This typewriter... it's garbage! \n{size=-10}{cps=*0.5}Oh, poor machine..!{/cps}{/size}{/cps}"
-    hide reggie_l with moveoutleft
+    hide reggie_m with moveoutleft
     show willow thinking
     willow "He also can be rather literal with English, as we ruled out."
     #show willow at slide_right
@@ -225,6 +231,9 @@ label start:
 
             "Keypad Code":
                 jump keypad_start
+
+            "Cocktail Break":
+                jump cocktail_start
 
     #Select 
     label end:

@@ -1,27 +1,21 @@
-default woodwind_puzzle_text = [ 
-"A double read, so to speak, for it rhymes in double time. 7 letters - lucky you!", 
-"Bought far back in the early aughts\nA woodwind sought as it ought to be\nBut alas, 'twas all for nought\n'Twas nicked onstage, right from me!" 
-]
+default woodwind.puzzle_text = """A double read, so to speak, for it rhymes in double time. 7 letters - lucky you!{p}
+Bought far back in the early aughts\nA woodwind sought as it ought to be\nBut alas, 'twas all for nought\n'Twas nicked onstage, right from me!""" 
+
+default woodwind.asked_thanos = False
+default woodwind.asked_redd = False
 
 label woodwind_start:
 
     show lafcadio at centre
 
-    lafcadio "Let's have a look at this telegram."
-
-    python:
-        for line in woodwind_puzzle_text:
-            renpy.say(lafcadio, "{cps=[cps]}[line]{/cps}")
+    lafcadio "Let's have a look at this telegram.\n{p}{cps=[cps]}[woodwind.puzzle_text]{/cps}"
 
     jump woodwind_menu
 
 label woodwind_menu:
 
-    python:
-        woodwind_puzzle_text_all = '\n\n'.join( woodwind_puzzle_text )
-
     menu:
-        "The telegram says: [woodwind_puzzle_text_all]"
+        "[woodwind.puzzle_text]"
         "Early aughts? That's just a tad before my time. Thanos, might it be closer to yours?":
             jump woodwind_thanos
         "Woodwind, eh? Redd, if you could - some examples would be instrumental to this cipher...":
@@ -32,22 +26,32 @@ label woodwind_menu:
             jump tutorial_no
 
 label woodwind_thanos:
+    $ gui.custom.textbox_position = "centre"
     show lafcadio happy at my_moveinleft
     lafcadio "Can you tell me more about the era it's referring to?"
     show thanos at my_moveinright
-    thanos "Early aughts? That's a mere decade ago! Hardly the time of the Great War! {p}Why, I ought to{cps=20}...{/cps}"
+    thanos "Early aughts? That's a mere decade ago! Hardly the time of the Great War! Why, I ought to{cps=20}...{/cps}"
     thanos "{cps=20}...{/cps}double check my own calendar, it seems."
+    if not woodwind.asked_thanos:
+        $ woodwind.puzzle_text += "\n\nThanos has strong feelings about aughts."
+        $ woodwind.asked_thanos = True
     hide thanos with moveoutright
     hide lafcadio with moveoutleft
+    $ gui.custom.textbox_position = "left"
     jump woodwind_menu
 
 label woodwind_redd:
+    $ gui.custom.textbox_position = "centre"
     show lafcadio happy at my_moveinleft
     lafcadio "I understand you're the piano man, but I'd bet you're more familiar than I am. Might you name a few possibilities?"
     show redd at my_moveinright
-    redd "Flute, clarinet, oboe. Saxophone, bassoon. Bagpipe and ocarina - those too. And they all sound like an unfortunate goose, at least the ones I've ever thought to try my hand at."
+    redd "Of course - I can orchestrate that sort of help. Flute, clarinet, oboe. Saxophone, bassoon. Bagpipe and ocarina - those too. And they all sound like an unfortunate goose, at least the ones I've ever tried my hand at."
+    if not woodwind.asked_redd:
+        $ woodwind.puzzle_text += "\n\nWoodwinds - flute, clarinet, oboe, saxophone, bassoon, bagpipe, ocarina"
+        $ woodwind.asked_redd = True
     hide redd with moveoutright
     hide lafcadio with moveoutleft
+    $ gui.custom.textbox_position = "left"
     jump woodwind_menu
 
 label woodwind_give_answer:
