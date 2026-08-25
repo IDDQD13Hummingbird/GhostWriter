@@ -204,6 +204,8 @@ screen keypad_interactive:
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
+    scene bg corridor with spiral
+
     show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
 

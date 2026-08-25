@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 17: invalid syntax
-    Character("Thanos", window_background=Frame( "gui/custom/Thanos_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Thanos_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
-                                                                                                                                                                                                                                     ^
-
-File "game/script.rpy", line 18: invalid syntax
-    Character("Trinity", window_background=Frame( "gui/custom/Trinity_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Trinity_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
-                                                                                                                                                                                                                                        ^
-
-File "game/script.rpy", line 19: invalid syntax
-    Character("Willow", window_background=Frame( "gui/custom/Willow_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Willow_namebox.png", gui.namebox_borders ), justify=True,, what_text_align=0.5, what_size=30 )
-                                                                                                                                                                                                                                     ^
+File "game/keypad_demo.rpy", line 209: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show typewriter at my_moveinright
+    ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Fri Aug 21 10:53:41 2026
+Tue Aug 25 19:37:43 2026

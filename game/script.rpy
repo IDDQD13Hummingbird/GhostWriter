@@ -21,6 +21,11 @@ define willow = Character("Willow", window_background=Frame( "gui/custom/Willow_
 
 define n = Character( None, window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), what_justify = True, what_size=33 )
 
+
+define spiral = ImageDissolve("imagedissovle spiral.png", 0.5, 64)
+
+define wave = ImageDissolve("imagedissovle wave.png", 1.0, 64)
+
 # Variables!
 
 default cps = 25
@@ -83,7 +88,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg room with spiral
 
     play music "SlowTheme.mp3" fadein 2.0
 
@@ -184,34 +189,38 @@ label start:
 
     stop music fadeout 1.5
 
-    scene bg room
+    scene bg casino with spiral
 
-    show willow at my_moveinright #at right
+    show willow_m at my_moveinright #at right
     willow "Lafcadio! May I have you?"
     willow "Certain troubled ghost requires your spiritual guidance."
 
-    hide willow with moveoutright
+    hide willow_m with moveoutright
     play music "MainTheme.mp3" fadein 0.5
+
+    show typewriter with moveintop
+    show typewriter with vpunch
+    
 
     n "With a loud {i}thud{/i}, the archaic machine plopped onto the table. \nIn it was jammed a single piece of paper, \nspelling \"H ELP\".\n\nSomething about it almost felt sympathetic."
 
-    show willow at my_moveinright #at right
+    show willow_m at my_moveinright #at right
 
     willow "To your attention, Alexander Minski \"The Thunderous\", a former attende that goes the long way back with the mansion."
-    show thanos_l at my_moveinleft #at left
+    show thanos_r at my_moveinleft #at left
     thanos "You mean, \"The Cruel\". {p}That was the official adaptation of his title. {p}But go on."
     willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.{p}The only way for him to communicate right now is through this very typewriter."
-    hide thanos_l with moveoutleft
-    show reggie_m at my_moveinleft #at left
+    hide thanos_r with moveoutleft
+    show reggie_m_r at my_moveinleft #at left
     reggie "{cps=20}Oh dear... This typewriter... it's garbage! \n{size=-10}{cps=*0.5}Oh, poor machine..!{/cps}{/size}{/cps}"
-    hide reggie_m with moveoutleft
-    show willow thinking
+    hide reggie_m_r with moveoutleft
+    show willow_m thinking
     willow "He also can be rather literal with English, as we ruled out."
     #show willow at slide_right
-    hide willow with moveoutright
-    show trinity at my_moveinright #at right
+    hide willow_m with moveoutright
+    show trinity_m at my_moveinright #at right
     trinity "O-oh! Sounds like we'll have a lot of fun cracking this case! {p}What'cha say, Laffy? {p=1}Wanna play Ghost Detectives?"
-    hide trinity with moveoutright
+    hide trinity_m with moveoutright
 
     $ gui.custom.textbox_position = "default"
 

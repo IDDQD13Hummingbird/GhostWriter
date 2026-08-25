@@ -7,7 +7,7 @@ default cocktail.typewriter_message = cocktail.typewriter_message_start
 
 default cocktail.ingredient.input = [ 0, 0, 0, 0 ]
 default cocktail.ingredient.answer = "1457" # Index order, not clued order - Grinmaw, Jolly Roger, railroad, fire
-default cocktail.ingredient.secret = "0367" # Lucas needs to learn fire safety
+default cocktail.ingredient.secret = "0367" # Lucas needs to learn fire safety #OH GOD
 
 default cocktail.mix.input = [ 0, 0, 0, 0 ]
 default cocktail.mix.answer = [ 1, 2, 3, 2 ]
@@ -269,6 +269,12 @@ screen cocktail_mix_interactive:
 label cocktail_start:
     $ gui.custom.textbox_position = "centre"
 
+    
+
+    play music "SlowTheme.mp3" fadein 2.0
+
+    scene bg bar with wave
+
     show acespades_r at my_moveinleft
     ace "At your service."
 
@@ -307,7 +313,7 @@ label cocktail_start:
 
     hide typewriter with moveoutright
 
-    show clay_m_r sober at my_moveinright
+    show clay_m sober at my_moveinright
     clay "You don't have a note of that, either?"
 
     ace "Of course not. I have to keep some secrets in trade."
@@ -316,15 +322,15 @@ label cocktail_start:
     show acespades_r at my_moveinleft
     ace "Even if they're from myself, at times, when I dust something off from the back. Have a look?"
 
-    hide clay_m_r sober with moveoutright
+    hide clay_m sober with moveoutright
     show aurum at my_moveinright
 
     aurum "\"For industrial use only.\"{p}\n\"Caustic - do not handle without gloves and full face shield.\"{p}\n\"Hard hats required at all times.\""
     hide aurum with moveoutright
 
-    show clay_m_r sober at my_moveinright
+    show clay_m sober at my_moveinright
     clay "I'd try my luck with that. Line 'em up, knock 'em back, right? Knock myself out - I've had worse.{p}\nBut not right now. We've got work to do."
-    hide clay_m_r sober with moveoutright
+    hide clay_m sober with moveoutright
 
     show typewriter at my_moveinright
     tp "{cps=[cps]}It k n oc edd me o t! Tw c e o vv r! F ur sho s d wn fo t e co nnt!{p}\n[cocktail.typewriter_message]{/cps}"
@@ -358,20 +364,20 @@ label cocktail_menu:
 
 label cocktail_clay:
     $ gui.custom.textbox_position = "centre"
-    show clay_m_r happy at my_moveinright
+    show clay_m happy at my_moveinright
     clay "It's a song some git kept banging on about. Over and over till I almost had to bang on him myself.{p}\n\"Roger's Jolly, bloody trolleyed{p}Blew his stack off the tracks{p}Caught out for a liar, trousers all on fire{p}Walked the plank, now he's sank\"{p}\nAnd that's bloody stuck in my head now."
     show acespades_r at my_moveinleft
     ace "Right - that one - but of course. Spells it out line by line, does it not?"
     clay "Jolly Roger. What a mate. Still cheeky, even after that misadventure into the sea."
     $ cocktail.typewriter_message = cocktail.typewriter_message_deciphered
-    hide clay_m_r happy with moveoutright
+    hide clay_m happy with moveoutright
     hide acespades_r with moveoutleft
     $ gui.custom.textbox_position = "left"
     jump cocktail_menu
 
 label cocktail_mix_help:
     $ gui.custom.textbox_position = "centre"
-    show clay_m_r happy at my_moveinright
+    show clay_m happy at my_moveinright
     clay "Don't ask me. What I get, I get, and it's all good. I'm the last one to be faffing about with a beaker."
     show aurum at my_moveinleft
     aurum "I'm one to put the fun in formulation - but we might not need to be that exact. Just close enough according to some measure."
@@ -382,7 +388,7 @@ label cocktail_mix_help:
     if not cocktail.asked_mix_help:
         $ cocktail.typewriter_message = cocktail.typewriter_message_highlight
 
-    hide clay_m_r happy with moveoutright
+    hide clay_m happy with moveoutright
     hide aurum with moveoutleft
     $ gui.custom.textbox_position = "left"
     $ cocktail.asked_mix_help = True
