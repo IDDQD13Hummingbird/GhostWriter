@@ -79,6 +79,8 @@ label start:
 
     scene bg room
 
+    play music "SlowTheme.mp3" fadein 2.0
+
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "lafcadio happy.png" to the images
     # directory.
@@ -174,6 +176,8 @@ label start:
     n "With it's impressive rooms filled with exquisite oddities, gracious music and mysteriously dressed guests, it was hard to hold back anticipation for what surprises Marquis would prepare for them this year."
     n "And when antique dealer rushed into the room with a half-beaten typewriter, it was evident that Marquis didn't forget to deliver."
 
+    stop music fadeout 1.5
+
     scene bg room
 
     show willow at my_moveinright #at right
@@ -181,6 +185,7 @@ label start:
     willow "Certain troubled ghost requires your spiritual guidance."
 
     hide willow with moveoutright
+    play music "MainTheme.mp3" fadein 0.5
 
     n "With a loud {i}thud{/i}, the archaic machine plopped onto the table. \nIn it was jammed a single piece of paper, \nspelling \"H ELP\".\n\nSomething about it almost felt sympathetic."
 

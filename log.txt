@@ -1,35 +1,34 @@
-2026-08-23 19:20:44 UTC
+2026-08-25 07:57:49 UTC
 Windows-11-10.0.22631-SP0
 Ren'Py 8.5.3.26051504
 
-Early init took 55 ms
-Loading error handling took 175 ms
-Loading script took 6037 ms
-Loading save slot metadata took 714 ms
+Early init took 189 ms
+Loading error handling took 374 ms
+Loading script took 8197 ms
+Loading save slot metadata took 242 ms
 Loading persistent took 0 ms
- - Init at renpy/common/00updater.rpy:23 took 328 ms.
- - Init at game/gui.rpy:11 took 406 ms.
-Running init code took 1183 ms
-Loading analysis data took 26 ms
-Analyze and compile ATL took 4 ms
-Reloading save slot metadata took 217 ms
-Dump and make backups took 158 ms
+Running init code took 357 ms
+Loading analysis data took 13 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 120 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 46 ms
 Cleaning cache took 0 ms
-Making clean stores took 2 ms
-Initial gc took 89 ms
+Making clean stores took 1 ms
+Initial gc took 28 ms
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 692 ms
-Init translation took 1 ms
-Cleaning stores took 1 ms
-Load screen analysis took 223 ms
-Analyze screens took 2 ms
-Save screen analysis took 0 ms
+Creating interface object took 347 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 57 ms
+Analyze screens took 41 ms
+Save screen analysis took 34 ms
 Save pyanalysis took 0 ms
-Save bytecode took 55 ms
-Running _start took 2 ms
-Interface start took 1351 ms
+Save bytecode took 24 ms
+Running _start took 1 ms
+Interface start took 930 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -38,7 +37,7 @@ Windowed mode.
 Vendor: 'NVIDIA Corporation'
 Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
 Version: '4.6.0 NVIDIA 591.74'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
