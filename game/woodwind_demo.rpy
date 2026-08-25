@@ -32,22 +32,22 @@ label woodwind_menu:
             jump tutorial_no
 
 label woodwind_thanos:
-    show lafcadio happy at right
+    show lafcadio happy at my_moveinleft
     lafcadio "Can you tell me more about the era it's referring to?"
-    hide lafcadio
-    show thanos at right
-    thanos "Early aughts? That's a mere decade ago! Hardly the time of the Great War! Why, I ought to..."
-    thanos "...double check my own calendar, it seems."
-    hide thanos
+    show thanos at my_moveinright
+    thanos "Early aughts? That's a mere decade ago! Hardly the time of the Great War! {p}Why, I ought to{cps=20}...{/cps}"
+    thanos "{cps=20}...{/cps}double check my own calendar, it seems."
+    hide thanos with moveoutright
+    hide lafcadio with moveoutleft
     jump woodwind_menu
 
 label woodwind_redd:
-    show lafcadio happy at right
+    show lafcadio happy at my_moveinleft
     lafcadio "I understand you're the piano man, but I'd bet you're more familiar than I am. Might you name a few possibilities?"
-    hide lafcadio
-    show redd at right
+    show redd at my_moveinright
     redd "Flute, clarinet, oboe. Saxophone, bassoon. Bagpipe and ocarina - those too. And they all sound like an unfortunate goose, at least the ones I've ever thought to try my hand at."
-    hide redd
+    hide redd with moveoutright
+    hide lafcadio with moveoutleft
     jump woodwind_menu
 
 label woodwind_give_answer:

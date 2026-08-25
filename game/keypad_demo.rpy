@@ -203,11 +203,11 @@ screen keypad_interactive():
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
-    show typewriter at right
+    show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
 
-    show screen keypad
-    hide typewriter
+    show screen keypad with moveinbottom
+    hide typewriter with moveoutright
 
     jump keypad_menu
 
@@ -227,28 +227,28 @@ label keypad_menu:
             jump tutorial_no
 
 label keypad_reggie:
-    show reggie at right
+    show reggie at my_moveinright
     reggie "There are faint impressions of I's and T's. And that's it for missing letters and a coincidentally fitting conclusion."
     if not keypad.asked_reggie:
         $ keypad.typewriter_message += "\n\nThis note is missing I's and T's."
         $ keypad.asked_reggie = True
-    hide reggie
+    hide reggie with moveoutright
     jump keypad_menu
 
 label keypad_trinity:
-    show trinity at right
+    show trinity at my_moveinright
     trinity "Enough to have half a clue. Two, rather, though they might very well add up to bugger all.\n\nThe first is 4, 5, 6.\n\nThe second is 8 and 0."
     if not keypad.asked_trinity:
         $ keypad.typewriter_message += "\n\nParts of the combination - \n  *  4, 5, 6\n  *  8, 0"
         $ keypad.asked_trinity = True
-    hide trinity
+    hide trinity with moveoutright
     jump keypad_menu
 
 label keypad_willow:
-    show willow at right
+    show willow at my_moveinright
     willow "If I can read between these lines - dot an I, or cross a T. Just the same as you'd write with a pen, yes?"
     $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
-    hide willow
+    hide willow with moveoutright
     jump keypad_menu
 
 label keypad_process_answer:
@@ -272,6 +272,6 @@ label keypad_give_answer:
         "Start Over":
             jump keypad_give_answer
         "Back to Clues":
-            hide screen keypad
-            hide screen keypad_interactive
+            hide screen keypad 
+            hide screen keypad_interactive with moveoutbottom
             jump keypad_menu
