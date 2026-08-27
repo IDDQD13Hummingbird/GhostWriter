@@ -32,13 +32,21 @@ style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
 
+style button_input:
+    properties gui.button_properties("button")
+    padding (10,10)
+    background Frame("gui/custom/input_button_frame.png", gui.frame_borders, tile=gui.frame_tile)
+
+style button_input_text:
+    properties gui.text_properties("button")
+    size 27
+    yalign 0.5
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
-
 
 style bar:
     ysize gui.bar_size
@@ -76,8 +84,8 @@ style frame:
 #    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
 style frame_fancy:
-    xsize 650
-    yminimum 200
+    xminimum 400
+    yminimum 300
     background Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner )
 
 
