@@ -305,8 +305,24 @@ label adventure_after_spider_room:
 #Inside of the spider room : play OminousTheme, bg foyer, show FourHearts upset
 #Do a woodwind-esque puzzle where the player is asked to say a code word to proceed. I was planning to implement a "green fairy" (absinthe) as an answer. Note that Four Hearts really wants to get out of the spider room and won't make it more difficult that it's required to be. Ghost may repeatedly misstype it while trying to give an answer/hint
 #Player receives a password/item they present to the Ace of Spades. The rest of the minigame follows.
+
+
+
+
+
 #Post minigame, transition into your box puzzle.
-#Post box puzzle, transition into woodwind. If Dani/I get the sprites for it on time, it might be worth the hustle to implement it as "click on the right instrument" (partially reusing the numpad's implementation)
+
+#Post box puzzle, transition into woodwind.
+
+    clay "What now, a poem?\nSomebody oughta tell Lucas it's far too high-brow to jump straight into fine arts after heavy drinking."
+    tequila "Oh, Lucas, what a tease."
+    greyson "Figured out something?"
+    tequila "He's luring me right onto my stage."
+    tequila "Boys, I'm calling dibs on breaking glass if the solution calls for it."
+
+
+
+# If Dani/I get the sprites for it on time, it might be worth the hustle to implement it as "click on the right instrument" (partially reusing the numpad's implementation)
 #If we want to be evil, throw in padlock with ABBA as a final tiny insult of a puzzle.
 #The last bit, I'll have to code in myself.
 #Good luck! I'll be back in 12-16 hours, probably.
