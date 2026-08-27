@@ -1,52 +1,46 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 181, in script
-    hide willow with my_moveoutright
-TypeError: got an unexpected keyword argument 'old_widget'
+NameError: name 'Harpy' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 272, in script
+    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
+Exception: Sayer 'Harpy' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 181, in script
-    hide willow with my_moveoutright
-  File "renpy/ast.py", line 1588, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 253, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 1478, in do_with
-    return self.interact(
-           ~~~~~~~~~~~~~^
-        trans_pause=True, suppress_overlay=not renpy.config.overlay_during_with, mouse="with", clear=clear
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "renpy/display/core.py", line 2163, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "renpy/display/core.py", line 2632, in interact_core
-    trans = instantiate_transition(None, old_root, layers_root)
-            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2548, in instantiate_transition
-    trans = self.ongoing_transition[layer](old_widget=old_d, new_widget=new_d)
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/atl.py", line 545, in __call__
-    new_scope = signature.apply(args, kwargs, partial=True, apply_defaults=False)
-                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/parameter.py", line 398, in apply
-    raise TypeError("got an unexpected keyword argument {arg!r}".format(arg=next(iter(kwargs))))
-TypeError: got an unexpected keyword argument 'old_widget'
+  File "renpy/ast.py", line 625, in eval_who
+    return renpy.python.py_eval(who)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "renpy/python.py", line 1308, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1301, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<none>", line 1, in <module>
+NameError: name 'Harpy' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 272, in script
+    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
+  File "renpy/ast.py", line 2935, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 956, in execute
+    who = eval_who(self.who, self.who_fast)
+          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 627, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Harpy' is not defined.
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Thu Aug 20 21:16:56 2026
+Thu Aug 27 11:50:14 2026

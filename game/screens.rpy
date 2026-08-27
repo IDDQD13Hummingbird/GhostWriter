@@ -32,13 +32,21 @@ style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
 
+style button_input:
+    properties gui.button_properties("button")
+    padding (10,10)
+    background Frame("gui/custom/input_button_frame.png", gui.frame_borders, tile=gui.frame_tile)
+
+style button_input_text:
+    properties gui.text_properties("button")
+    size 27
+    yalign 0.5
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
-
 
 style bar:
     ysize gui.bar_size
@@ -75,6 +83,10 @@ style frame:
     padding gui.frame_borders.padding
 #    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style frame_fancy:
+    xminimum 400
+    yminimum 300
+    background Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner )
 
 
 ################################################################################
@@ -98,6 +110,9 @@ style frame:
 screen say(who, what):
 
     window:
+        if gui.custom.textbox_position == "centre": 
+            at screen_centre
+            
         id "window"
 
         if who is not None:
@@ -130,13 +145,14 @@ style namebox_label is say_label
 
 
 style window:
-    xfill True
     xalign gui.textbox_xalign
     yalign gui.textbox_yalign
     xsize gui.textbox_width
-    ysize gui.textbox_height
-
-    background Frame( "gui/custom/Tequila_frame.png", gui.custom_frame_xcorner, gui.custom_frame_ycorner ) # Temporary just to get this working!
+#    ysize gui.textbox_height
+    yminimum 200
+    ymaximum 600
+    padding (60, 60)
+    background Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner )
 
 style namebox:
     xpos gui.name_xpos
@@ -144,12 +160,11 @@ style namebox:
     xsize gui.namebox_width
     ypos gui.name_ypos
     ysize gui.namebox_height
-
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
+    background Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders )
 
 style say_label:
-    properties gui.text_properties("name", accent=True)
+    properties gui.text_properties("name")
     xalign gui.name_xalign
     yalign 0.5
 
@@ -160,6 +175,7 @@ style say_dialogue:
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
     line_spacing 5
+    justify True
 
     adjust_spacing False
 
@@ -214,14 +230,30 @@ screen choice(items):
             textbutton i.caption action i.action
 
 
+screen choice_h(items):
+    style_prefix "choice"
+
+    hbox:
+        for i in items:
+            textbutton i.caption action i.action
+           
+
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
+    xalign 0.95
     ypos 405
     yanchor 0.5
+
+    spacing gui.choice_spacing
+
+style choice_hbox is hbox
+style choice_hbox:
+    xalign 0.5
+    yalign 0.85
+    xanchor 0.5
 
     spacing gui.choice_spacing
 

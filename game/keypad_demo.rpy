@@ -7,6 +7,7 @@ default keypad.keypad_zoom = 3.0
 
 default keypad.asked_reggie = False
 default keypad.asked_trinity = False
+default keypad.asked_willow = False
 
 default keypad.combination = ""
 default keypad.answer = "80456"
@@ -18,7 +19,7 @@ init python:
 
         keypad.combination += input
 
-        if len( keypad.combination ) >= 6:
+        if len( keypad.combination ) >= 5:
             renpy.jump( "keypad_process_answer" )
 
         match keypad.combination:
@@ -127,7 +128,7 @@ screen keypad():
         add "numpad_9"
         add "numpad_0"
 
-screen keypad_interactive():
+screen keypad_interactive:
     frame:
         xalign 0.5 yalign 0.1
         text '[keypad.combination]':
@@ -203,17 +204,20 @@ screen keypad_interactive():
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
-    show typewriter at right
+    scene bg hallway with spiral
+    show numpad_icon at center with spiral
+
+    show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
 
-    show screen keypad
-    hide typewriter
+    show screen keypad with moveinbottom
+    hide typewriter with moveoutright
 
     jump keypad_menu
 
 label keypad_menu:
     menu:
-        "The typewriter says: [keypad.typewriter_message]"
+        "[keypad.typewriter_message]"
         "Reggie, any thoughts on the gaps in this garble?":
             jump keypad_reggie
         "Trinity, please tell me you've found your way into this one - or at least overheard it well enough.":
@@ -227,35 +231,41 @@ label keypad_menu:
             jump tutorial_no
 
 label keypad_reggie:
-    show reggie at right
-    reggie "There are faint impressions of I's and T's. And that's it for missing letters and a coincidentally fitting conclusion."
+    show reggie_m at my_moveinright
+    reggie "The paper has faint impressions of I's and T's. And that's it for missing letters and a coincidentally fitting conclusion."
     if not keypad.asked_reggie:
         $ keypad.typewriter_message += "\n\nThis note is missing I's and T's."
         $ keypad.asked_reggie = True
-    hide reggie
+        $ turns -= 1
+    hide reggie_m with moveoutright
     jump keypad_menu
 
 label keypad_trinity:
-    show trinity at right
-    trinity "Enough to have half a clue. Two, rather, though they might very well add up to bugger all.\n\nThe first is 4, 5, 6.\n\nThe second is 8 and 0."
+    show trinity at my_moveinright
+    trinity "Enough to have half a clue. Two, rather, though they might very well add up to bugger all.{p}\nThe first is 4, 5, 6.{p}\nThe second is 8 and 0."
     if not keypad.asked_trinity:
         $ keypad.typewriter_message += "\n\nParts of the combination - \n  *  4, 5, 6\n  *  8, 0"
         $ keypad.asked_trinity = True
-    hide trinity
+        $ turns -= 1
+    hide trinity with moveoutright
     jump keypad_menu
 
 label keypad_willow:
-    show willow at right
+    show willow at my_moveinright
     willow "If I can read between these lines - dot an I, or cross a T. Just the same as you'd write with a pen, yes?"
-    $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
-    hide willow
+    if not keypad.asked_willow:
+        $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
+        $ keypad.asked_willow = True  
+        $ turns -= 1  
+    hide willow with moveoutright
     jump keypad_menu
 
 label keypad_process_answer:
+    $ turns -= 1
     if keypad.combination == keypad.answer:
         "You crossed the T and opened the lock. Congratulations!"
         hide screen keypad_interactive
-        jump keypad_menu
+        jump adventure_after_keypad
     elif keypad.combination == keypad.secret:
         "A stroke and a dash - that's an i! You found a playing card."
         jump keypad_give_answer
@@ -268,10 +278,10 @@ label keypad_process_answer:
 label keypad_give_answer:
     $ keypad.combination = ""
     show screen keypad_interactive
-    menu:
+    menu( screen="choice_h" ):
         "Start Over":
             jump keypad_give_answer
         "Back to Clues":
-            hide screen keypad
-            hide screen keypad_interactive
+            hide screen keypad 
+            hide screen keypad_interactive with moveoutbottom
             jump keypad_menu

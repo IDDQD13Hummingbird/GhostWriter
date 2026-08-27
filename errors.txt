@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 49: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
-
-File "game/script.rpy", line 54: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
-
-File "game/script.rpy", line 59: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
-
-File "game/script.rpy", line 64: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    wait 0.5
-            ^
+File "game/script.rpy", line 288: Line is indented, but the preceding play music statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
+    ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Thu Aug 20 21:07:35 2026
+Thu Aug 27 02:41:21 2026
