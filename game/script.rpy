@@ -102,154 +102,101 @@ label start:
     # replace it by adding a file named "lafcadio happy.png" to the images
     # directory.
 
-    #"Do you need a demo/tutorial?"
-
-    
 # Variables!
 
-    # menu:
-
-    #     "Yes":
-    #         jump tutorial_yes
-    #     "No":
-    #         jump tutorial_no
-
-    # label tutorial_yes:
-
-    #     show lafcadio happy at slightleft
-
-    #     # These display lines of dialogue.
-
-    #     lafcadio "You've created a new Ren'Py game."
-
-    #     lafcadio "Once you add a story, pictures, and music, you can release it to the world!"
-
-    #     lafcadio "Do you like visual novels with choices?"
-
-    #     menu:
-
-    #         "Yes, I do.":
-    #             jump choice1_yes
-
-    #         "No, I don't.":
-    #             jump choice1_no
-
-    #     label choice1_yes:
-
-    #         $ menu_flag = True
-
-    #         "While creating a multi-path visual novel can be a bit more work, it can yield a unique experience."
-
-    #         jump choice1_done
-
-    #     label choice1_no:
-
-    #         $ menu_flag = False
-
-    #         "Games without menus are called kinetic novels, and there are dozens of them available to play."
-
-    #         jump choice1_done
-
-    #     label choice1_done:
-
-    #         # ... the game continues here.
-
-
-    #     lafcadio "For example, we might want to have text that is {b}bold{/b}, {i}italic{/i}, {s}struckthrough{/s}, or {u}underlined{/u}."
-        
-    #     lafcadio "The size tag changes the size of text. It can make text {size=+10}bigger{/size} or {size=-10}smaller{/size}, or set it to a {size=30}fixed size{/size}."
- 
-    #     lafcadio "The cps text tag {cps=25}makes text type itself out slowly{/cps}, even if slow text is off."
-
-    #     lafcadio "The cps tag can also be relative to the default speed, {cps=*2}doubling{/cps} or {cps=*0.5}halving{/cps} it."
-
-    #     lafcadio "The k tag changes kerning. It can space the letters of a word {k=-.5}closer together{/k} or {k=.5}farther apart{/k}."
-
-    #     lafcadio "The p tag breaks a paragraph,{p}and waits for the player to click."
-
-    #     lafcadio "If it is given a number as an argument,{p=1.5}it waits that many seconds."
- 
-    #     lafcadio "The w tag also waits for a click,{w} except it doesn't break lines,{w=.5} the way p does."
-
-    #     lafcadio "To break a line without pausing,\none can write \\n. \\' and \\\" include quotes in the text."
-    
-    #     $ variable = "{i}variable value{/i}"
-
-    #     lafcadio "For example, this displays the [variable]."
- 
-    #     lafcadio "When the variable name is followed by !q, special characters are quoted. This displays the raw [variable!q], including the italics tags."
- 
-    #     $ translatable = _("translatable text")
-
-    #     lafcadio "When the variable name is followed by !t, it is translated to [variable!t]. It could be something else in a different language."
- 
-    #     lafcadio "Finally, certain characters are special. [[, {{, and \\ need to be doubled if included in text. The %% character should be doubled if used in dialogue."
- 
     $ gui.custom.textbox_position = "centre"
 
-    #     hide lafcadio
-    #    lafcadio "Tutorial done."
-    n "And so, it was time for another annual masquerade at the premises of The Sexy Brutale casino mansion."
-    n "With it's impressive rooms filled with exquisite oddities, gracious music and mysteriously dressed guests, it was hard to hold back anticipation for what surprises Marquis would prepare for them this year."
-    n "And when antique dealer rushed into the room with a half-beaten typewriter, it was evident that Marquis didn't forget to deliver."
+    n "Another year, another masquerade ball at the Sexy Brutale casino mansion. A show grandly run by the Marquis Lucas Bondes, a gambler dealing in luxuries and rarities and his own form of full house theater."
+    n "First editions and last manuscripts. Old masters and avant garde abstracts. Musical acts and magic shows, and an exclusive list of guests apt to bring their own surprises beyond what the Marquis had in store."
+    n "Such as a dealer in arcane antiquities who found herself in possession of a battered old typewriter..."
 
     stop music fadeout 1.5
 
     scene bg casino with spiral
 
-    show willow_m at my_moveinright #at right
-    willow "Lafcadio! May I have you?"
-    willow "Certain troubled ghost requires your spiritual guidance."
+    show willow_m at my_moveinright
+    willow "Lafcadio! I have something here that could use a second look."
+    willow "It's a ghost needing spiritual guidance. More than I can give, it seems."
 
     hide willow_m with moveoutright
     play music "MainTheme.mp3" fadein 0.5
 
     show typewriter with moveintop
     show typewriter with vpunch
-    
 
-    n "With a loud {i}thud{/i}, the archaic machine plopped onto the table. \nIn it was jammed a single piece of paper, \nspelling \"H ELP\".\n\nSomething about it almost felt sympathetic."
+    n "With a metallic {i}thud{/i}, the typewriter plopped down on the worn inlaid table.\n\nIn it was jammed a piece of paper spelling \"H ELP\".\n\nSomehow, it almost looked sympathetic."
 
     show willow_m at my_moveinright #at right
 
-    willow "To your attention, Alexander Minski \"The Thunderous\", a former attende that goes the long way back with the mansion."
-    show thanos_r at my_moveinleft #at left
-    thanos "You mean, \"The Cruel\". {p}That was the official adaptation of his title. {p}But go on."
-    willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.{p}The only way for him to communicate right now is through the analog means."
+    willow "I present Alexander Minski, \"The Thunderous\". A notorious Russian dealer in diamonds, and a mainstay on the Marquis' guest list. Or he was, in his long past distant time."
+    show thanos_r at my_moveinleft 
+    thanos "\"The Cruel\", you mean. {p}\nThat is the true translation of his title, and also how I most unfortunately recall him. {p}\nBut go on."
+    willow "Yes. {w}He died of a rare form of jaw cancer. Rare enough that he's mute, even after taking leave of his earthly body.{p}\nHe can only communicate by typing - as well as he can manage with this relic -"
     hide thanos_r with moveoutleft
-    show reggie_m_r at my_moveinleft #at left
-    reggie "{cps=20}Oh dear... This typewriter... it's garbage! \n{size=-10}{cps=*0.5}Oh, poor machine..!{/cps}{/size}{/cps}"
+    show reggie_m_r at my_moveinleft 
+    reggie "{cps=20}Oh dear...{/cps} This typewriter. It's a classic...and it's rubbish! \n{p}Oh, you poor mistreated machine. I'll get you sorted in my workshop straight away!"
+    willow "How straight away would that be?"
+    reggie "Perhaps two hours - perhaps four - perhaps more. I'm afraid I can't say without a thorough disassembly."
+    willow "Then I'm afraid that will all have to wait. Mr. Minski is in somewhat of a hurry."
     hide reggie_m_r with moveoutleft
+    show thanos_r at my_moveinleft
+    thanos "Of course he is. Never a whit of patience."
+    hide thanos_r with moveoutleft
+    show aurum_r at my_moveinleft
+    aurum "What's the hurry? Where's the chill? Relax, old chap. You'll always have a seat at the Marquis' tables."
+    hide aurum_r with moveoutleft
     show willow_m thinking
-    willow "...me and the ghost couldn't locate anything better in the time we were given."
+    willow "He insisted we find something..."
     show greyson_r at my_moveinleft
-    greyson "Come again? There's a time limit?"
+    greyson "A diamond?"
     show willow_m
-    willow "I couldn't piece out {i}exactly{/i} why, but mr. Minski assured me that we - and by that he means {i}all{/i} of us - only have until noon to resolve the issue."
-    greyson "If I dare ask, {i}what{/i} does your ghost expect us to do?"
+    willow "Maybe that, maybe not. Something important, yes, in any case. We had a look around, but came up empty."
+    greyson "And you didn't think to ring me in? Did you expect I'd nick it all? I might skim a touch off the top, but -"
+    willow "We were pressed for time, as I mentioned. And it seems we still are."
+    greyson "Then what's the wait? Point me in a direction, and off I'll go. I might get into a bit of a pickle - or a jam - but I'll get out straight away, or rather Redd will -"
+    show willow_m thinking
+    willow "That's the rub. The direction. So far, this is all we have to go on."
+    show willow_m
+
     show typewriter with vpunch
     tp "F D LUCAS"
+
+    greyson "Flaming Daft Lucas? Spot on."
     hide greyson_r with moveoutleft
+
+    show redd_m_r at my_moveinleft
+    redd "A game of anagrams, perhaps? Scald, laud, clad, calf - I'm not seeing much here to go on -"
+    hide redd_m_r with moveoutleft
+
     show clay_m_r sober at my_moveinleft
-    clay "Uh-h... Feed?... Lucas?"
-    willow "I believe he implies we must find him. And, from what I've gathered, it will be no easy feat. Lucas is ''hiding behind seven locks''."
+    clay "Come on, bruv. Don't hurt yourself thinking. It's just missing letters.{p}\n\"Feed Lucas\", innit? Right. Sorted.{p}\nThough we would have to find him to feed him..."
+    willow "That does seem to be the implication, yes.{p}\nThe finding part, that is. Mr. Minski hasn't been forthcoming with a menu."
     hide clay_m_r sober with moveoutleft
+
+    show reggie_m_r at my_moveinleft 
+    reggie "Did he say why we're pressed for time? Is there an event he needs this for? A limit to his ghostly vigor? Or is he more so apt to run out of ink?{p}\nI might have a spare ribbon handy -"
+    willow "He said the limit is noon. He didn't say why, no. Just some business about ''hiding behind seven locks''."
+    hide reggie_m_r with moveoutleft
     show greyson_r at my_moveinleft
-    greyson "...!"
-    hide greyson_r with moveoutleft 
-    show thanos_r at  my_moveinleft
-    thanos "No, {i}not{/i} literally. \nIt's a Russian idiom, to the effect of ''behind seven seals''. \nMore familiar with that one?"
-    #thanos"...achem. Which is to say, Willow's interpretation is right - he must be well hidden."
-    show willow_m thinking
-    willow "...we might get lost in translations, it seems."
-    #show willow at slide_right
+    greyson "I'd have those cracked before second breakfast, if not for that matter of needing direction."
+    hide greyson_r with moveoutleft
+    show thanos_r at my_moveinleft
+    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means. Yet again with the Russian idioms as always."
     hide willow_m with moveoutright
     hide thanos_r with moveoutleft
-    show trinity_m at my_moveinright #at right
-    trinity "O-oh! All of this sounds mighty important! {p}What'cha say, Laffy? {p=1}Wanna play Ghost Detectives?"
+
+    show trinity_m at my_moveinright
+    trinity "So we've already begun with the party games? What a time to be fashionably late."
+    show redd_m_r at my_moveinleft
+    redd "We're rather just getting sorted."
+    trinity "Oh, so we're choosing teams? Or partners? What skills are we testing? I wonder what's to be won -"
+    redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Good Show\" if we crack what it is that he's on about?"
+    trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? Fancy a game of Ghost Detective?"
+
+    "Rydain" "That's where I left off for now. More to come!"
 
     menu:
-        "You're not gonna leave me any choice, are you?":
+        "You won't leave me any real choice, will you?":
             jump adventure_start
         #if possible, implement a few gates allowing to skip puzzles player already completed. 
         #The maximum allowed amount of turns is going to come into play here.
