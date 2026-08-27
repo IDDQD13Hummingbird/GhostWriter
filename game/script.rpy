@@ -248,28 +248,28 @@ label adventure_after_keypad:
 
     play music "OminousTheme.mp3" fadein 1.5
     scene bg foyer with wave
-    show FourHearts upset at my_moveinright
+    show fourhearts upset at my_moveinright
     four "...ugh."
-    show FourHearts
+    show fourhearts
     four "{cps=20}{i}Finally{/i}{/cps}. {i}Somebody{/i} showed up."
     four "What even took you so long? You had {i}Trinity{/i} with you, for God's sake."
     show clay_m_r sober at my_moveinleft
     clay "Excuse me... Were you expecting us?"
-    show FourHearts upset
+    show fourhearts upset
     four "Oh, so you're telling me not informing guests of the arrangement is part of the attraction?"
     four "And what about me, then? Was I expected to spend the whole day in this greenhouse, locked up with the {i}world's deadliest spider{/i}, waiting until you'll figure out where to go?"
     four "I swear to God, I am {i}resigning{/i}. The Marquis is {i}truly{/i} impossible."
     hide clay_m_r sober with moveoutleft
     show trinity_m_r at my_moveinleft
     trinity "Oh, cheer up. We're here {i}now{/i}. At least entertain us one last time before you leave this circus for good."
-    show FourHearts
+    show fourhearts
     four "Alright, I suppose... I was put here to give you directions as to where go next. Didn't think I'd be the first in line, though."
     four "You need to say the correct password. The only clue I'm allowed to give you is \"la fée verte\"."
     trinity "Huh. Was entering the room not enough?"
-    show FourHearts upset
+    show fourhearts upset
     four "For Lucas? Apparently not."
 
-    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
+    "Harpy" "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
 
     stop music fadeout 0.5
 
