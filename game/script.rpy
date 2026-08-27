@@ -191,9 +191,9 @@ label start:
     redd "We're rather just getting sorted."
     trinity "Oh, so we're choosing teams? Or partners? What skills are we testing? I wonder what's to be won -"
     redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Good Show\" if we crack what it is that he's on about?"
-    trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? Fancy a game of Ghost Detective?"
+    trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? \nFancy a game of Ghost Detective?"
 
-    "Rydain" "That's where I left off for now. More to come!"
+    #"Rydain" "That's where I left off for now. More to come!"
 
     menu:
         "You won't leave me any real choice, will you?":
@@ -202,6 +202,7 @@ label start:
         #The maximum allowed amount of turns is going to come into play here.
 
 label adventure_start:
+    hide redd_m_r with moveoutleft
     hide trinity_m with moveoutright
     $ gui.custom.textbox_position = "centre"
     n "The machine strained as its ghost struggled against the groaning architecture and countless mechanical mishaps."
@@ -246,6 +247,32 @@ label adventure_start:
 label adventure_after_keypad:
 
     play music "OminousTheme.mp3" fadein 1.5
+    scene bg foyer with wave
+    show FourHearts upset at my_moveinright
+    four "...ugh."
+    show FourHearts
+    four "{cps=20}{i}Finally{/i}{/cps}. {i}Somebody{/i} showed up."
+    four "What even took you so long? You had {i}Trinity{/i} with you, for God's sake."
+    show clay_m_r sober at my_moveinleft
+    clay "Excuse me... Were you expecting us?"
+    show FourHearts upset
+    four "Oh, so you're telling me not informing guests of the arrangement is part of the attraction?"
+    four "And what about me, then? Was I expected to spend the whole day in this greenhouse, locked up with the {i}world's deadliest spider{/i}, waiting until you'll figure out where to go?"
+    four "I swear to God, I am {i}resigning{/i}. The Marquis is {i}truly{/i} impossible."
+    hide clay_m_r sober with moveoutleft
+    show trinity_m_r at my_moveinleft
+    trinity "Oh, cheer up. We're here {i}now{/i}. At least entertain us one last time before you leave this circus for good."
+    show FourHearts
+    four "Alright, I suppose... I was put here to give you directions as to where go next. Didn't think I'd be the first in line, though."
+    four "You need to say the correct password. The only clue I'm allowed to give you is \"la fée verte\"."
+    trinity "Huh. Was entering the room not enough?"
+    show FourHearts upset
+    four "For Lucas? Apparently not."
+
+    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
+
+    stop music fadeout 0.5
+
     n "Wow, that was an adventure!"
     $ turns_taken = 25-turns
     n "You managed in [turns_taken] turns, too. \nGood job!"
