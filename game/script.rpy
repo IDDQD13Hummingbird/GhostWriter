@@ -269,14 +269,38 @@ label adventure_after_keypad:
     show fourhearts upset
     four "For Lucas? Apparently not."
 
-    "Harpy" "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
+    "Harpy" "More to come!"
+
+# So- This is where the type-in-the-word puzzle is to be implemented.
+#Say Absinthe to go further, 
+#Say Trinity (I mean, doesn't she look like a green fairy), and get a card.
+
+
+# Somebody speaking French could give a hint on the translation.
+# Somebody smart could 'spelling bee' the absinthe if the player fails +3 times 
+
+# In Russian, the drink is called "Absent".
+# Feel free to use it as an immediate hint.
+
+
+#After receiving correct answer:
+label adventure_after_spider_room:
+    four "Absinthe is the correct answer — which means you've proven you deserve your next directions, and I deserve to get the hell out of here."
+    n "Four of Hearts produced a copper tumbler out of the glass tray. A peculiar item appeared chill to the touch."
+    tp "A Moscow Mul e! Lucas, that dog!"
+    tp "    ow e xac ly wha  h e wan s from us."
+    four "I played my part now. Can't say it's been a pleasure."
+    four "Say hi to Ace of Spades for me, will you? \nAu revoir."
+
+    aurum "Ace of Spades? we gotta head to What's Your Poison, then."
+    Willow "Good thing Lucas can't talk to ghosts — at least there will be no challenges getting into the bar."
+   
 
     stop music fadeout 0.5
 
     n "Wow, that was an adventure!"
     $ turns_taken = 25-turns
     n "You managed in [turns_taken] turns, too. \nGood job!"
-    n "Rydain, I need to sleep, please take from here-"
 
 #Inside of the spider room : play OminousTheme, bg foyer, show FourHearts upset
 #Do a woodwind-esque puzzle where the player is asked to say a code word to proceed. I was planning to implement a "green fairy" (absinthe) as an answer. Note that Four Hearts really wants to get out of the spider room and won't make it more difficult that it's required to be. Ghost may repeatedly misstype it while trying to give an answer/hint
