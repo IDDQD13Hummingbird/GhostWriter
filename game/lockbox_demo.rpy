@@ -56,6 +56,7 @@ default lockbox.password_secret_solved = False
 init python:
     def check_cipher():
         if lockbox.cipher == lockbox.cipher_answer:
+            lockbox.cipher_solved = True
             renpy.jump( "lockbox_process_cipher_answer" )
 
     def password_get_image( index ):
@@ -93,11 +94,14 @@ screen lockbox_cipher:
         vbox:
             xalign 0.5
             yalign 0.5
-            spacing 10
-            label "4-Digit Cipher Code"
+            spacing 20
+            label "4-Digit Cipher Code":
+                text_size gui.text_size
             input:
                 value VariableInputValue( variable = "lockbox.cipher" )
             textbutton "Check Code":
+                style "button_input"
+                xalign 0.5
                 action Function( check_cipher )
 
 screen lockbox_password:
@@ -317,11 +321,12 @@ label lockbox_cipher_give_answer:
    
 label lockbox_process_cipher_answer:
     hide screen lockbox_cipher
-    $ lockbox.cipher_solved = True
     $ lockbox.puzzle_text = lockbox.cipher_vertical
+    show greyson at my_moveinright
     greyson "[lockbox.cipher_answer] - shall we give that a go? First, write each phrase out vertically -{p}\nThen rearrange accordingly -"
     "[lockbox.puzzle_text]"
     hide screen lockbox_cipher
+    hide greyson
     jump lockbox_menu
 
 label lockbox_password_give_answer:
