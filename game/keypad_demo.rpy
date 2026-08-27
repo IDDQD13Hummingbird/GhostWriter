@@ -205,12 +205,11 @@ screen keypad_interactive:
 
 label keypad_start:
     scene bg hallway with spiral
-    show numpad_icon at center with spiral
+    show numpad_icon at screen_centre with spiral
 
     show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
 
-    show screen keypad with moveinbottom
     hide typewriter with moveoutright
 
     jump keypad_menu
@@ -220,15 +219,15 @@ label keypad_menu:
         "[keypad.typewriter_message]"
         "Reggie, any thoughts on the gaps in this garble?":
             jump keypad_reggie
-        "Trinity, please tell me you've found your way into this one - or at least overheard it well enough.":
+        "Trinity, you mentioned overhearing something useful?":
             jump keypad_trinity
-        "If only this spirit saw fit to haunt an adding machine. Willow, might you translate?" if keypad.asked_reggie and keypad.asked_trinity:
+        "If only Mr. Minski saw fit to haunt an adding machine. Willow, might you translate?" if keypad.asked_reggie and keypad.asked_trinity:
             jump keypad_willow
         "I suppose I should push these buttons.":
             jump keypad_give_answer
-        "Select another puzzle":
-            hide screen keypad
-            jump tutorial_no
+#        "Select another puzzle":
+#            hide screen keypad
+#            jump tutorial_no
 
 label keypad_reggie:
     show reggie_m at my_moveinright
@@ -241,23 +240,23 @@ label keypad_reggie:
     jump keypad_menu
 
 label keypad_trinity:
-    show trinity at my_moveinright
-    trinity "Enough to have half a clue. Two, rather, though they might very well add up to bugger all.{p}\nThe first is 4, 5, 6.{p}\nThe second is 8 and 0."
+    show trinity_m at my_moveinright
+    trinity "Just enough to have half a clue. Two, rather, though they might very well add up to bugger all.{p}\nThe first is 4, 5, 6.{p}\nThe second is 8 and 0."
     if not keypad.asked_trinity:
         $ keypad.typewriter_message += "\n\nParts of the combination - \n  *  4, 5, 6\n  *  8, 0"
         $ keypad.asked_trinity = True
         $ turns -= 1
-    hide trinity with moveoutright
+    hide trinity_m with moveoutright
     jump keypad_menu
 
 label keypad_willow:
-    show willow at my_moveinright
+    show willow_m at my_moveinright
     willow "If I can read between these lines - dot an I, or cross a T. Just the same as you'd write with a pen, yes?"
     if not keypad.asked_willow:
         $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
         $ keypad.asked_willow = True  
         $ turns -= 1  
-    hide willow with moveoutright
+    hide willow_m with moveoutright
     jump keypad_menu
 
 label keypad_process_answer:
@@ -265,9 +264,9 @@ label keypad_process_answer:
     if keypad.combination == keypad.answer:
         "You crossed the T and opened the lock. Congratulations!"
         hide screen keypad_interactive
-        jump adventure_after_keypad
+        jump four_hearts_start
     elif keypad.combination == keypad.secret:
-        "A stroke and a dash - that's an i! You found a playing card."
+        "A stroke and a dash - that's an i! You found a secret playing card."
         jump keypad_give_answer
     elif len( keypad.combination ):
         "Not quite...let's be sure to get our clues all in order..."

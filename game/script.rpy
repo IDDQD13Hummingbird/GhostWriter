@@ -25,7 +25,6 @@ define willow = Character("Willow", window_background=Frame( "gui/custom/Willow_
 
 define n = Character( None, window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), what_justify = True, what_size=33 )
 
-
 define spiral = ImageDissolve("imagedissovle spiral.png", 0.5, 64)
 
 define wave = ImageDissolve("imagedissovle wave.png", 1.0, 64)
@@ -82,7 +81,7 @@ transform screen_centre:
 
 transform button_zoom( amount ):
     zoom amount
-    
+
 # The game starts here.
 
 label start:
@@ -113,7 +112,6 @@ label start:
     stop music fadeout 1.5
 
     scene bg casino with spiral
-
     show willow_m at my_moveinright
     willow "Lafcadio! I have something here that could use a second look."
     willow "It's a ghost needing spiritual guidance. More than I can give, it seems."
@@ -140,11 +138,11 @@ label start:
     willow "Then I'm afraid that will all have to wait. Mr. Minski is in somewhat of a hurry."
     hide reggie_m_r with moveoutleft
     show thanos_r at my_moveinleft
-    thanos "Of course he is. Never a whit of patience."
+    thanos "Of course he is. Never a whit of patience with that one."
     hide thanos_r with moveoutleft
-    show aurum_r at my_moveinleft
+    show aurum_m_r at my_moveinleft
     aurum "What's the hurry? Where's the chill? Relax, old chap. You'll always have a seat at the Marquis' tables."
-    hide aurum_r with moveoutleft
+    hide aurum_m_r with moveoutleft
     show willow_m thinking
     willow "He insisted we find something..."
     show greyson_r at my_moveinleft
@@ -169,43 +167,47 @@ label start:
     hide redd_m_r with moveoutleft
 
     show clay_m_r sober at my_moveinleft
-    clay "Come on, bruv. Don't hurt yourself thinking. It's just missing letters.{p}\n\"Feed Lucas\", innit? Right. Sorted.{p}\nThough we would have to find him to feed him..."
+    clay "Come on, bruv. Don't hurt yourself overthinking. It's just missing letters.{p}\n\"Feed Lucas\"? Right. Sorted.{p}\nThough we would have to find him to feed him..."
     willow "That does seem to be the implication, yes.{p}\nThe finding part, that is. Mr. Minski hasn't been forthcoming with a menu."
     hide clay_m_r sober with moveoutleft
 
     show reggie_m_r at my_moveinleft 
-    reggie "Did he say why we're pressed for time? Is there an event he needs this for? A limit to his ghostly vigor? Or is he more so apt to run out of ink?{p}\nI might have a spare ribbon handy -"
-    willow "He said the limit is noon. He didn't say why, no. Just some business about ''hiding behind seven locks''."
+    reggie "Did he say why we're pressed for time? Is there an event he needs this for? A limit to his ghostly vigor? Or is he simply apt to run out of ink?{p}\nI might have a spare ribbon handy -"
+    willow "He said before noon. He didn't say why, no. Just some business about ''hiding behind seven locks''."
     hide reggie_m_r with moveoutleft
     show greyson_r at my_moveinleft
-    greyson "I'd have those cracked before second breakfast, if not for that matter of needing direction."
+    greyson "I'd have those all cracked before second breakfast, if not for that matter of needing direction."
     hide greyson_r with moveoutleft
     show thanos_r at my_moveinleft
-    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means. Yet again with the Russian idioms as always."
+    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means. Yet again with the Russian idioms."
     hide willow_m with moveoutright
     hide thanos_r with moveoutleft
 
     show trinity_m at my_moveinright
     trinity "So we've already begun with the party games? What a time to be fashionably late."
+    show tequila_m_r at my_moveinleft
+    tequila "You and me both in that sailboat. I just had to get these lyrics unstuck, and don't even think to get me started on this hairdo..."
+    hide tequila_m_r with moveoutleft
     show redd_m_r at my_moveinleft
-    redd "We're rather just getting sorted."
+    redd "You're both right on time, I'd say. We're rather just getting sorted."
     trinity "Oh, so we're choosing teams? Or partners? What skills are we testing? I wonder what's to be won -"
     redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Good Show\" if we crack what it is that he's on about?"
-    trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? \nFancy a game of Ghost Detective?"
-
-    #"Rydain" "That's where I left off for now. More to come!"
+    trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? Fancy a game of Ghost Detective?"
 
     menu:
         "You won't leave me any real choice, will you?":
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
             jump adventure_start
         #if possible, implement a few gates allowing to skip puzzles player already completed. 
         #The maximum allowed amount of turns is going to come into play here.
 
 label adventure_start:
-    hide redd_m_r with moveoutleft
-    hide trinity_m with moveoutright
+    
     $ gui.custom.textbox_position = "centre"
-    n "The machine strained as its ghost struggled against the groaning architecture and countless mechanical mishaps."
+
+    n "The typewriter creaked with great effort at the ghost's struggles with its assorted misalignments."
+
     show typewriter with vpunch
     tp "m l "
     show typewriter with vpunch
@@ -213,77 +215,51 @@ label adventure_start:
     show typewriter with vpunch
     tp "m l  th e sp d er"
 
+    show tequila_m at my_moveinright
+    tequila "Mail the spider? What for? Cousin Zeke gave me a scare like that once. That is, until it turned out to be rubber."
+
+    show clay_m_r happy at my_moveinleft
+    clay "Pummel the spider? Ring the bell and I'm on it!"
+
+    hide tequila_m with moveoutright
+    show reggie_m at my_moveinright
+    reggie "Put the gloves down, please - at least for now. It's not missing quite that many letters. That 'L' is double struck with a blank 'K'."
+
+    hide clay_m_r happy with moveoutleft
     show willow_m_r at my_moveinleft
+    willow "Milk the spider, maybe? I suppose I've heard of stranger possibilities."
 
-    willow "I think it says 'milk the spider'? \nEducated guess."
+    hide reggie_m with moveoutright
+    show trinity_m at my_moveinright
 
-    show trinity at my_moveinright
-
-    trinity "O-oh! I know exactly where we need to go, then!"
+    trinity "Brilliant! I know just where we need to go, then!"
 
     show willow_m_r disappointed
 
-    willow "Do you now?"
+    willow "Do you now, yes?"
 
-    trinity "Sooo... There is one suspiciously well-guarded room at the back of casino Clay never lets me into because of all the cowwebs-"    
+    trinity "There's a locked door I've never managed to get into, all the way in the back past the slot machines. And a certain husband of mine refuses to help."
+    show willow_m_r
+    willow "Because that would spoil your fun?"
+    trinity "Because of the cobwebs, or so he says. Perhaps it's just some private loo that's never cleaned. Or rather -"
 
     hide willow_m_r with moveoutleft
 
     show clay_m_r sober at my_moveinleft
 
-    clay "Well, first of all, it's Staff Only, and I'm no longer head of security to let you break rules like you used to-"
-    trinity "{size=-10}aw.{/size}"
-    clay "And secondly, I can't let you wander around the Butterfly House on your own because half of all mansion's venomous critters are kept there."
-    show clay_m_r happy
-    clay "Surely you know that much if you pieced together the clue, ay, smartass?"
-    trinity "Teehee. {p}So that means I get to visit the cool butterfly room this one time, right? {p}Right, mr. very important ghost?"
+    clay "It's staff only. End of story. I can only bend the rules so far."
+    trinity "You are the rules, Mr. Head of Security."
+    clay "I was. I'm retired. You'll have to try and pull one over on some other bloke."
+    trinity "Or I could see if what I've overheard might be useful -"
+
     show typewriter with vpunch
     tp "Y ES\nA D HURRY"
-    hide clay with moveoutleft
-    show willow_m_r disappointed at my_moveinleft 
-    willow "I take that settles it, then."
+
+    $ gui.custom.textbox_position = "left"
+
     jump keypad_start
 
-label adventure_after_keypad:
-
-    play music "OminousTheme.mp3" fadein 1.5
-    scene bg foyer with wave
-    show fourhearts upset at my_moveinright
-    four "...ugh."
-    show fourhearts
-    four "{cps=20}{i}Finally{/i}{/cps}. {i}Somebody{/i} showed up."
-    four "What even took you so long? You had {i}Trinity{/i} with you, for God's sake."
-    show clay_m_r sober at my_moveinleft
-    clay "Excuse me... Were you expecting us?"
-    show fourhearts upset
-    four "Oh, so you're telling me not informing guests of the arrangement is part of the attraction?"
-    four "And what about me, then? Was I expected to spend the whole day in this greenhouse, locked up with the {i}world's deadliest spider{/i}, waiting until you'll figure out where to go?"
-    four "I swear to God, I am {i}resigning{/i}. The Marquis is {i}truly{/i} impossible."
-    hide clay_m_r sober with moveoutleft
-    show trinity_m_r at my_moveinleft
-    trinity "Oh, cheer up. We're here {i}now{/i}. At least entertain us one last time before you leave this circus for good."
-    show fourhearts
-    four "Alright, I suppose... I was put here to give you directions as to where go next. Didn't think I'd be the first in line, though."
-    four "You need to say the correct password. The only clue I'm allowed to give you is \"la fée verte\"."
-    trinity "Huh. Was entering the room not enough?"
-    show fourhearts upset
-    four "For Lucas? Apparently not."
-
-    "Harpy" "More to come!"
-
-# So- This is where the type-in-the-word puzzle is to be implemented.
-#Say Absinthe to go further, 
-#Say Trinity (I mean, doesn't she look like a green fairy), and get a card.
-
-
-# Somebody speaking French could give a hint on the translation.
-# Somebody smart could 'spelling bee' the absinthe if the player fails +3 times 
-
-# In Russian, the drink is called "Absent".
-# Feel free to use it as an immediate hint.
-
-
-#After receiving correct answer:
+#After receiving correct answer: (v1 - leaving here for now)
 label adventure_after_spider_room:
     four "Absinthe is the correct answer — which means you've proven you deserve your next directions, and I deserve to get the hell out of here."
     n "Four of Hearts produced a copper tumbler out of the glass tray. A peculiar item appeared chill to the touch."
@@ -302,9 +278,6 @@ label adventure_after_spider_room:
     $ turns_taken = 25-turns
     n "You managed in [turns_taken] turns, too. \nGood job!"
 
-#Inside of the spider room : play OminousTheme, bg foyer, show FourHearts upset
-#Do a woodwind-esque puzzle where the player is asked to say a code word to proceed. I was planning to implement a "green fairy" (absinthe) as an answer. Note that Four Hearts really wants to get out of the spider room and won't make it more difficult that it's required to be. Ghost may repeatedly misstype it while trying to give an answer/hint
-#Player receives a password/item they present to the Ace of Spades. The rest of the minigame follows.
 #Post minigame, transition into your box puzzle.
 #Post box puzzle, transition into woodwind. If Dani/I get the sprites for it on time, it might be worth the hustle to implement it as "click on the right instrument" (partially reusing the numpad's implementation)
 #If we want to be evil, throw in padlock with ABBA as a final tiny insult of a puzzle.

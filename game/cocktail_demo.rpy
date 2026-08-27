@@ -272,7 +272,7 @@ label cocktail_start:
     ace "At your service."
 
     show willow_m at my_moveinright
-    willow "Best in the Brutale business, yes? Of course you are. He's been asking for you by name."
+    willow "Best in the Brutale business, yes? Of course you are. He speaks of you fondly just now."
 
     ace "He being - the typewriter?"
 
@@ -451,6 +451,7 @@ label cocktail_give_mix_answer:
             jump cocktail_menu
 
 label cocktail_process_mix_answer:
+    # TODO - transition to lockbox
     "Cocktail mixed correctly. Next up, a proper victory sequence!"
     menu( screen="choice_h" ):
         "Back to Clues":
