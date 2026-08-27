@@ -1,52 +1,41 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 181, in script
-    hide willow with my_moveoutright
-TypeError: got an unexpected keyword argument 'old_widget'
+  File "game/script.rpy", line 293, in script
+    show willow_m_r dissapointed at my_moveinleft
+Exception: Image 'willow_m_r' does not accept attributes 'dissapointed'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 181, in script
-    hide willow with my_moveoutright
-  File "renpy/ast.py", line 1588, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 253, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 1478, in do_with
-    return self.interact(
-           ~~~~~~~~~~~~~^
-        trans_pause=True, suppress_overlay=not renpy.config.overlay_during_with, mouse="with", clear=clear
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/script.rpy", line 293, in script
+    show willow_m_r dissapointed at my_moveinleft
+  File "renpy/ast.py", line 1364, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 730, in show_imspec
+    renpy.config.show(
+    ~~~~~~~~~~~~~~~~~^
+        name, at_list=at_list, layer=layer, what=expression, zorder=zorder, tag=tag, behind=behind, atl=atl
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     )
     ^
-  File "renpy/display/core.py", line 2163, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/displayexports.py", line 486, in show
+    if not base.find_target() and renpy.config.missing_show:
+           ~~~~~~~~~~~~~~~~^^                               
+  File "renpy/display/image.py", line 444, in find_target
+    self.target = target._duplicate(a)
+                  ~~~~~~~~~~~~~~~~~^^^
+  File "renpy/display/displayable.py", line 278, in _duplicate
+    args.extraneous()
+    ~~~~~~~~~~~~~~~^^
+  File "renpy/display/displayable.py", line 118, in extraneous
+    raise Exception(
     ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
     )
-    ^
-  File "renpy/display/core.py", line 2632, in interact_core
-    trans = instantiate_transition(None, old_root, layers_root)
-            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2548, in instantiate_transition
-    trans = self.ongoing_transition[layer](old_widget=old_d, new_widget=new_d)
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/atl.py", line 545, in __call__
-    new_scope = signature.apply(args, kwargs, partial=True, apply_defaults=False)
-                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/parameter.py", line 398, in apply
-    raise TypeError("got an unexpected keyword argument {arg!r}".format(arg=next(iter(kwargs))))
-TypeError: got an unexpected keyword argument 'old_widget'
+Exception: Image 'willow_m_r' does not accept attributes 'dissapointed'.
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Thu Aug 20 21:16:56 2026
+Thu Aug 27 03:09:01 2026

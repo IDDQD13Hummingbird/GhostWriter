@@ -7,6 +7,10 @@
 
 define tp = Character("Typewriter Ghost", window_background=Frame( "gui/custom/TypewriterGhost_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/TypewriterGhost_namebox.png", gui.namebox_borders ) ) 
 define ace = Character("Ace of Spades", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
+define king = Character("King of Clubs", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
+define four = Character("Four of Hearts", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
+define two = Character("Two of Diamonds", window_background=Frame( "gui/custom/Tequila_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Tequila_namebox.png", gui.namebox_borders ), what_justify = True )
+#I love the little guys, so all of them have an "upset" skin now
 
 define aurum = Character("Aurum", window_background=Frame( "gui/custom/Aurum_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Aurum_namebox.png", gui.namebox_borders ), what_justify = True )
 define clay = Character("Clay", window_background=Frame( "gui/custom/Clay_frame.png", gui.custom.frame_xcorner, gui.custom.frame_ycorner ), namebox_background=Frame( "gui/custom/Clay_namebox.png", gui.namebox_borders ), what_justify = True )
@@ -87,6 +91,8 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+
+    $ turns = 25
 
     scene bg room with spiral
 
@@ -209,25 +215,97 @@ label start:
     willow "To your attention, Alexander Minski \"The Thunderous\", a former attende that goes the long way back with the mansion."
     show thanos_r at my_moveinleft #at left
     thanos "You mean, \"The Cruel\". {p}That was the official adaptation of his title. {p}But go on."
-    willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.{p}The only way for him to communicate right now is through this very typewriter."
+    willow "Yes. So. {w}He has succumbed to a terrible jaw and mouth cancer, and is therefore, unfortunately, mute.{p}The only way for him to communicate right now is through the analog means."
     hide thanos_r with moveoutleft
     show reggie_m_r at my_moveinleft #at left
     reggie "{cps=20}Oh dear... This typewriter... it's garbage! \n{size=-10}{cps=*0.5}Oh, poor machine..!{/cps}{/size}{/cps}"
     hide reggie_m_r with moveoutleft
     show willow_m thinking
-    willow "He also can be rather literal with English, as we ruled out."
+    willow "...me and the ghost couldn't locate anything better in the time we were given."
+    show greyson_r at my_moveinleft
+    greyson "Come again? There's a time limit?"
+    show willow_m
+    willow "I couldn't piece out {i}exactly{/i} why, but mr. Minski assured me that we - and by that he means {i}all{/i} of us - only have until noon to resolve the issue."
+    greyson "If I dare ask, {i}what{/i} does your ghost expect us to do?"
+    show typewriter with vpunch
+    tp "F D LUCAS"
+    hide greyson_r with moveoutleft
+    show clay_m_r sober at my_moveinleft
+    clay "Uh-h... Feed?... Lucas?"
+    willow "I believe he implies we must find him. And, from what I've gathered, it will be no easy feat. Lucas is ''hiding behind seven locks''."
+    hide clay_m_r sober with moveoutleft
+    show greyson_r at my_moveinleft
+    greyson "...!"
+    hide greyson_r with moveoutleft 
+    show thanos_r at  my_moveinleft
+    thanos "No, {i}not{/i} literally. \nIt's a Russian idiom, to the effect of ''behind seven seals''. \nMore familiar with that one?"
+    #thanos"...achem. Which is to say, Willow's interpretation is right - he must be well hidden."
+    show willow_m thinking
+    willow "...we might get lost in translations, it seems."
     #show willow at slide_right
     hide willow_m with moveoutright
+    hide thanos_r with moveoutleft
     show trinity_m at my_moveinright #at right
-    trinity "O-oh! Sounds like we'll have a lot of fun cracking this case! {p}What'cha say, Laffy? {p=1}Wanna play Ghost Detectives?"
-    hide trinity_m with moveoutright
+    trinity "O-oh! All of this sounds mighty important! {p}What'cha say, Laffy? {p=1}Wanna play Ghost Detectives?"
 
-    $ gui.custom.textbox_position = "default"
-    hide typewriter
+    menu:
+        "You're not gonna leave me any choice, are you?":
+            jump adventure_start
+
+label adventure_start:
+    hide trinity_m with moveoutright
+    $ gui.custom.textbox_position = "centre"
+    n "The machine strained as its ghost struggled against the groaning architecture and countless mechanical mishaps."
+    show typewriter with vpunch
+    tp "m l "
+    show typewriter with vpunch
+    tp "m l  th e"
+    show typewriter with vpunch
+    tp "m l  th e sp d er"
+
+    show willow_m_r at my_moveinleft
+
+    willow "I think it says 'milk the spider'? \nEducated guess."
+
+    show trinity at my_moveinright
+
+    trinity "O-oh! I know exactly where we need to go, then!"
+
+    show willow_m_r disappointed
+
+    willow "Do you now?"
+
+    trinity "Sooo... There is one suspiciously well-guarded room at the back of casino Clay never lets me into because of all the cowwebs-"    
+
+    hide willow_m_r with moveoutleft
+
+    show clay_m_r sober at my_moveinleft
+
+    clay "Well, first of all, it's Staff Only, and I'm no longer head of security to let you break rules like you used to-"
+    trinity "{size=-10}aw.{/size}"
+    clay "And secondly, I can't let you wander around the Butterfly House on your own because half of all mansion's venomous critters are kept there."
+    show clay_m_r happy
+    clay "Surely you know that much if you pieced together the clue, ay, smartass?"
+    trinity "Teehee. {p}So that means I get to visit the cool butterfly room this one time, right? {p}Right, mr. very important ghost?"
+    show typewriter with vpunch
+    tp "Y ES\nA D HURRY"
+    hide clay with moveoutleft
+    show willow_m_r disappointed at my_moveinleft 
+    willow "I take that settles it, then."
+    jump keypad_start
+
+label adventure_after_keypad:
+
+    play music "OminousTheme.mp3" fadein 1.5
+    n "Wow, that was an adventure!"
+    $ turns_taken = 25-turns
+    n "You managed in [turns_taken] turns, too. \nGood job!"
+    n "Rydain, I need to sleep, please take from here-"
     jump tutorial_no
 
     
     label tutorial_no:
+        play music "MainTheme.mp3" fadein 0.5
         "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
         n "Harpy : My offer is we start with the keypad puzzle, because Trinity and Reggie are already here, and maybe then move onto drink mixing with Clay and Aurum. We could throw in a painting room/aquarium puzzle somewhere in-between, if we write one. Then we can somehow lead it to woodwind puzzle, maybe with a joke that Redd had to carry Thanos up the stairs first. A different version of Padlock (that needs to be set up before entering the final area) can be used for the elevator puzzle at the end."
 

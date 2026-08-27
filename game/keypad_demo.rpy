@@ -204,7 +204,8 @@ screen keypad_interactive:
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
-    scene bg corridor with spiral
+    scene bg hallway with spiral
+    show numpad_icon at center with spiral
 
     show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
@@ -235,6 +236,7 @@ label keypad_reggie:
     if not keypad.asked_reggie:
         $ keypad.typewriter_message += "\n\nThis note is missing I's and T's."
         $ keypad.asked_reggie = True
+        $ turns -= 1
     hide reggie_m with moveoutright
     jump keypad_menu
 
@@ -244,6 +246,7 @@ label keypad_trinity:
     if not keypad.asked_trinity:
         $ keypad.typewriter_message += "\n\nParts of the combination - \n  *  4, 5, 6\n  *  8, 0"
         $ keypad.asked_trinity = True
+        $ turns -= 1
     hide trinity with moveoutright
     jump keypad_menu
 
@@ -252,15 +255,17 @@ label keypad_willow:
     willow "If I can read between these lines - dot an I, or cross a T. Just the same as you'd write with a pen, yes?"
     if not keypad.asked_willow:
         $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
-        $ keypad.asked_willow = True    
+        $ keypad.asked_willow = True  
+        $ turns -= 1  
     hide willow with moveoutright
     jump keypad_menu
 
 label keypad_process_answer:
+    $ turns -= 1
     if keypad.combination == keypad.answer:
         "You crossed the T and opened the lock. Congratulations!"
         hide screen keypad_interactive
-        jump keypad_menu
+        jump adventure_after_keypad
     elif keypad.combination == keypad.secret:
         "A stroke and a dash - that's an i! You found a playing card."
         jump keypad_give_answer

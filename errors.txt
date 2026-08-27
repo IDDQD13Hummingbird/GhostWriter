@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/keypad_demo.rpy", line 209: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    show typewriter at my_moveinright
+File "game/script.rpy", line 288: Line is indented, but the preceding play music statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
     ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Tue Aug 25 19:37:43 2026
+Thu Aug 27 02:41:21 2026
