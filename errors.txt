@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 288: Line is indented, but the preceding play music statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
-    ^
+File "game/script.rpy", line 213: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Test the final puzzle"
+                           ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Thu Aug 27 02:41:21 2026
+Sat Aug 29 00:53:37 2026

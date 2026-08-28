@@ -1,46 +1,103 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-NameError: name 'Harpy' is not defined
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 272, in script
-    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
-Exception: Sayer 'Harpy' is not defined.
+  File "game/script.rpy", line 330, in script
+    n "This concludes the game. Thank you for playing!"
+  File "game/cardsuits_demo.rpy", line 180, in execute
+    screen card_suit_interactive:
+  File "game/cardsuits_demo.rpy", line 180, in execute
+    screen card_suit_interactive:
+  File "game/cardsuits_demo.rpy", line 190, in execute
+    grid 4 2:
+  File "game/cardsuits_demo.rpy", line 195, in execute
+    vbar:
+  File "game/cardsuits_demo.rpy", line 195, in keywords
+    vbar:
+  File "game/cardsuits_demo.rpy", line 199, in <module>
+    value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_suit ) )
+NameError: name 'check_suit_suit' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/ast.py", line 625, in eval_who
-    return renpy.python.py_eval(who)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "game/script.rpy", line 330, in script
+    n "This concludes the game. Thank you for playing!"
+  File "renpy/ast.py", line 2935, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 994, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/sayexports.py", line 129, in say
+    who(what, *args, **kwargs)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1565, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1220, in do_display
+    display_say(who, what, self.do_show, **display_args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 902, in display_say
+    rv = renpy.ui.interact(mouse="say", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 306, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2163, in interact
+    repeat, rv = self.interact_core(
+                 ~~~~~~~~~~~~~~~~~~^
+        preloads=preloads,
+        ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "renpy/display/core.py", line 2709, in interact_core
+    root_widget.visit_all(lambda d: d.per_interact())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 460, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 460, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/displayable.py", line 460, in visit_all
+    d.visit_all(callback, seen)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "renpy/display/screen.py", line 503, in visit_all
+    callback(self)
+    ~~~~~~~~^^^^^^
+  File "renpy/display/core.py", line 2709, in <lambda>
+    root_widget.visit_all(lambda d: d.per_interact())
+                                    ~~~~~~~~~~~~~~^^ 
+  File "renpy/display/screen.py", line 514, in per_interact
+    self.update()
+    ~~~~~~~~~~~^^
+  File "renpy/display/screen.py", line 715, in update
+    self.screen.function(**self.scope)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "game/cardsuits_demo.rpy", line 180, in execute
+    screen card_suit_interactive:
+  File "game/cardsuits_demo.rpy", line 180, in execute
+    screen card_suit_interactive:
+  File "game/cardsuits_demo.rpy", line 190, in execute
+    grid 4 2:
+  File "game/cardsuits_demo.rpy", line 195, in execute
+    vbar:
+  File "game/cardsuits_demo.rpy", line 195, in keywords
+    vbar:
   File "renpy/python.py", line 1308, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1301, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-NameError: name 'Harpy' is not defined
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 272, in script
-    Harpy "So- This is where the type-in-the-word puzzle is to be implemented. \nSay Absinthe to go further, \nsay Trinity (I mean, doesn't she look like a green fairy), and get a card."
-  File "renpy/ast.py", line 2935, in execute
-    Say.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "renpy/ast.py", line 956, in execute
-    who = eval_who(self.who, self.who_fast)
-          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ast.py", line 627, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Harpy' is not defined.
+  File "game/cardsuits_demo.rpy", line 199, in <module>
+    value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_suit ) )
+NameError: name 'check_suit_suit' is not defined
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Thu Aug 27 11:50:14 2026
+Sat Aug 29 01:00:11 2026

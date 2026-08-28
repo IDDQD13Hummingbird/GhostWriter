@@ -30,6 +30,9 @@ define spiral = ImageDissolve("imagedissovle spiral.png", 0.5, 64)
 
 define wave = ImageDissolve("imagedissovle wave.png", 1.0, 64)
 
+
+
+
 # Variables!
 
 default cps = 25
@@ -93,6 +96,14 @@ label start:
     # images directory to show it.
 
     $ turns = 25
+    
+
+    $ found_card1 = False
+    $ found_card2 = False
+    $ found_card3 = False
+    $ found_card4 = False
+
+    n "This is a fangame dedicated to {b}The Sexy Brutale{/b}.\nAll featured characters are the property of {b}Tequila Works{/b} and {b}Cavalier Game Studios{/b}."
 
     scene bg room with spiral
 
@@ -198,6 +209,11 @@ label start:
     menu:
         "You won't leave me any real choice, will you?":
             jump adventure_start
+        "DEBUG : Test the final puzzle":
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump cardsuit_start
+            
         #if possible, implement a few gates allowing to skip puzzles player already completed. 
         #The maximum allowed amount of turns is going to come into play here.
 
@@ -354,7 +370,10 @@ label adventure_after_spider_room:
 
     #Select 
     label end:
-        "This concludes the tech demo."
+        n "This concludes the game. Thank you for playing!"
+        n "{b}Developer team!{/b}\nProgrammer and writer : Rydain\nArtist and game designer : TheNorthernHarpy\nBackground artist : NostalgicTree\nMusic : fionnectomy"
+        
+        n "...Would you like to find out how the story ended?\nPlay our source material, {b}The Sexy Brutale!{/b}"
 
     # This ends the game.
 
