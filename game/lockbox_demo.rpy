@@ -272,6 +272,8 @@ label lockbox_menu:
             jump lockbox_password_give_answer
         "Redd, does that give you enough to go on?" if lockbox.password_solved and not lockbox.password_secret_solved:
             jump lockbox_redd
+        "Time's short - let's rather move onto that riddle -" if lockbox.password_solved and not lockbox.password_secret_solved:
+            jump lockbox_after_solution
 
 label lockbox_tequila:
     $ gui.custom.textbox_position = "centre"
@@ -315,7 +317,7 @@ label lockbox_redd:
     show redd_m at my_moveinright
     redd "That is about right, then, isn't it? 'What a snake, or a sneak'. We just need one more letter, and the clues seem to already be in order -"
     $ lockbox.puzzle_text = "As per Mr. Minski - \"What a snake, or a sneak\".\n\nNow to just add one more letter - "
-    hide redd
+    hide redd_m with moveoutright
     jump lockbox_menu
 
 label lockbox_cipher_give_answer:
@@ -341,6 +343,7 @@ label lockbox_password_give_answer:
     menu( screen="choice_h" ):
         "[lockbox.puzzle_text]"
         "Back to Clues":
+            hide screen lockbox_password
             jump lockbox_menu
 
 label lockbox_process_password_answer:
@@ -350,6 +353,13 @@ label lockbox_process_password_answer:
     greyson "Ha! Not much of an enigma now, is it?"
     show tequila_m at my_moveinright
     tequila "The password isn't, at least. We've yet to see what all it's been hiding."
+
+    if lockbox.password_secret_solved:
+        greyson "There's a note, for one - another riddle, from the looks of it. Now what's to be done with that?"
+        hide greyson_r with moveoutleft
+        hide tequila_m with moveoutright
+        jump lockbox_after_solution
+
     greyson "There's a note, for one - another riddle, from the looks of it. Though this compartment seems a bit shallow."
     tequila "Do you reckon there's another way in?"
     hide tequila_m with moveoutright
@@ -371,7 +381,15 @@ label lockbox_process_password_answer:
 
 label lockbox_process_password_secret:
     hide screen lockbox_password
-    menu( screen="choice_h" ):
+
+    if lockbox.password_solved:
         "Sneaky sneaky. Well done! Have a card for your cleverness."
-        "Back to Clues":
+        jump lockbox_after_solution
+
+    menu( screen="choice_h" ):
+        "Sneaky sneaky. Well done! Have a card for your cleverness.\n\nThough there's still more to be found here..."
+        "Back to Clues" if not lockbox.password_solved:
             jump lockbox_menu
+    
+label lockbox_after_solution:
+    "That's all, folks! At least for now. This will transition to the woodwind puzzle."
