@@ -277,13 +277,9 @@ label cocktail_start:
     ace "He being - the typewriter?"
 
     willow "That is so, yes. It's quite the story. Quite the - adventure - to converse with."
-    hide willow_m with moveoutright
 
-    show typewriter at my_moveinright
+    show typewriter with vpunch
     tp "{cps=[cps]}I cn h earr y o, yuu kn w! D onn' ma e m wa sst my in k!{/cps}"
-    hide typewriter with moveoutright
-
-    show willow_m at my_moveinright
 
     ace "Might I be familiar with this - shall we say - tempest in a typewriter?"
 
@@ -292,19 +288,16 @@ label cocktail_start:
     ace "Right - yes - that's some history. Top secret, too, sad to say."
     hide willow_m with moveoutright
 
-    show aurum at my_moveinright
+    show aurum_m at my_moveinright
     aurum "You mean to say you can't mix it for an audience?"
 
     ace "I'm afraid I can't mix it at all. Just once, when I forget to make a note of things - unless our guest here might have some idea -"
 
-    hide aurum with moveoutright
+    hide aurum_m with moveoutright
 
-    show typewriter at my_moveinright
     tp "{cps=[cps]}I t w as bot tm sh llf! Th t's h gh pr i see!{/cps}"
 
     ace "Bottom - shelf? Oh - right - it would be. Now what all do I have in there?"
-
-    hide typewriter with moveoutright
 
     show clay_m sober at my_moveinright
     clay "You don't have a note of that, either?"
@@ -316,26 +309,25 @@ label cocktail_start:
     ace "Even if they're from myself, at times, when I dust something off from the back. Have a look?"
 
     hide clay_m sober with moveoutright
-    show aurum at my_moveinright
+    show aurum_m at my_moveinright
 
     aurum "\"For industrial use only.\"{p}\n\"Caustic - do not handle without gloves and full face shield.\"{p}\n\"Hard hats required at all times.\""
-    hide aurum with moveoutright
+    hide aurum_m with moveoutright
 
     show clay_m sober at my_moveinright
     clay "I'd try my luck with that. Line 'em up, knock 'em back, right? Knock myself out - I've had worse.{p}\nBut not right now. We've got work to do."
-    hide clay_m sober with moveoutright
 
-    show typewriter at my_moveinright
     tp "{cps=[cps]}It k n oc edd me o t! Tw c e o vv r! F ur sho s d wn fo t e co nnt!{p}\n[cocktail.typewriter_message]{/cps}"
-    hide typewriter with moveoutright
 
-    ace "Strong and incomprehensible in absurd and equal measures. Right.{p}\nMay I ask how Mr. Minsky is to drink it?"
+    ace "Strong and incomprehensible in absurd and equal measures. Right.{p}\nMay I ask how Mr. Minski is to drink it?"
 
+    hide clay_m sober with moveoutright
     show willow_m at my_moveinright
     willow "I'll cross that spiritual bridge when we get there."
     hide willow_m with moveoutright
 
     hide acespades_r
+    hide typewriter
     $ gui.custom.textbox_position = "left"
     jump cocktail_menu
 
@@ -372,7 +364,7 @@ label cocktail_mix_help:
     $ gui.custom.textbox_position = "centre"
     show clay_m happy at my_moveinright
     clay "Don't ask me. What I get, I get, and it's all good. I'm the last to be faffing about with a beaker."
-    show aurum at my_moveinleft
+    show aurum_m_r at my_moveinleft
     aurum "I'm one to put the fun in formulation - but I doubt we need to be exact. Just close enough according to some measure."
 
     clay "Don't be stingy with that hot stuff. Got that. The song rather does make a show of that bit."
@@ -386,7 +378,7 @@ label cocktail_mix_help:
         $ cocktail.typewriter_message = cocktail.typewriter_message_highlight
 
     hide clay_m happy with moveoutright
-    hide aurum with moveoutleft
+    hide aurum_m_r with moveoutleft
     $ gui.custom.textbox_position = "left"
     $ cocktail.asked_mix_help = True
     jump cocktail_menu
@@ -423,10 +415,11 @@ label cocktail_process_choice_answer:
 
     hide willow_m with moveoutright
 
-    show typewriter at my_moveinright
+    show typewriter with vpunch
     tp "{cps=[cps]}Th tt' i ! T at's itt! Nw don tt y u d re bee s ti ggy wi h tat hoo t s ttuf!{/cps}"
-    hide typewriter with moveoutright
-    $ conditional_message = "Mr. Minsky seems pleased - or close enough."
+    hide typewriter
+
+    $ conditional_message = "Mr. Minski seems pleased - or close enough."
     if not cocktail.choice_secret_solved:
         $ conditional_message += "{p}\nThough I suspect something more might be concocted..." 
     "[conditional_message]"
@@ -437,7 +430,7 @@ label cocktail_process_choice_secret:
     hide screen cocktail_ingredient_interactive
     show screen cocktail_ingredient_answer( grid_xalign = 0.5, grid_yalign = 0.5, grid_x = 2, grid_y = 2, answer = cocktail.ingredient.secret )
     show acespades at my_moveinright
-    ace "Doubling down on that hot stuff with a hat tip to fire safety. Well done."
+    ace "Doubling down on that hot stuff with a hat tip to fire safety. Well done.\n{p}Have a card."
     hide acespades
     hide screen cocktail_ingredient_answer
     jump cocktail_menu
@@ -451,9 +444,51 @@ label cocktail_give_mix_answer:
             jump cocktail_menu
 
 label cocktail_process_mix_answer:
-    # TODO - transition to lockbox
-    "Cocktail mixed correctly. Next up, a proper victory sequence!"
-    menu( screen="choice_h" ):
-        "Back to Clues":
-            hide screen cocktail_mix_interactive
-            jump cocktail_menu
+    hide screen cocktail_mix_interactive
+    $ gui.custom.textbox_position = "centre"
+    pause 5.0
+    show acespades at my_moveinright
+    ace "Just a shake - and a stir - and a garnish of ghost pepper - and here we are -"
+    show typewriter with vpunch
+    tp "{cps=[cps]}Sp t onn!{/tps}"
+
+    ace "Very good. Though this leaves just one question."
+    show clay_m_r happy at my_moveinleft
+    clay "The logistics of drinking that?"
+    ace "The logistics of payment. Would Mr. Minski care to start a tab?"
+    hide clay_m_r happy with moveoutleft
+
+    show aurum_m_r at my_moveinleft
+    aurum "Mr. Minski's on a rather tight schedule - swinging by more so than settling in. He'd like to settle with this."
+
+    ace "A token of the Marquis' appreciation. But of course. This one in particular was taken in trade for a party favor.{p}\nWhich should be securely locked up in here -"
+
+    hide acespades with moveoutright
+    hide aurum_m_r with moveoutleft
+
+    show greyson_r at my_moveinleft
+    greyson "Need a hand back there, mate? Or a lockpick?"
+
+    show acespades at my_moveinright
+    ace "I need a good head for riddles, it seems. You do, rather, if you're meant to open this."
+    hide acespades with moveoutright
+
+    show redd_m at my_moveinright
+    redd "I could try - emergency means. Twist it right open like a jam jar. And end up with a crumpled mess of tin foil, and mincemeat made of what's in there."
+    hide redd_m with moveoutright
+
+    show tequila_m at my_moveinright
+    tequila "Are you two getting up to some tomfoolery? For once I need to witness this myself."
+    greyson "Nothing of questionable safety, sad to say. Though to some of us, that comes as a relief."
+    hide greyson_r with moveoutleft
+
+    show redd_m_r at my_moveinleft
+    redd "Some of us need to stay sensible.{p}\nThough not so much as to spoil {i}all{/i} the fun..."
+
+    hide redd_m_r with moveoutleft
+    hide tequila_m with moveoutright
+    hide typewriter
+
+    $ gui.custom.textbox_position = "left"
+
+    jump lockbox_start

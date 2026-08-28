@@ -236,18 +236,18 @@ screen lockbox_password:
 
 label lockbox_start:
     $ gui.custom.textbox_position = "centre"
-    show greyson at my_moveinleft
+    show greyson_r at my_moveinleft
     greyson "Now, let's see what we have!"
     "[lockbox.puzzle_text]"
     show tequila_m at my_moveinright
     tequila "Six letters from all that, somehow. And I don't see any C in these dials."
-    greyson "You wouldn't. It's a transposition cipher. Rather classic - or rather antiquated - but anyhow. All the letters we need are up at the top."
+    greyson "You wouldn't. It's a transposition cipher. Rather classic - or extremely antiquated - but anyhow. All the letters we need are up at the top."
     tequila "And I reckon you know how to order them?"
     greyson "I will when we know the code. One number for each phrase, so some permutation of 1,2,3,4. Not in that same order, though - that would be just too trivial."
     tequila "What sort of lock isn't too trivial for you?"
     greyson "This right here, I suppose - I was never brilliant at bashing through these in my head. If I was sat with pen and paper, I could take a good crack at it. But why hog all the fun around here, eh?"
 
-    hide greyson with moveoutleft
+    hide greyson_r with moveoutleft
     hide tequila_m with moveoutright
 
     $ lockbox.puzzle_text += "\n\nNeeds a 4-digit code including 1,2,3,4"
@@ -258,32 +258,40 @@ label lockbox_start:
 label lockbox_menu:
     menu:
         "[lockbox.puzzle_text]"
-        "Let's start with this 4-digit cipher code." if not lockbox.cipher_solved and not lockbox.password_solved:
+        "Let's settle this 4-digit cipher code" if not lockbox.cipher_solved and not lockbox.password_solved:
             jump lockbox_cipher_give_answer
-        "The cipher contains a music note. Tequila, might that be of significance?" if not lockbox.cipher_solved and not lockbox.password_solved:
+        "The cipher contains a music note. Might that be of significance?" if not lockbox.cipher_solved and not lockbox.password_solved:
             jump lockbox_tequila
-        "1,5,6,4 - I could use some locksmith's hands here -" if lockbox.asked_tequila and not lockbox.cipher_solved and not lockbox.password_solved:
+        "1,5,6,4 - I could use some locksmith's hands here" if lockbox.asked_tequila and not lockbox.cipher_solved and not lockbox.password_solved:
             jump lockbox_greyson_cipher
-        "I'm rather scrambled trying to descramble this -" if lockbox.cipher_solved and not lockbox.password_solved and not lockbox.asked_greyson_descramble:
+        "I'm rather scrambled trying to descramble this" if lockbox.cipher_solved and not lockbox.password_solved and not lockbox.asked_greyson_descramble:
             jump lockbox_greyson_descramble
-        "Shall we crack this open, then?" if not lockbox.password_solved:
+        "Shall we crack this mystery box open, then?" if not lockbox.password_solved:
             jump lockbox_password_give_answer
-        "This letter set seems to have some possibilities -" if lockbox.password_solved and not lockbox.password_secret_solved:
+        "This letter set has some possibilities -" if lockbox.password_solved and not lockbox.password_secret_solved:
             jump lockbox_password_give_answer
-        "Redd! There you are. Care to try your hand at some murky anagrams?" if lockbox.password_solved and not lockbox.password_secret_solved:
+        "Redd, does that give you enough to go on?" if lockbox.password_solved and not lockbox.password_secret_solved:
             jump lockbox_redd
-        "Select another puzzle":
-            jump tutorial_no
 
 label lockbox_tequila:
-    # TODO - Lafcadio or anyone else specifically asking
+    $ gui.custom.textbox_position = "centre"
+
     show tequila_m at my_moveinright
-    tequila "Jump on C, hop to G. Sounds like a piece of chord progression. If we {b}add{/b} one - go up to A - then {b}fall{/b} back two down the scale -"
-    tequila "So that's C, G, A, F, and our numbers are chord notation. I reckon we're in the key of C, so C is 1. That gives us 1, 5, 6, 4.{p}\n...{p}\nAnd of course it couldn't be all nice and literal."
-    hide tequila_m
+    tequila "Mr. Redd - a duet, if you would."
+    tequila "Jump on C, hop to G. Sounds like a piece of a chord progression."
+
+    show redd_m_r at my_moveinleft
+    redd "And a subtler hint at the rest. If we {b}add{/b} one - go up to A - then {b}fall{/b} back two down the scale -"
+    tequila "Then we have C, G, A, F, and our numbers are chord notation."
+    redd "We started with C, so we should be in that key. C is 1."
+    tequila "So C, G, A, F gives us 1, 5, 6, 4.{p}\n...{p}\nAnd of course it couldn't be all nice and literal."
+    hide tequila_m with moveoutright
+    hide redd_m_r with moveoutleft
+ 
     if not lockbox.asked_tequila:
         $ lockbox.puzzle_text += "\n\nThe verse is a chord progression - 1,5,6,4"
     $ lockbox.asked_tequila = "True"
+    $ gui.custom.textbox_position = "left"
     jump lockbox_menu
 
 label lockbox_greyson_cipher:
@@ -304,10 +312,9 @@ label lockbox_greyson_descramble:
     jump lockbox_menu
 
 label lockbox_redd:
-    show redd at my_moveinright
-    redd "Insert some light banter about trouble, or the refreshing lack thereof, comparatively speaking."
-    redd "That is about right, then, isn't it? 'What a snake, or a sneak'. We just need one more letter, and I would wager that each possibility is already in order -"
-    $ lockbox.puzzle_text = "As per Mr. Minsky - \"What a snake, or a sneak\".\n\nNow to just add one more letter - "
+    show redd_m at my_moveinright
+    redd "That is about right, then, isn't it? 'What a snake, or a sneak'. We just need one more letter, and the clues seem to already be in order -"
+    $ lockbox.puzzle_text = "As per Mr. Minski - \"What a snake, or a sneak\".\n\nNow to just add one more letter - "
     hide redd
     jump lockbox_menu
 
@@ -339,28 +346,32 @@ label lockbox_password_give_answer:
 label lockbox_process_password_answer:
     $ gui.custom.textbox_position = "centre"
     hide screen lockbox_password
-    show greyson at my_moveinleft
+    show greyson_r at my_moveinleft
     greyson "Ha! Not much of an enigma now, is it?"
-    show tequila at my_moveinright
-    tequila "Well, the password isn't. We've yet to see what all it's been hiding."
+    show tequila_m at my_moveinright
+    tequila "The password isn't, at least. We've yet to see what all it's been hiding."
     greyson "There's a note, for one - another riddle, from the looks of it. Though this compartment seems a bit shallow."
-    tequila "You reckon there's another way in?"
-    greyson "That, or - those letters are good for more anagrams."
-    hide greyson
+    tequila "Do you reckon there's another way in?"
+    hide tequila_m with moveoutright
+    show redd_m at my_moveinright
+    redd "There is with an anagram, I'd wager. Gamine, making, genies - this could keep me tied up for a while -"
+    hide greyson_r
     hide tequila 
-    show willow at my_moveinright
-    willow "Mr. Minsky, care to be of some assistance?"
-    show typewriter_r at my_moveinleft
+    show willow_m_r at my_moveinleft
+    willow "Mr. Minski, please tell me you have some sense of direction."
+
+    show typewriter with vpunch
     tp "{cps=[cps]}[lockbox.typewriter_message]{/cps}"
     $ lockbox.puzzle_text = lockbox.typewriter_message
-    hide willow
-    hide typewriter_r
+    hide willow_m_r
+    hide redd_m
+    hide typewriter
     $ gui.custom.textbox_position = "left"
     jump lockbox_menu
 
 label lockbox_process_password_secret:
     hide screen lockbox_password
     menu( screen="choice_h" ):
-        "Sneaky sneaky. Well done!"
+        "Sneaky sneaky. Well done! Have a card for your cleverness."
         "Back to Clues":
             jump lockbox_menu

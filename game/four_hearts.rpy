@@ -58,7 +58,7 @@ label four_hearts_start:
     clay "I've got no expectations at this point. Aside from more tosh from this barmy old contraption -"
 
     show typewriter with vpunch
-    tp "I c an hee r y u, yo kn ww"
+    tp "{cps=[cps]}I c an hee r y u, yo kn ww{/cps}"
 
     four "I'm that bloody well out of the loop, am I? I suppose I should have expected no less."
     hide clay_m_r sober with moveoutleft
@@ -69,11 +69,11 @@ label four_hearts_start:
     four "That's for me to know until it becomes relevant. \"La fée verte\" - that's the quiz. And that's all I'm permitted to say."
 
     show typewriter with vpunch
-    tp "Ab s ntt"
+    tp "{cps=[cps]}Ab s ntt{/cps}"
 
     four "Absent? Yes, the Marquis most certainly is. That, and downright impossible."
 
-    tp "A b s in"
+    tp "{cps=[cps]}A b s in{/cps}"
 
     hide trinity_m_r with moveoutleft
     show clay_m_r sober at my_moveinleft
@@ -82,7 +82,7 @@ label four_hearts_start:
 
     hide clay_m_r sober with moveoutleft
 
-    tp "A n thee"
+    tp "{cps=[cps]}A n thee{/cps}"
 
     show tequila_m_r at my_moveinleft
     tequila "Oh, say can you see - no, I don't reckon it's my national anthem -"
@@ -150,11 +150,11 @@ label four_hearts_process_answer:
     aurum "Redeemable for one house specialty. From the back bar - lucky us."
 
     show typewriter with vpunch
-    tp "Lu kyy me! I mu sst we t m yy whi s le str ighh t aw y"
+    tp "{cps=[cps]}Lu kyy me! I mu sst we t m yy whi s le str ighh t aw y{/cps}"
 
     aurum "Oil your sprockets, so to speak...er...type? If that is what it takes - however that even works -"
 
-    tp "As k A cee. Wh t he g nne d u p. Un f or ge t a bbl !"
+    tp "{cps=[cps]}As k A cee. Wh t he g nne d u p. Un f or ge t a bbl !{/cps}"
 
     hide aurum_m_r with moveoutleft
 
