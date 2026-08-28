@@ -1,34 +1,72 @@
-2026-08-27 09:52:16 UTC
+2026-08-28 06:34:35 UTC
 Windows-11-10.0.22631-SP0
 Ren'Py 8.5.3.26051504
 
-Early init took 41 ms
-Loading error handling took 54 ms
-Loading script took 1389 ms
-Loading save slot metadata took 23 ms
+Early init took 40 ms
+Loading error handling took 21 ms
+Loading script took 241 ms
+Loading save slot metadata took 63 ms
 Loading persistent took 0 ms
-Running init code took 67 ms
-Loading analysis data took 3 ms
-Analyze and compile ATL took 2 ms
-Reloading save slot metadata took 15 ms
-Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
-Dump and make backups took 49 ms
+Running init code took 142 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 1 ms
+Reloading save slot metadata took 12 ms
+Dump and make backups took 62 ms
 Cleaning cache took 0 ms
-Making clean stores took 2 ms
-Initial gc took 31 ms
+Making clean stores took 0 ms
+Initial gc took 54 ms
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 257 ms
+Creating interface object took 494 ms
 Init translation took 0 ms
-Cleaning stores took 1 ms
-Load screen analysis took 0 ms
-Analyze screens took 8 ms
-Save screen analysis took 13 ms
+Cleaning stores took 0 ms
+Load screen analysis took 17 ms
+Analyze screens took 0 ms
+Save screen analysis took 0 ms
 Save pyanalysis took 0 ms
-Save bytecode took 27 ms
-Running _start took 0 ms
-Interface start took 1308 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 749 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 16 ms
+Loading error handling took 26 ms
+Loading script tookResetting cache.
+Early init took 14 ms
+Loading error handling took 40 ms
+Loading script took 96 ms
+Loading save slot metadata took 16 ms
+Loading persistent took 0 ms
+Running init code took 52 ms
+Loading analysis data took 4 ms
+Analyze and compile ATL took 3 ms
+Reloading save slot metadata took 12 ms
+Dump and make backups took 42 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 36 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 14 ms
+Analyze screens took 2 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 356 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
