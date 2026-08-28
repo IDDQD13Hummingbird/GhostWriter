@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 330, in script
-    n "This concludes the game. Thank you for playing!"
-  File "game/cardsuits_demo.rpy", line 180, in execute
+  File "game/cardsuits_demo.rpy", line 297, in script
+    king "Off we go, then."
+  File "game/cardsuits_demo.rpy", line 181, in execute
     screen card_suit_interactive:
-  File "game/cardsuits_demo.rpy", line 180, in execute
+  File "game/cardsuits_demo.rpy", line 181, in execute
     screen card_suit_interactive:
-  File "game/cardsuits_demo.rpy", line 190, in execute
+  File "game/cardsuits_demo.rpy", line 191, in execute
     grid 4 2:
-  File "game/cardsuits_demo.rpy", line 195, in execute
+  File "game/cardsuits_demo.rpy", line 196, in execute
     vbar:
-  File "game/cardsuits_demo.rpy", line 195, in keywords
+  File "game/cardsuits_demo.rpy", line 196, in keywords
     vbar:
-  File "game/cardsuits_demo.rpy", line 199, in <module>
+  File "game/cardsuits_demo.rpy", line 200, in <module>
     value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_suit ) )
 NameError: name 'check_suit_suit' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 330, in script
-    n "This concludes the game. Thank you for playing!"
+  File "game/cardsuits_demo.rpy", line 297, in script
+    king "Off we go, then."
   File "renpy/ast.py", line 2935, in execute
     Say.execute(self)
     ~~~~~~~~~~~^^^^^^
@@ -77,15 +77,15 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 715, in update
     self.screen.function(**self.scope)
     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/cardsuits_demo.rpy", line 180, in execute
+  File "game/cardsuits_demo.rpy", line 181, in execute
     screen card_suit_interactive:
-  File "game/cardsuits_demo.rpy", line 180, in execute
+  File "game/cardsuits_demo.rpy", line 181, in execute
     screen card_suit_interactive:
-  File "game/cardsuits_demo.rpy", line 190, in execute
+  File "game/cardsuits_demo.rpy", line 191, in execute
     grid 4 2:
-  File "game/cardsuits_demo.rpy", line 195, in execute
+  File "game/cardsuits_demo.rpy", line 196, in execute
     vbar:
-  File "game/cardsuits_demo.rpy", line 195, in keywords
+  File "game/cardsuits_demo.rpy", line 196, in keywords
     vbar:
   File "renpy/python.py", line 1308, in py_eval
     return py_eval_bytecode(code, globals, locals)
@@ -93,11 +93,11 @@ Traceback (most recent call last):
   File "renpy/python.py", line 1301, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/cardsuits_demo.rpy", line 199, in <module>
+  File "game/cardsuits_demo.rpy", line 200, in <module>
     value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_suit ) )
 NameError: name 'check_suit_suit' is not defined
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Sat Aug 29 01:00:11 2026
+Sat Aug 29 01:24:06 2026

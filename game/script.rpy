@@ -367,6 +367,8 @@ label adventure_after_spider_room:
 
             "Lockbox":
                 jump lockbox_start
+            "Card Suit":
+                jump cardsuit_start
 
     #Select 
     label end:

@@ -42,6 +42,7 @@ init python:
         check_suit_combination()
 
     def check_suit_combination(): # Sort solution & input by image index to compare irrespective of order
+    #Alright, but we'll need to give a "Give answer" button, basically - player should be allowed to give the wrong choice. 
         combination = "".join( str(x) for x in sorted( card.suit.input ) )
         if combination == card.suit.answer and not card.choice_answer_solved:
             card.choice_answer_solved = True
@@ -196,25 +197,25 @@ screen card_suit_interactive:
             ysize 200
             xalign 0.5
             range 3
-            value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_suit ) )         
+            value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_combination ) )         
 
         vbar:
             ysize 200
             xalign 0.5
             range 3
-            value VariableValue( variable = "card.suit2", step = 1, range = 3, action = Function( check_suit_suit ) )
+            value VariableValue( variable = "card.suit2", step = 1, range = 3, action = Function( check_suit_combination ) )
 
         vbar:
             ysize 200
             xalign 0.5
             range 3
-            value VariableValue( variable = "card.suit3", step = 1, range = 3, action = Function( check_suit_suit ) )
+            value VariableValue( variable = "card.suit3", step = 1, range = 3, action = Function( check_suit_combination ) )
 
         vbar:
             ysize 200
             xalign 0.5
             range 3
-            value VariableValue( variable = "card.suit4", step = 1, range = 3, action = Function( check_suit_suit ) )
+            value VariableValue( variable = "card.suit4", step = 1, range = 3, action = Function( check_suit_combination ) )
 
         frame:
             xysize card.suit.xysize
@@ -290,5 +291,9 @@ label cardsuit_start:
     
     show screen card_suit_interactive
 
+
+label ccard_process_choice_answer:
+    hide screen card_isuit_interactive
+    king "Off we go, then."
 
     jump end
