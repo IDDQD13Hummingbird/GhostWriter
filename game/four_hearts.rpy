@@ -1,3 +1,119 @@
+#we do a little trolling
+image butterfly animated:
+    "butterfly1"
+    pause .05
+    "butterfly2"
+    pause .025
+    "butterfly3"
+    pause .025
+    "butterfly4"
+    pause .025
+    "butterfly5"
+    pause .05
+    "butterfly4"
+    pause .025
+    "butterfly3"
+    pause .025
+    "butterfly2"
+    pause .025
+    repeat
+
+image butterfly_r animated:
+    "butterfly_r3"
+    pause .025
+    "butterfly_r2"
+    pause .025
+    "butterfly_r1"
+    pause .05
+    "butterfly_r2"
+    pause .025
+    "butterfly_r3"
+    pause .025
+    "butterfly_r4"
+    pause .025
+    "butterfly_r5"
+    pause .05
+    "butterfly_r4"
+    pause .025
+    repeat
+
+image abutterfly animated:
+    "abutterfly2"
+    pause .025
+    "abutterfly1"
+    pause .05
+    "abutterfly2"
+    pause .025
+    "abutterfly3"
+    pause .025
+    "abutterfly4"
+    pause .025
+    "abutterfly5"
+    pause .05
+    "abutterfly4"
+    pause .025
+    "abutterfly3"
+    pause .025
+    repeat
+
+image abutterfly_r animated:
+    "abutterfly_r4"
+    pause .025
+    "abutterfly_r3"
+    pause .025
+    "abutterfly_r2"
+    pause .025
+    "abutterfly_r1"
+    pause .05
+    "abutterfly_r2"
+    pause .025
+    "abutterfly_r3"
+    pause .025
+    "abutterfly_r4"
+    pause .025
+    "abutterfly_r5"
+    pause .05
+    repeat
+
+
+image bbutterfly animated:
+    "bbutterfly3"
+    pause .025
+    "bbutterfly4"
+    pause .025
+    "bbutterfly5"
+    pause .07
+    "bbutterfly4"
+    pause .025
+    "bbutterfly3"
+    pause .025
+    "bbutterfly2"
+    pause .025
+    "bbutterfly1"
+    pause .07
+    "bbutterfly2"
+    pause .025
+    repeat
+
+image bbutterfly_r animated:
+    "bbutterfly_r5"
+    pause .07
+    "bbutterfly_r4"
+    pause .025
+    "bbutterfly_r3"
+    pause .025
+    "bbutterfly_r2"
+    pause .025
+    "bbutterfly_r1"
+    pause .07
+    "bbutterfly_r2"
+    pause .025
+    "bbutterfly_r3"
+    pause .025
+    "bbutterfly_r4"
+    pause .025
+    repeat
+
 default four_hearts.puzzle_text = "La fée verte - that is all.\n\nAb s ntt? A b s in? A n thee?"
 
 default four_hearts.answer = "absinthe"
@@ -43,10 +159,77 @@ label four_hearts_start:
 
     play music "OminousTheme.mp3" fadein 1.5
     scene bg foyer with wave
+    
+            
+    show bbutterfly animated:
+        parallel:
+            linear 5.9 xalign 1.0
+            linear 5.7 xalign 0.0
+            repeat
+        parallel:
+            linear 4.2 yalign 0.0
+            linear 5.9 yalign 1.0
+            repeat
+            
+    show bbutterfly_r animated:
+        parallel:
+            linear 6.2 xalign 0.0
+            linear 5.0 xalign 1.0
+            repeat
+        parallel:
+            linear 5.9 yalign 1.0
+            linear 4.2 yalign 0.0
+            repeat
+
+    show butterfly animated:
+        parallel:
+            linear 6.0 xalign 0.0
+            linear 6.0 xalign 1.0
+            repeat
+        parallel:
+            linear 5.5 yalign 1.0
+            linear 4.0 yalign 0.0
+            repeat
+
+
+    show butterfly_r animated:
+        parallel:
+            linear 6.0 xalign 1.0
+            linear 6.0 xalign 0.0
+            repeat
+        parallel:
+            linear 4.0 yalign 0.0
+            linear 5.5 yalign 1.0
+            repeat
+
+            
+    show abutterfly animated:
+        parallel:
+            linear 6.0 xalign 1.0
+            linear 6.2 xalign 0.0
+            repeat
+        parallel:
+            linear 5.5 yalign 1.0
+            linear 4.2 yalign 0.0
+            repeat
+            
+    show abutterfly_r animated:
+        parallel:
+            linear 6.2 xalign 0.0
+            linear 6.0 xalign 1.0
+            repeat
+        parallel:
+            linear 4.0 yalign 0.0
+            linear 5.1 yalign 1.0
+            repeat
+
+
     show fourhearts upset at my_moveinright
     four "...ugh."
+    
     show fourhearts
     four "{cps=20}{i}Finally{/i}{/cps}. {i}Somebody{/i} saw fit to show up."
+    
     four "What even took you so long? You had {i}Trinity{/i} with you, for God's sake."
     show trinity_m_r at my_moveinleft
     trinity "Good to see my reputation precedes me as usual."

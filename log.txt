@@ -1,34 +1,171 @@
-2026-08-29 20:19:57 UTC
+2026-08-29 23:16:44 UTC
 Windows-11-10.0.22631-SP0
 Ren'Py 8.5.3.26051504
 
-Early init took 42 ms
-Loading error handling took 24 ms
-Loading script took 839 ms
-Loading save slot metadata took 43 ms
-Loading persistent took 0 ms
-Running init code took 53 ms
-Loading analysis data took 3 ms
-Analyze and compile ATL took 2 ms
-Reloading save slot metadata took 12 ms
-Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
-Dump and make backups took 90 ms
-Cleaning cache took 0 ms
-Making clean stores took 2 ms
-Initial gc took 124 ms
+Early init took 66 ms
+Loading error handling took 297 ms
+8 script files skipped.
+Loading script took 1647 ms
+Loading save slot metadata took 462 ms
+Loading persistent took 1 ms
+
+File "game/four_hearts.rpy", line 66: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show butterfly animated:
+    ^
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 535 ms
+Interface start took 1183 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 11 ms
+Loading script took 354 ms
+Loading save slot metadata took 35 ms
+Loading persistent took 0 ms
+Running init code took 38 ms
+Loading analysis data took 10 ms
+Analyze and compile ATL took 3 ms
+Reloading save slot metadata took 109 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 55 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 42 ms
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 245 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 9 ms
+Analyze screens took 12 ms
+Save screen analysis took 20 ms
+Save pyanalysis took 15 ms
+Save bytecode took 8 ms
+Running _start took 2 ms
+Interface start took 514 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 11 ms
+Loading script took 125 ms
+Loading save slot metadata took 17 ms
+Loading persistent took 0 ms
+Running init code took 44 ms
+Loading analysis data took 4 ms
+Analyze and compile ATL took 4 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 61 ms
+Cleaning cache took 1 ms
+Making clean stores took 0 ms
+Initial gc took 57 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
 Load screen analysis took 0 ms
-Analyze screens took 16 ms
-Save screen analysis took 24 ms
-Save pyanalysis took 4 ms
-Save bytecode took 29 ms
+Analyze screens took 9 ms
+Save screen analysis took 13 ms
+Save pyanalysis took 6 ms
+Save bytecode took 2 ms
+Running _start took 1 ms
+Interface start took 540 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 10 ms
+Loading script took 177 ms
+Loading save slot metadata took 78 ms
+Loading persistent took 1 ms
+Running init code took 95 ms
+Loading analysis data took 19 ms
+Analyze and compile ATL took 16 ms
+Reloading save slot metadata took 51 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 73 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 51 ms
+DPI scale factor: 1.250000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 10 ms
+Save screen analysis took 13 ms
+Save pyanalysis took 5 ms
+Save bytecode took 1 ms
+Running _start took 0 ms
+Interface start took 297 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 11 ms
+Loading script took 123 ms
+Loading save slot metadata took 17 ms
+Loading persistent took 0 ms
+Running init code took 33 ms
+Loading analysis data took 3 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 115 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 51 ms
+DPI scale factor: 1.250000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 15 ms
+Save screen analysis took 38 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
 Running _start took 2 ms
-Interface start took 941 ms
+Interface start took 530 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -42,17 +179,30 @@ Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
 Maximum texture size: 4096x4096
 Resetting cache.
 Early init took 11 ms
-Loading error handling took 27 ms
-2 script files skipped.
-Loading script took 254 ms
-Loading save slot metadata took 78 ms
+Loading error handling took 11 ms
+Loading script took 172 ms
+Loading save slot metadata took 27 ms
 Loading persistent took 0 ms
-
-File "game/screens.rpy", line 173: style property xalign appears twice.
-    xalign gui.textbox_xalign
-          ^
+Running init code took 41 ms
+Loading analysis data took 3 ms
+Analyze and compile ATL took 3 ms
+Reloading save slot metadata took 11 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 49 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 45 ms
 DPI scale factor: 1.250000
-Interface start took 167 ms
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 1 ms
+Analyze screens took 11 ms
+Save screen analysis took 18 ms
+Save pyanalysis took 6 ms
+Save bytecode took 1 ms
+Running _start took 2 ms
+Interface start took 434 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -65,20 +215,81 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 10 ms
-Loading error handling took 30 ms
-Loading script took 260 ms
-Loading save slot metadata took 31 ms
+Early init took 8 ms
+Loading error handling took 10 ms
+8 script files skipped.
+Loading script took 116 ms
+Loading save slot metadata took 18 ms
 Loading persistent took 0 ms
-Running init code took 35 ms
-Loading analysis data took 4 ms
-Analyze and compile ATL took 3 ms
-Reloading save slot metadata took 20 ms
+
+File "game/four_hearts.rpy", line 86: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    smooth 5.0 xalign 0.0
+               ^
+DPI scale factor: 1.250000
+Interface start took 244 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 35 ms
+Loading error handling took 49 ms
+Loading script took 209 ms
+Loading save slot metadata took 17 ms
+Loading persistent took 1 ms
+Running init code took 57 ms
+Loading analysis data took 8 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 11 ms
 Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
-Dump and make backups took 124 ms
+Dump and make backups took 49 ms
 Cleaning cache took 0 ms
 Making clean stores took 1 ms
-Initial gc took 104 ms
+Initial gc took 37 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 11 ms
+Save screen analysis took 13 ms
+Save pyanalysis took 5 ms
+Save bytecode took 4 ms
+Running _start took 0 ms
+Interface start took 466 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 7 ms
+Loading error handling took 12 ms
+Loading script took 165 ms
+Loading save slot metadata took 30 ms
+Loading persistent took 0 ms
+Running init code took 49 ms
+Loading analysis data took 6 ms
+Analyze and compile ATL took 9 ms
+Reloading save slot metadata took 15 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 49 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 61 ms
 DPI scale factor: 1.250000
 Creating interface object took 0 ms
 Init translation took 0 ms
@@ -86,46 +297,10 @@ Cleaning stores took 0 ms
 Load screen analysis took 1 ms
 Analyze screens took 11 ms
 Save screen analysis took 15 ms
-Save pyanalysis took 8 ms
-Save bytecode took 8 ms
-Running _start took 1 ms
-Interface start took 572 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 591.74'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 47 ms
-Loading error handling took 41 ms
-Loading script took 142 ms
-Loading save slot metadata took 20 ms
-Loading persistent took 0 ms
-Running init code took 62 ms
-Loading analysis data took 8 ms
-Analyze and compile ATL took 4 ms
-Reloading save slot metadata took 39 ms
-Dump and make backups took 88 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 105 ms
-DPI scale factor: 1.250000
-Creating interface object took 2 ms
-Init translation took 0 ms
-Cleaning stores took 1 ms
-Load screen analysis took 23 ms
-Analyze screens took 2 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
+Save pyanalysis took 5 ms
 Save bytecode took 0 ms
 Running _start took 1 ms
-Interface start took 368 ms
+Interface start took 500 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -138,91 +313,31 @@ Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 25
 Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 7 ms
-Loading error handling took 11 ms
-Loading script took 107 ms
-Loading save slot metadata took 17 ms
+Early init took 16 ms
+Loading error handling took 64 ms
+Loading script took 359 ms
+Loading save slot metadata took 35 ms
 Loading persistent took 0 ms
-Running init code took 51 ms
+Running init code took 43 ms
 Loading analysis data took 4 ms
 Analyze and compile ATL took 2 ms
-Reloading save slot metadata took 11 ms
-Dump and make backups took 53 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 48 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 49 ms
+Initial gc took 106 ms
 DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 2 ms
-Cleaning stores took 0 ms
-Load screen analysis took 41 ms
-Analyze screens took 3 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
+Creating interface object took 2 ms
+Init translation took 1 ms
+Cleaning stores took 1 ms
+Load screen analysis took 1 ms
+Analyze screens took 38 ms
+Save screen analysis took 41 ms
+Save pyanalysis took 10 ms
 Save bytecode took 0 ms
 Running _start took 2 ms
-Interface start took 668 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 591.74'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 10 ms
-Loading error handling took 13 ms
-2 script files skipped.
-Loading script took 359 ms
-Loading save slot metadata took 43 ms
-Loading persistent took 0 ms
-
-File "game/screens.rpy", line 118: 'yfit' is not a keyword argument or valid child of the window statement.
-    yfit True
-        ^
-DPI scale factor: 1.250000
-Interface start took 463 ms
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 591.74'
-Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 7 ms
-Loading error handling took 11 ms
-Loading script took 422 ms
-Loading save slot metadata took 19 ms
-Loading persistent took 0 ms
-Running init code took 35 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 3 ms
-Reloading save slot metadata took 16 ms
-Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
-Dump and make backups took 70 ms
-Cleaning cache took 0 ms
-Making clean stores took 0 ms
-Initial gc took 47 ms
-DPI scale factor: 1.250000
-Creating interface object took 0 ms
-Init translation took 0 ms
-Cleaning stores took 1 ms
-Load screen analysis took 0 ms
-Analyze screens took 11 ms
-Save screen analysis took 14 ms
-Save pyanalysis took 4 ms
-Save bytecode took 3 ms
-Running _start took 0 ms
-Interface start took 747 ms
+Interface start took 429 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -237,29 +352,312 @@ Maximum texture size: 4096x4096
 Resetting cache.
 Early init took 8 ms
 Loading error handling took 13 ms
-Loading script took 259 ms
-Loading save slot metadata took 28 ms
-Loading persistent took 0 ms
-Running init code took 80 ms
-Loading analysis data took 13 ms
-Analyze and compile ATL took 3 ms
-Reloading save slot metadata took 31 ms
+Loading script took 183 ms
+Loading save slot metadata took 32 ms
+Loading persistent took 1 ms
+Running init code took 82 ms
+Loading analysis data took 12 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 28 ms
 Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
-Dump and make backups took 101 ms
+Dump and make backups took 86 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 51 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 0 ms
+Analyze screens took 8 ms
+Save screen analysis took 14 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 2 ms
+Interface start took 580 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 17 ms
+Loading script took 212 ms
+Loading save slot metadata took 45 ms
+Loading persistent took 0 ms
+Running init code took 72 ms
+Loading analysis data took 4 ms
+Analyze and compile ATL took 3 ms
+Reloading save slot metadata took 15 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 58 ms
 Cleaning cache took 0 ms
 Making clean stores took 1 ms
-Initial gc took 65 ms
+Initial gc took 53 ms
 DPI scale factor: 1.250000
 Creating interface object took 0 ms
 Init translation took 1 ms
 Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 10 ms
-Save screen analysis took 13 ms
-Save pyanalysis took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 27 ms
+Save screen analysis took 36 ms
+Save pyanalysis took 7 ms
 Save bytecode took 0 ms
 Running _start took 1 ms
-Interface start took 568 ms
+Interface start took 531 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 12 ms
+Loading error handling took 17 ms
+Loading script took 183 ms
+Loading save slot metadata took 97 ms
+Loading persistent took 1 ms
+Running init code took 54 ms
+Loading analysis data took 3 ms
+Analyze and compile ATL took 4 ms
+Reloading save slot metadata took 15 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 72 ms
+Cleaning cache took 0 ms
+Making clean stores took 3 ms
+Initial gc took 217 ms
+DPI scale factor: 1.250000
+Creating interface object took 3 ms
+Init translation took 2 ms
+Cleaning stores took 0 ms
+Load screen analysis took 2 ms
+Analyze screens took 55 ms
+Save screen analysis took 46 ms
+Save pyanalysis took 6 ms
+Save bytecode took 2 ms
+Running _start took 2 ms
+Interface start took 486 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 11 ms
+8 script files skipped.
+Loading script took 291 ms
+Loading save slot metadata took 30 ms
+Loading persistent took 1 ms
+
+File "game/four_hearts.rpy", line 21: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    image butterfly_r animated:
+                      ^
+DPI scale factor: 1.250000
+Interface start took 197 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 32 ms
+Loading error handling took 16 ms
+Loading script took 361 ms
+Loading save slot metadata took 20 ms
+Loading persistent took 0 ms
+Running init code took 61 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 4 ms
+Reloading save slot metadata took 13 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 54 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 51 ms
+DPI scale factor: 1.250000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 0 ms
+Analyze screens took 15 ms
+Save screen analysis took 22 ms
+Save pyanalysis took 7 ms
+Save bytecode took 8 ms
+Running _start took 2 ms
+Interface start took 608 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 17 ms
+Loading script took 180 ms
+Loading save slot metadata took 29 ms
+Loading persistent took 0 ms
+Running init code took 68 ms
+Loading analysis data took 7 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 20 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 67 ms
+Cleaning cache took 0 ms
+Making clean stores took 1 ms
+Initial gc took 73 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 1 ms
+Analyze screens took 11 ms
+Save screen analysis took 17 ms
+Save pyanalysis took 6 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 462 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 9 ms
+Loading error handling took 13 ms
+Loading script took 367 ms
+Loading save slot metadata took 27 ms
+Loading persistent took 0 ms
+Running init code took 41 ms
+Loading analysis data took 4 ms
+Analyze and compile ATL took 4 ms
+Reloading save slot metadata took 15 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 53 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 49 ms
+DPI scale factor: 1.250000
+Creating interface object took 0 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 0 ms
+Analyze screens took 9 ms
+Save screen analysis took 13 ms
+Save pyanalysis took 4 ms
+Save bytecode took 1 ms
+Running _start took 1 ms
+Interface start took 588 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 9 ms
+Loading error handling took 15 ms
+Loading script took 243 ms
+Loading save slot metadata took 21 ms
+Loading persistent took 0 ms
+Running init code took 36 ms
+Loading analysis data took 3 ms
+Analyze and compile ATL took 5 ms
+Reloading save slot metadata took 12 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 49 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 111 ms
+DPI scale factor: 1.250000
+Creating interface object took 2 ms
+Init translation took 0 ms
+Cleaning stores took 1 ms
+Load screen analysis took 1 ms
+Analyze screens took 20 ms
+Save screen analysis took 18 ms
+Save pyanalysis took 8 ms
+Save bytecode took 1 ms
+Running _start took 2 ms
+Interface start took 434 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 591.74'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1080, 'refresh_rate': 144, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8 ms
+Loading error handling took 10 ms
+Loading script took 319 ms
+Loading save slot metadata took 25 ms
+Loading persistent took 0 ms
+Running init code took 51 ms
+Loading analysis data took 3 ms
+Analyze and compile ATL took 5 ms
+Reloading save slot metadata took 14 ms
+Backing up script files to 'C:\\Users\\lizaa\\AppData\\Roaming/RenPy/backups\\GhostTyper':
+Dump and make backups took 52 ms
+Cleaning cache took 0 ms
+Making clean stores took 2 ms
+Initial gc took 60 ms
+DPI scale factor: 1.250000
+Creating interface object took 1 ms
+Init translation took 0 ms
+Cleaning stores took 0 ms
+Load screen analysis took 1 ms
+Analyze screens took 15 ms
+Save screen analysis took 19 ms
+Save pyanalysis took 7 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 579 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)

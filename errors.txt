@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 118: 'yfit' is not a keyword argument or valid child of the window statement.
-    yfit True
-        ^
+File "game/four_hearts.rpy", line 21: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    image butterfly_r animated:
+                      ^
 
 Ren'Py Version: Ren'Py 8.5.3.26051504
-Sat Aug 29 22:28:27 2026
+Sun Aug 30 01:27:37 2026
