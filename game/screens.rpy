@@ -115,14 +115,17 @@ screen say(who, what):
             
         id "window"
 
-        if who is not None:
+        fixed:
+            yfit True
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
+            if who is not None:
 
-        text what id "what"
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
+
+            text what id "what"
 
 
     ## If there's a side image, display it above the text. Do not display on the
