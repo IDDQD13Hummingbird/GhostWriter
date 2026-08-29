@@ -182,3 +182,11 @@ Cleaning stores took 0 ms
 Load screen analysis took 19 ms
 Analyze screens took 0 ms
 Running _start took 1 ms
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
