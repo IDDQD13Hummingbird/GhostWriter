@@ -78,9 +78,9 @@ label woodwind_start:
     tp "{cps=[cps]}Le ts cl i nng!{/cps}"
 
     hide acespades with moveoutright
-    show thanos_m at my_moveinright
+    show thanos at my_moveinright
     thanos "Ah, the delights of linguistics, though rather more expected through this barrier. \"Cheers\", he means. \"Raise a toast.\"{p}\nAfter this scavenger hunt is sorted, perhaps..."
-    hide thanos_m with moveoutright
+    hide thanos with moveoutright
 
     show willow_m at my_moveinright
     willow "Mr. Minski, where should we go with this one?"
@@ -209,7 +209,7 @@ label woodwind_process_answer:
     hide thanos_r with moveoutleft
     "To be continued when we sort the solution..."
     $ gui.custom.textbox_position = "left"
-    jump woodwind_menu
+    jump cardsuit_start
 
 label woodwind_process_secret:
     hide screen woodwind_name

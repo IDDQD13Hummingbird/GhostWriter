@@ -274,6 +274,7 @@ label cocktail_start:
     show willow_m at my_moveinright
     willow "Best in the Brutale business, yes? Of course you are. He speaks of you fondly just now."
 
+    show acespades_r upset
     ace "He being - the typewriter?"
 
     willow "That is so, yes. It's quite the story. Quite the - adventure - to converse with."
@@ -285,6 +286,7 @@ label cocktail_start:
 
     willow "Alexander Minski, a Russian diamond magnate. Seems that you gave him a shot to remember - or more so a good few all at once."
 
+    show acespades_r
     ace "Right - yes - that's some history. Top secret, too, sad to say."
     hide willow_m with moveoutright
 
@@ -319,6 +321,7 @@ label cocktail_start:
 
     tp "{cps=[cps]}It k n oc edd me o t! Tw c e o vv r! F ur sho s d wn fo t e co nnt!{p}\n[cocktail.typewriter_message]{/cps}"
 
+    show acespades_r upset
     ace "Strong and incomprehensible in absurd and equal measures. Right.{p}\nMay I ask how Mr. Minski is to drink it?"
 
     hide clay_m sober with moveoutright
