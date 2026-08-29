@@ -223,11 +223,8 @@ label keypad_menu:
             jump keypad_trinity
         "If only Mr. Minski saw fit to haunt an adding machine. Willow, might you translate?" if keypad.asked_reggie and keypad.asked_trinity:
             jump keypad_willow
-        "I suppose I should push these buttons.":
+        "I suppose it's time to push these buttons.":
             jump keypad_give_answer
-#        "Select another puzzle":
-#            hide screen keypad
-#            jump tutorial_no
 
 label keypad_reggie:
     show reggie_m at my_moveinright
@@ -251,9 +248,9 @@ label keypad_trinity:
 
 label keypad_willow:
     show willow_m at my_moveinright
-    willow "If I can read between these lines - dot an I, or cross a T. Just the same as you'd write with a pen, yes?"
+    willow "If I can read between these lines - dot an i, or cross a T. Just the same as you'd write with a pen, yes?{p}\nFirst a stroke down -"
     if not keypad.asked_willow:
-        $ keypad.typewriter_message += "\n\nTo key in the combination, dot an I or cross a T."
+        $ keypad.typewriter_message += "\n\nTo key in the combination, dot an i or cross a T as you'd write with a pen."
         $ keypad.asked_willow = True  
         $ turns -= 1  
     hide willow_m with moveoutright
@@ -266,7 +263,7 @@ label keypad_process_answer:
         hide screen keypad_interactive
         jump four_hearts_start
     elif keypad.combination == keypad.secret:
-        "A stroke and a dash - that's an i! You found a secret playing card."
+        "A stroke and a dash - that's an i! A secret drawer slides open, revealing a card."
         jump keypad_give_answer
     elif len( keypad.combination ):
         "Not quite...let's be sure to get our clues all in order..."

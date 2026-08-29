@@ -273,7 +273,7 @@ label lockbox_menu:
         "Redd, does that give you enough to go on?" if lockbox.password_solved and not lockbox.password_secret_solved:
             jump lockbox_redd
         "Time's short - let's rather move onto that riddle -" if lockbox.password_solved and not lockbox.password_secret_solved:
-            jump lockbox_after_solution
+            jump woodwind_start
 
 label lockbox_tequila:
     $ gui.custom.textbox_position = "centre"
@@ -358,7 +358,7 @@ label lockbox_process_password_answer:
         greyson "There's a note, for one - another riddle, from the looks of it. Now what's to be done with that?"
         hide greyson_r with moveoutleft
         hide tequila_m with moveoutright
-        jump lockbox_after_solution
+        jump woodwind_start
 
     greyson "There's a note, for one - another riddle, from the looks of it. Though this compartment seems a bit shallow."
     tequila "Do you reckon there's another way in?"
@@ -383,13 +383,10 @@ label lockbox_process_password_secret:
     hide screen lockbox_password
 
     if lockbox.password_solved:
-        "Sneaky sneaky. Well done! Have a card for your cleverness."
-        jump lockbox_after_solution
+        "Sneaky sneaky. Well done! The secret compartment contains a card for your collection.\n\nNow on to the riddle at hand..."
+        jump woodwind_start
 
     menu( screen="choice_h" ):
-        "Sneaky sneaky. Well done! Have a card for your cleverness.\n\nThough there's still more to be found here..."
+        "Sneaky sneaky. Well done! The secret compartment contains a card for your collection.\n\nThough there's still more to be found here..."
         "Back to Clues" if not lockbox.password_solved:
             jump lockbox_menu
-    
-label lockbox_after_solution:
-    "That's all, folks! At least for now. This will transition to the woodwind puzzle."

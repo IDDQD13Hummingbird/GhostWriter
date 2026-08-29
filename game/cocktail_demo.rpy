@@ -344,8 +344,6 @@ label cocktail_menu:
             jump cocktail_give_choice_answer
         "A second round, perhaps? Mr. Minski seems suspiciously fond of that hot stuff -" if cocktail.choice_answer_solved and not cocktail.choice_secret_solved:
             jump cocktail_give_choice_answer
-        "Select another puzzle":
-            jump tutorial_no
 
 label cocktail_clay:
     $ gui.custom.textbox_position = "centre"
@@ -474,7 +472,7 @@ label cocktail_process_mix_answer:
     hide acespades with moveoutright
 
     show redd_m at my_moveinright
-    redd "I could try - emergency means. Twist it right open like a jam jar. And end up with a crumpled mess of tin foil, and mincemeat made of what's in there."
+    redd "There is the nuclear option. Twist it right open like a jam jar. And end up with a crumpled mess of tin foil, and mincemeat made of what's in there."
     hide redd_m with moveoutright
 
     show tequila_m at my_moveinright
