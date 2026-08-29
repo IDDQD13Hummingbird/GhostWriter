@@ -5,6 +5,11 @@ default keypad.keypad_ysize = 600
 
 default keypad.keypad_zoom = 3.0
 
+
+transform door_center:
+    xalign 0.5
+    yalign 0.70
+
 default keypad.asked_reggie = False
 default keypad.asked_trinity = False
 default keypad.asked_willow = False
@@ -205,7 +210,7 @@ screen keypad_interactive:
 
 label keypad_start:
     scene bg hallway with spiral
-    show numpad_icon at screen_centre with spiral
+    show numpad_icon at door_center with spiral
 
     show typewriter at my_moveinright
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
