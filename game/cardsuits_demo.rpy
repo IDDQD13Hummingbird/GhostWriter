@@ -260,7 +260,7 @@ screen card_suit_answer( grid_xalign, grid_yalign, grid_x, grid_y, answer ):
                 yalign 0.5
 
 label cardsuit_start:
-    $ flag_card = true
+    $ flag_card = True
     $ gui.custom.textbox_position = "centre"
 
     stop music fadeout 3.0
