@@ -158,8 +158,11 @@ label four_hearts_start:
     $ gui.custom.textbox_position = "centre"
 
     play music "OminousTheme.mp3" fadein 1.5
-    scene bg foyer with wave
-    
+    scene bg stage with wave
+    show plant1 at plant_right
+    show plant2s at plant_left
+    show plant2 at plant_slightright
+    show plant1s at plant_slightleft
             
     show bbutterfly animated:
         parallel:

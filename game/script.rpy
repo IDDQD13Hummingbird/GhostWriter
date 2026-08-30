@@ -31,6 +31,21 @@ define wave = ImageDissolve("imagedissovle wave.png", 1.0, 64)
 
 # Variables!
 
+transform plant_left:
+    xalign 0.25
+    yalign 0.825
+transform plant_right:
+    xalign 0.75
+    yalign 0.825
+
+
+transform plant_slightleft:
+    xalign 0.40
+    yalign 0.825
+transform plant_slightright:
+    xalign 0.55
+    yalign 0.755
+
 default cps = 25
 
 transform slightleft:
@@ -54,12 +69,12 @@ transform centre:
 
 transform my_moveinleft:
     xalign -0.5 yalign 1.0
-    linear 0.5 xalign 0.05
+    linear 0.5 xalign 0.015
     pause 0.5
 
 transform my_moveinright:
     xalign 1.5 yalign 1.0
-    linear 0.5 xalign 0.95
+    linear 0.5 xalign 0.985
     pause 0.5
 
 transform my_moveoutleft:

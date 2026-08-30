@@ -1,33 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/cardsuits_demo.rpy", line 279, in script
-    if found_card1 or found_card2 or found_card3 or found_card4:
-  File "game/cardsuits_demo.rpy", line 279, in <module>
-    if found_card1 or found_card2 or found_card3 or found_card4:
-       ^^^^^^^^^^^                                              
-NameError: name 'found_card1' is not defined
+  File "game/four_hearts.rpy", line 164, in script
+    show plant1s at plant_slightright
+  File "game/four_hearts.rpy", line 164, in <module>
+    show plant1s at plant_slightright
+                    ^^^^^^^^^^^^^^^^^
+NameError: name 'plant_slightright' is not defined. Did you mean: 'plant_sligthright'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/cardsuits_demo.rpy", line 279, in script
-    if found_card1 or found_card2 or found_card3 or found_card4:
-  File "renpy/ast.py", line 2089, in execute
-    if renpy.python.py_eval(condition):
-       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^ 
+  File "game/four_hearts.rpy", line 164, in script
+    show plant1s at plant_slightright
+  File "renpy/ast.py", line 1364, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 726, in show_imspec
+    at_list = [renpy.python.py_eval(i) for i in at_list]
+               ~~~~~~~~~~~~~~~~~~~~^^^                  
   File "renpy/python.py", line 1308, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1301, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/cardsuits_demo.rpy", line 279, in <module>
-    if found_card1 or found_card2 or found_card3 or found_card4:
-       ^^^^^^^^^^^                                              
-NameError: name 'found_card1' is not defined
+  File "game/four_hearts.rpy", line 164, in <module>
+    show plant1s at plant_slightright
+                    ^^^^^^^^^^^^^^^^^
+NameError: name 'plant_slightright' is not defined. Did you mean: 'plant_sligthright'?
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Sat Aug 29 13:55:07 2026
+Sun Aug 30 14:21:41 2026
