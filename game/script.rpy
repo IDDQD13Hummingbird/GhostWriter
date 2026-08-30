@@ -29,6 +29,10 @@ define spiral = ImageDissolve("imagedissovle spiral.png", 0.5, 64)
 
 define wave = ImageDissolve("imagedissovle wave.png", 1.0, 64)
 
+define fire = Fade(0.2, 0.0, 0.8, color='#ff0000')
+
+ 
+
 # Variables!
 
 transform plant_left:
@@ -96,6 +100,16 @@ transform screen_centre:
 
 transform button_zoom( amount ):
     zoom amount
+
+
+# Flags!
+
+default flag_keypad = False
+default flag_quiz = False
+default flag_bar = False
+default flag_cipher = False
+default flag_woodwind = False
+default flag_card = False
 
 # Cards!
 
@@ -231,6 +245,32 @@ label start:
             hide redd_m_r with moveoutleft
             hide trinity_m with moveoutright
             jump adventure_start
+        "I think we're supposed to check a keypad door..." if flag_keypad:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump keypad_start
+        "Actually, Four Hearts had a quiz prepared for us." if flag_quiz:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump four_hearts_start
+        "Didn't we have to go to the bar and ask for a special?" if flag_bar:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump cocktail_start
+        "Ace Spades had a puzzle box prepared for us." if flag_cipher:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump lockbox_start
+        "We need to head over to Tequila's stage!" if flag_woodwind:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump woodwind_start
+        "The staff is waiting for us with the final puzzle." if flag_card:
+            hide redd_m_r with moveoutleft
+            hide trinity_m with moveoutright
+            jump cardsuit_demo
+
+
         #if possible, implement a few gates allowing to skip puzzles player already completed. 
         #The maximum allowed amount of turns is going to come into play here.
 
