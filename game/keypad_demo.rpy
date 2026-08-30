@@ -18,10 +18,11 @@ default keypad.combination = ""
 default keypad.answer = "80456"
 default keypad.secret = "802"
 
+default keypad.secret_solved = False
+
 init python:
 
     def process_keypad_input( input ):
-
         keypad.combination += input
 
         if len( keypad.combination ) >= 5:
@@ -31,6 +32,7 @@ init python:
             case keypad.answer:
                 renpy.jump( "keypad_process_answer" )
             case keypad.secret:
+                keypad.secret_solved = True
                 renpy.jump( "keypad_process_answer" )
             case _:
                 return
@@ -209,14 +211,67 @@ screen keypad_interactive:
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
+    $ gui.custom.textbox_position = "centre"
+
     scene bg hallway with spiral
     show numpad_icon at door_center with spiral
 
-    show typewriter at my_moveinright
+    show tequila_m at my_moveinright
+
+    tequila "So that's where you've been all this time. Carting this ghost around. How did he get stuck in there, anyway?"
+    
+    show willow_m_r at my_moveinleft
+
+    willow "Desperation for a way to communicate, I suppose. And now he can't seem to find his way back out."
+    tequila "Don't you have some certain measures to help with that?"
+    willow "If the spirit wants to take their leave, yes, or if they're up to enough of their trouble. Mr. Minski isn't quite at either of these points."
+    tequila "He hasn't been too much of a bother, then, has he?"
+    willow "Aside from some clacking in the night? Not particularly, no - and he could be much worse. I was expecting as much from his reputation."
+    tequila "Do I want to know what he was known for? Aside from the diamonds and all."
+    willow "Bad business deals, for the most part. For those on the other end, mostly. And for the deals he was on the bad end of..."
+    tequila "...I reckon I'm good to imagine. Or not."
+    willow "Mr. Minski did have his upsides. He was generous with the village he was born in, and also a patron of the arts. A sponsor of the Bolshoi Ballet, where his favorite niece was a soloist."
+    hide tequila_m with moveoutright
+    show trinity_m at my_moveinright
+    trinity "If only I could have made him a commission. Something all bloody and torn and dismembered. Now, how could marble be carved into puddles..."
+
+    show typewriter with vpunch
+    tp "{cps=[cps]}Y ou s pee a k my la gu age\n\nN ve r to laa e{/cps}"
+
+    hide trinity_m with moveoutright
+    show tequila_m at my_moveinright
+
+    tequila "Well, let's hope Mr. Minski also speaks keypad. If he needs us in here for some reason, maybe there's a chance he knows how."
+    
+    show typewriter with vpunch
+    tp "{cps=[cps]}0{/cps}"
+
+    willow "Is that a no? Or part of the code?"
+
+    show typewriter with vpunch
+    tp "{cps=[cps]}000000000000{/cps}"
+
+    hide tequila_m with moveoutright
+    show reggie_m at my_moveinright
+
+    reggie "If that is part of the code, that's all we're getting. The other number keys are entirely nonfunctional.{p}\nIf only I had any spares..."
+    reggie "Is there some other clue? Letters that resemble numbers, perhaps? Or a pattern to be drawn on the keypad?"
+    
+    show typewriter with vpunch
+    tp "{cps=[cps]}Y SS{/cps}"
+
+    willow "Sounds promising. Let's hear it, then, yes?"
+
+    show typewriter with vpunch
     tp "{cps=[cps]}[keypad.typewriter_message]{/cps}"
 
-    hide typewriter with moveoutright
+    reggie "To be precise...{p}\nAnd then a riddle. Of course."
 
+    hide typewriter
+    hide willow_m_r with moveoutleft
+    hide reggie_m with moveoutright
+
+    $ gui.custom.textbox_position = "left"
     jump keypad_menu
 
 label keypad_menu:
@@ -268,7 +323,17 @@ label keypad_process_answer:
         hide screen keypad_interactive
         jump four_hearts_start
     elif keypad.combination == keypad.secret:
-        "A stroke and a dash - that's an i! A secret drawer slides open, revealing a card."
+        "A stroke and a dash - that's an i! A secret compartment opens, revealing a card."
+        hide screen keypad_interactive
+
+        $ card_index = 0
+        $ card_images_found[ card_index ] = True
+        $ card_image = card_images[ card_index ]
+
+        show expression [card_image] as card at screen_centre with spiral
+        pause
+        hide card
+
         jump keypad_give_answer
     elif len( keypad.combination ):
         "Not quite...let's be sure to get our clues all in order..."

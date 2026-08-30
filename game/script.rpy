@@ -82,10 +82,23 @@ transform screen_centre:
 transform button_zoom( amount ):
     zoom amount
 
+# Cards!
+
+default cards_found = 0 # To be set from card_images_found
+
+default card_images_found = [ False, False, False, False, False ]
+
+define card_images = [
+"jack_diamonds.png",
+"queen_spades.png",
+"king_hearts.png",
+"joker_clubs.png",
+"the_fool.png"
+]
+
 # The game starts here.
 
 label start:
-
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -113,7 +126,7 @@ label start:
 
     scene bg casino with spiral
     show willow_m at my_moveinright
-    willow "Lafcadio! I have something here that could use a second look."
+    willow "Lafcadio! I have something here that could use a second opinion."
     willow "It's a ghost needing spiritual guidance. More than I can give, it seems."
 
     hide willow_m with moveoutright
@@ -126,13 +139,13 @@ label start:
 
     show willow_m at my_moveinright #at right
 
-    willow "I present Alexander Minski, \"The Thunderous\". A notorious Russian dealer in diamonds, and a mainstay on the Marquis' guest list. Or he was, in his long past distant time."
+    willow "I present Alexander Minski, \"The Thunderous\". A notorious Russian dealer in diamonds, and a mainstay on the Marquis' guest list.{p}\nOr rather he was before I was. His acquaintance is new to me."
     show thanos_r at my_moveinleft 
     thanos "\"The Cruel\", you mean. {p}\nThat is the true translation of his title, and also how I most unfortunately recall him. {p}\nBut go on."
     willow "Yes. {w}He died of a rare form of jaw cancer. Rare enough that he's mute, even after taking leave of his earthly body.{p}\nHe can only communicate by typing - as well as he can manage with this relic -"
     hide thanos_r with moveoutleft
     show reggie_m_r at my_moveinleft 
-    reggie "{cps=20}Oh dear...{/cps} This typewriter. It's a classic...and it's rubbish! \n{p}Oh, you poor mistreated machine. I'll get you sorted in my workshop straight away!"
+    reggie "{cps=20}Oh dear...{/cps} This typewriter. A Remington Standard 7. It's a classic...and it's rubbish! \n{p}Oh, you poor mistreated machine. I'll get you sorted in my workshop straight away!"
     willow "How straight away would that be?"
     reggie "Perhaps two hours - perhaps four - perhaps more. I'm afraid I can't say without a thorough disassembly."
     willow "Then I'm afraid that will all have to wait. Mr. Minski is in somewhat of a hurry."
@@ -141,24 +154,28 @@ label start:
     thanos "Of course he is. Never a whit of patience with that one."
     hide thanos_r with moveoutleft
     show aurum_m_r at my_moveinleft
-    aurum "What's the hurry? Where's the chill? Relax, old chap. You'll always have a seat at the Marquis' tables."
+    aurum "What's the hurry? Where's the chill? Relax, man. You'll always have a seat at the Marquis' tables."
     hide aurum_m_r with moveoutleft
     show willow_m thinking
-    willow "He insisted we find something..."
+    willow "He's looking for - something. He hasn't said what yet."
     show greyson_r at my_moveinleft
     greyson "A diamond?"
     show willow_m
-    willow "Maybe that, maybe not. Something important, yes, in any case. We had a look around, but came up empty."
-    greyson "And you didn't think to ring me in? Did you expect I'd nick it all? I might skim a touch off the top, but -"
+    willow "Maybe that, maybe not. Something important, yes, in any case. We had a quick look around, but nothing seemed to ring a bell."
+    greyson "And you didn't think to call me in? Did you expect I'd nick it all? I might skim a hair off the top, but -"
     willow "We were pressed for time, as I mentioned. And it seems we still are."
-    greyson "Then what's the wait? Point me in a direction, and off I'll go. I might get into a bit of a pickle - or a jam - but I'll get out straight away, or rather Redd will -"
-    show willow_m thinking
+    greyson "Then what's the wait? Point me in a direction, and off I'll go. I might get into a bit of a pickle - or a jam. But I'll get out straight away, or rather Redd will -"
+    hide willow_m with moveoutright
+    show redd_m at my_moveinright
+    redd "Only with the most necessary of force."
+    hide redd_m with moveoutright
+    show willow_m at my_moveinright
     willow "That's the rub. The direction. So far, this is all we have to go on."
-    show willow_m
 
     show typewriter with vpunch
-    tp "F D LUCAS"
+    tp "F D LU CAS"
 
+    show greyson_r at my_moveinleft
     greyson "Flaming Daft Lucas? Spot on."
     hide greyson_r with moveoutleft
 
@@ -172,14 +189,14 @@ label start:
     hide clay_m_r sober with moveoutleft
 
     show reggie_m_r at my_moveinleft 
-    reggie "Did he say why we're pressed for time? Is there an event he needs this for? A limit to his ghostly vigor? Or is he simply apt to run out of ink?{p}\nI might have a spare ribbon handy -"
+    reggie "Did he say why we're pressed for time? Is there something he needs the Marquis for? A limit to his ghostly vigor? Or is he simply apt to run out of ink?{p}\nI might have a spare ribbon handy -"
     willow "He said before noon. He didn't say why, no. Just some business about ''hiding behind seven locks''."
     hide reggie_m_r with moveoutleft
     show greyson_r at my_moveinleft
-    greyson "I'd have those all cracked before second breakfast, if not for that matter of needing direction."
+    greyson "I'd have all those cracked before elevenses, if not for that matter of needing direction."
     hide greyson_r with moveoutleft
     show thanos_r at my_moveinleft
-    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means. Yet again with the Russian idioms."
+    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means, or at least some significant number thereof. The idioms strike once again."
     hide willow_m with moveoutright
     hide thanos_r with moveoutleft
 
@@ -191,10 +208,10 @@ label start:
     show redd_m_r at my_moveinleft
     redd "You're both right on time, I'd say. We're rather just getting sorted."
     trinity "Oh, so we're choosing teams? Or partners? What skills are we testing? I wonder what's to be won -"
-    redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Good Show\" if we crack what it is that he's on about?"
+    redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Jolly Good Show\" if we crack what it is that he's on about?"
     trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? Fancy a game of Ghost Detective?"
 
-    menu:
+    menu( screen="choice_h" ):
         "You won't leave me any real choice, will you?":
             hide redd_m_r with moveoutleft
             hide trinity_m with moveoutright
@@ -241,7 +258,7 @@ label adventure_start:
     trinity "There's a locked door I've never managed to get into, all the way in the back past the slot machines. And a certain husband of mine refuses to help."
     show willow_m_r
     willow "Because that would spoil your fun?"
-    trinity "Because of the cobwebs, or so he says. Perhaps it's just some private loo that's never cleaned. Or rather -"
+    trinity "Because of the cobwebs, or so he says. As if a sculptor would be so fussed about a bit of dust. Perhaps it's just some private loo that's never cleaned. Or rather -"
 
     hide willow_m_r with moveoutleft
 
@@ -278,21 +295,12 @@ label adventure_after_spider_room:
     $ turns_taken = 25-turns
     n "You managed in [turns_taken] turns, too. \nGood job!"
 
-#Post minigame, transition into your box puzzle.
-#Post box puzzle, transition into woodwind. If Dani/I get the sprites for it on time, it might be worth the hustle to implement it as "click on the right instrument" (partially reusing the numpad's implementation)
-#If we want to be evil, throw in padlock with ABBA as a final tiny insult of a puzzle.
-#The last bit, I'll have to code in myself.
-#Good luck! I'll be back in 12-16 hours, probably.
-
-
     jump tutorial_no
 
     
     label tutorial_no:
         play music "MainTheme.mp3" fadein 0.5
-        "{size=55}THIS IS A TECH DEMO PUZZLE. \nDO NOT INCLUDE IN THE FINAL GAME.{/size}"
-        n "Harpy : My offer is we start with the keypad puzzle, because Trinity and Reggie are already here, and maybe then move onto drink mixing with Clay and Aurum. We could throw in a painting room/aquarium puzzle somewhere in-between, if we write one. Then we can somehow lead it to woodwind puzzle, maybe with a joke that Redd had to carry Thanos up the stairs first. A different version of Padlock (that needs to be set up before entering the final area) can be used for the elevator puzzle at the end."
-
+  
         menu:
             "Padlock Code":
                 jump padlock_start

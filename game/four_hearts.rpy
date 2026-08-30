@@ -228,7 +228,7 @@ label four_hearts_start:
     four "...ugh."
     
     show fourhearts
-    four "{cps=20}{i}Finally{/i}{/cps}. {i}Somebody{/i} saw fit to show up."
+    four "{cps=20}Finally{/cps}. {i}Somebody{/i} saw fit to show up."
     
     four "What even took you so long? You had {i}Trinity{/i} with you, for God's sake."
     show trinity_m_r at my_moveinleft
@@ -247,14 +247,14 @@ label four_hearts_start:
     hide clay_m_r sober with moveoutleft
     show trinity_m_r at my_moveinleft
     trinity "Then what are you in here for, anyhow? Hiding out to give us a laugh?"
-    four "To pop you a quiz, apparently. And play nanny to the {i}world's deadliest spider{/i}. I had better be in for one monumental bonus."
+    four "To pop you a quiz, apparently. And play nanny to the {i}world's deadliest spider{/i}, or so it says on its terrarium. I had better be in for one monumental bonus."
     trinity "What do we get if we win?"
-    four "That's for me to know until it becomes relevant. \"La fée verte\" - that's the quiz. And that's all I'm permitted to say."
+    four "That's for me to know until it becomes relevant.{p}\n\"La fée verte\" - that's the quiz. And that's all I'm permitted to say."
 
     show typewriter with vpunch
     tp "{cps=[cps]}Ab s ntt{/cps}"
 
-    four "Absent? Yes, the Marquis most certainly is. That, and downright impossible."
+    four "Absent? Yes, the Marquis most certainly is. And downright impossible, but that goes without saying."
 
     tp "{cps=[cps]}A b s in{/cps}"
 
@@ -335,7 +335,7 @@ label four_hearts_process_answer:
     show typewriter with vpunch
     tp "{cps=[cps]}Lu kyy me! I mu sst we t m yy whi s le str ighh t aw y{/cps}"
 
-    aurum "Oil your sprockets, so to speak...er...type? If that is what it takes - however that even works -"
+    aurum "Oil your sprockets, so to speak... er... type? If that is what it takes - however that even works -"
 
     tp "{cps=[cps]}As k A cee. Wh t he g nne d u p. Un f or ge t a bbl !{/cps}"
 
@@ -352,8 +352,18 @@ label four_hearts_process_secret:
 
     $ gui.custom.textbox_position = "centre"
     hide screen four_hearts_name
+
+    $ card_index = 1
+    $ card_images_found[ card_index ] = True
+    $ card_image = card_images[ card_index ]
+
+    show expression [card_image] as card at screen_centre with spiral
+    pause
+    hide card
+
     show fourhearts upset at my_moveinright
     four "Here you are. A secret card. I suppose you've properly earned this."
+    
     show trinity_m_r at my_moveinleft
     trinity "Don't sound too thrilled at my victory."
     four "You guessed your name. How victorious was that?"

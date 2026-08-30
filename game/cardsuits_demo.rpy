@@ -1,15 +1,8 @@
-﻿# To adress the elephant in the room : I feel incredibly understimulated by coding, and this feels like a physical torture.
-# Insofar, this puzzle is a reskin of card selection.
-# Anyhow, 
+﻿#default card.puzzle_text = ""
 
 default card.suit.input = [ 0, 0, 0, 0 ] #Jack, Queen, King, Joker
 default card.suit.answer = "1230" # Up the chapel
 default card.suit.secret = "1210" # Down the basement
-
-default card.suit1 = 2
-default card.suit2 = 2
-default card.suit3 = 2
-default card.suit4 = 2
 
 default card.suit.images = [ 
     "select_clubs.png",     #0
@@ -18,9 +11,18 @@ default card.suit.images = [
     "select_hearts.png",    #3
 ]
 
+default card.wildcard.input = 0
+default card.wildcard.answer = 2
+
+default card.wildcard.images = [
+    "knight_spades.png",
+    "weapon_clubs.png",
+    "the_fool.png"
+]
+
 default card.suit.zoom = 0.45
+default card.display.zoom = 0.65
 default card.suit.xysize = (200, 150)
-#default card.suit_solved = False - you only get one shot
 
 init python:
     def suit_get_image( index ):
@@ -39,22 +41,86 @@ init python:
         elif direction == "down":
             card.suit.input[ index ] = max if value == 0 else value - 1
 
-        check_suit_combination()
+    def wildcard_get_image( index ):
+        return card.wildcard.images[ index ]
 
-    def check_suit_combination(): # Sort solution & input by image index to compare irrespective of order
-    #Alright, but we'll need to give a "Give answer" button, basically - player should be allowed to give the wrong choice. 
-        combination = "".join( str(x) for x in sorted( card.suit.input ) )
-        if combination == card.suit.answer and not card.choice_answer_solved:
-            card.choice_answer_solved = True
+    def wildcard_get_combination_image():
+        return wildcard_get_image( card.wildcard.input )
+
+    def wildcard_set_combination_input( direction ):
+        value = card.wildcard.input
+        max = len( card.wildcard.images ) - 1
+
+        if direction == "up":
+            card.wildcard.input = 0 if value == max else value + 1
+
+        elif direction == "down":
+            card.wildcard.input = max if value == 0 else value - 1
+
+    def check_suit_combination(): 
+        combination = "".join( str(x) for x in card.suit.input )
+        if combination == card.suit.answer and card.wildcard.input == card.wildcard.answer:
             renpy.jump( "card_process_choice_answer" )
-        if combination == card.suit.secret:
-            card.choice_secret_solved = True
+        elif combination == card.suit.secret and card.wildcard.input == card.wildcard.answer:
             renpy.jump( "card_process_choice_secret" )
+        else:
+            renpy.jump( "card_process_choice_wrong")
+
+screen card_suit_reference:
+    grid 5 1:
+        xalign 0.9
+        yalign 0.1
+
+        frame:
+            xysize card.suit.xysize
+            if card_images_found[0]:
+                $ file_path = card_images[0]
+                add [file_path]:
+                    xalign 0.5
+                    yalign 0.5
+                    zoom card.display.zoom
+
+        frame:
+            xysize card.suit.xysize
+            if card_images_found[1]:
+                $ file_path = card_images[1]
+                add [file_path]:
+                    xalign 0.5
+                    yalign 0.5
+                    zoom card.display.zoom
+
+        frame:
+            xysize card.suit.xysize
+            if card_images_found[2]:
+                $ file_path = card_images[2]
+                add [file_path]:
+                    xalign 0.5
+                    yalign 0.5
+                    zoom card.display.zoom
+
+        frame:
+            xysize card.suit.xysize
+            if card_images_found[3]:
+                $ file_path = card_images[3]
+                add [file_path]:
+                    xalign 0.5
+                    yalign 0.5
+                    zoom card.display.zoom
+
+        frame:
+            xysize card.suit.xysize
+            if card_images_found[4]:
+                $ file_path = card_images[4]
+                add [file_path]:
+                    xalign 0.5
+                    yalign 0.5
+                    zoom card.display.zoom
 
 screen card_suit_interactive:
-    grid 4 3:
-        xalign 0.5
-        yalign 0.2
+    modal True
+    grid 5 3:
+        xalign 0.9
+        yalign 0.3
         imagebutton:
             auto "arrow_up_%s.png"
             at button_zoom( card.suit.zoom )
@@ -75,7 +141,7 @@ screen card_suit_interactive:
             xalign 0.5 
             yalign 0.85
             action Function( suit_set_combination_input, 2, "up" )
-  
+
         imagebutton:
             auto "arrow_up_%s.png"
             at button_zoom( card.suit.zoom )
@@ -83,61 +149,76 @@ screen card_suit_interactive:
             yalign 0.85
             action Function( suit_set_combination_input, 3, "up" )
 
+        imagebutton:
+            auto "arrow_up_%s.png"
+            at button_zoom( card.suit.zoom )
+            xalign 0.5 
+            yalign 0.85
+            action Function( wildcard_set_combination_input, "up" )
+
         frame:
             xysize card.suit.xysize
             add suit_get_combination_image(0): 
-                zoom card.suit.zoom
                 xalign 0.5
                 yalign 0.5
 
         frame:
             xysize card.suit.xysize
             add suit_get_combination_image(1): 
-                zoom card.suit.zoom
                 xalign 0.5
                 yalign 0.5
 
         frame:
             xysize card.suit.xysize
             add suit_get_combination_image(2): 
-                zoom card.suit.zoom
                 xalign 0.5
                 yalign 0.5
 
         frame:
             xysize card.suit.xysize
             add suit_get_combination_image(3): 
-                zoom card.suit.zoom
                 xalign 0.5
                 yalign 0.5
 
-        imagebutton:
-            auto "arrow_down_%s.png"
-            at button_zoom( card.suit.zoom )
-            xalign 0.5 
-            yalign 0.15
-            action Function( suit_set_combination_input, 0, "down" )
+        frame:
+            xysize card.suit.xysize
+            add wildcard_get_combination_image(): 
+                xalign 0.5
+                yalign 0.5
+                zoom card.display.zoom
 
-        imagebutton:
-            auto "arrow_down_%s.png"
-            at button_zoom( card.suit.zoom )
-            xalign 0.5 
-            yalign 0.15
-            action Function( suit_set_combination_input, 1, "down" )
+        frame:
+            xysize card.suit.xysize
+            add "card_jack.png": 
+                xalign 0.5
+                yalign 0.5
 
-        imagebutton:
-            auto "arrow_down_%s.png"
-            at button_zoom( card.suit.zoom )
-            xalign 0.5 
-            yalign 0.15
-            action Function( suit_set_combination_input, 2, "down" )
+        frame:
+            xysize card.suit.xysize
+            add "card_queen.png": 
+                xalign 0.5
+                yalign 0.5
 
-        imagebutton:
-            auto "arrow_down_%s.png"
-            at button_zoom( card.suit.zoom )
-            xalign 0.5 
-            yalign 0.15
-            action Function( suit_set_combination_input, 3, "down" )
+        frame:
+            xysize card.suit.xysize
+            add "card_king.png": 
+                xalign 0.5
+                yalign 0.5
+
+        frame:
+            xysize card.suit.xysize
+            add "card_jester.png": 
+                xalign 0.5
+                yalign 0.5
+
+        frame:
+            xysize card.suit.xysize
+
+    textbutton "I am ready.":
+        style "button_input"
+        xalign 0.71
+        yalign 0.65
+        action Function( check_suit_combination )
 
 screen card_suit_answer( grid_xalign, grid_yalign, grid_x, grid_y, answer ):
     python:
@@ -178,75 +259,68 @@ screen card_suit_answer( grid_xalign, grid_yalign, grid_x, grid_y, answer ):
                 xalign 0.5
                 yalign 0.5
 
-screen card_suit_interactive:
-
-    default ordered_answer = "2222"
-
-    python:
-        index1 = int( ordered_answer[0] )
-        index2 = int( ordered_answer[1] )
-        index3 = int( ordered_answer[2] )
-        index4 = int( ordered_answer[3] )
-
-    grid 4 2:
-        xalign 0.75
-        yalign 0.2
-        xspacing 50
-        yspacing 25
-        vbar:
-            ysize 200
-            xalign 0.5
-            range 3
-            value VariableValue( variable = "card.suit1", step = 1, range = 3, action = Function( check_suit_combination ) )         
-
-        vbar:
-            ysize 200
-            xalign 0.5
-            range 3
-            value VariableValue( variable = "card.suit2", step = 1, range = 3, action = Function( check_suit_combination ) )
-
-        vbar:
-            ysize 200
-            xalign 0.5
-            range 3
-            value VariableValue( variable = "card.suit3", step = 1, range = 3, action = Function( check_suit_combination ) )
-
-        vbar:
-            ysize 200
-            xalign 0.5
-            range 3
-            value VariableValue( variable = "card.suit4", step = 1, range = 3, action = Function( check_suit_combination ) )
-
-        frame:
-            xysize card.suit.xysize
-            add suit_get_image(index1):
-                zoom card.suit.zoom
-                xalign 0.5
-                yalign 0.5
-
-        frame:
-            xysize card.suit.xysize
-            add suit_get_image(index2):
-                zoom card.suit.zoom
-                xalign 0.5
-                yalign 0.5
-
-        frame:
-            xysize card.suit.xysize
-            add suit_get_image(index3):
-                zoom card.suit.zoom
-                xalign 0.5
-                yalign 0.5
-
-        frame:
-            xysize card.suit.xysize
-            add suit_get_image(index4):
-                zoom card.suit.zoom
-                xalign 0.5
-                yalign 0.5
-
-
 label cardsuit_start:
+    python:
+        for index in card_images_found:
+            if card_images_found[index]:
+                cards_found += 1
+
+    $ gui.custom.textbox_position = "centre"
+
+    stop music fadeout 3.0
+
+    scene bg tequilastage with spiral
+
+    play music "MainTrack.ogg" fadein 5.0
+
+    show kingclubs at my_moveinright
+
+    king "Here we are."
+
+    $ text = "Get it wrong, and it locks for an hour. Or worse.{p}\nThe Marquis did mention a new measure of extra security."
+
+    if cards_found >= 5:
+        king "Do be careful to match the exact combination. [text]"
+    else:
+        show greyson_r at my_moveinleft
+        greyson "Is that all? Can't we just brute force it? Or does this daft device charge per attempt?"
+        king "That would be very much at your own risk, sir. [text]"
+        hide greyson_r with moveoutleft
+
+    show thanos_r at my_moveinleft
+    thanos "That measure is news to me. I'm almost afraid to even ask."
+    hide thanos_r with moveoutleft
+
+    show reggie_m_r at my_moveinleft
+    reggie "A spiral slide down to the basement? If only I had my druthers..."
+    hide reggie_m_r with moveoutleft
+
+    if cards_found < 5:
+        show willow_m_r at my_moveinleft
+        willow "If only we had a better idea of this combination. Let's review what we do know so far..."
+
+        $card.puzzle_text = "Each suit is only used once\n\nSuit colors are mixed - combination will not have both red together then both black, or vice versa"
+
+        if not card_images_found[0]:
+            $card.puzzle_text += "\n\nJack is not Clubs"
+        hide willow_m_r with moveoutleft
+
+        show twodiamonds_r at my_moveinleft
+        two "There is one thing - could be nothing - but it's something. The Marquis was humming a song the other day.{p}\nSomething about a diamond, and a spade.{p}\nIf the first then goes before the other..."
+        hide twodiamonds_r with moveoutleft
+        $card.puzzle_text += "\n\nDiamonds perhaps followed by Spades?"
+
+    hide kingclubs with moveoutright
+    
+    $ gui.custom.textbox_position = "left"
+
+    show screen card_suit_interactive
+    show screen card_suit_reference
+    if len( card.puzzle_text ):
+        "[card.puzzle_text]"
+    pause
+
+label cardsuit_start_v1:
     $ gui.custom.textbox_position = "centre"
 
     stop music fadeout 3.0
@@ -298,12 +372,28 @@ label cardsuit_start:
     
     #show screen card_suit_answer
     show screen card_suit_interactive
-    menu:
-        "I am ready.":
-            jump card_process_choice_answer
+    pause
 
 label card_process_choice_answer:
-    hide screen card_isuit_interactive
-    king "Off we go, then."
+    hide screen card_suit_reference
+    hide screen card_suit_interactive
+    show kingclubs at my_moveinright
+    king "A jolly good show! Off we go, then."
+
+    jump end
+
+label card_process_choice_secret:
+    hide screen card_suit_reference
+    hide screen card_suit_interactive
+    show kingclubs at my_moveinright
+    king "The true secret is where this branch actually leads."
+
+    jump end
+
+label card_process_choice_wrong:
+    hide screen card_suit_reference
+    hide screen card_suit_interactive
+    show kingclubs at my_moveinright
+    king "I regret to inform you that...{p}\nYou get nothing! You lose! Good day, sir!"
 
     jump end

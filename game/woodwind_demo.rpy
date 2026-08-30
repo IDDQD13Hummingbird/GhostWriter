@@ -14,12 +14,12 @@ default woodwind.puzzle_intro = "A double read, so to speak, for it rhymes in do
 # Set to the poem to start with, then whatever all is revealed with hints - highlighted poem, further hints, etc.
 default woodwind.puzzle_text = woodwind.poem 
 
-default woodwind.redd_hint = "Woodwinds - flute, clarinet, oboe, saxophone, bassoon, bagpipe, ocarina"
+default woodwind.redd_hint = "Woodwinds - flute, clarinet, bassoon, oboe, saxophone, bagpipe, ocarina"
 
 default woodwind.input = ""
 
 default woodwind.answer = "bassoon"
-default woodwind.secret = "windbag"
+default woodwind.secret = "bagpipe"
 
 default woodwind.asked_thanos = False
 default woodwind.asked_redd = False
@@ -79,11 +79,11 @@ label woodwind_start:
 
     hide acespades with moveoutright
     show thanos at my_moveinright
-    thanos "Ah, the delights of linguistics, though rather more expected through this barrier. \"Cheers\", he means. \"Raise a toast.\"{p}\nAfter this scavenger hunt is sorted, perhaps..."
+    thanos "Ah, the delights of translation, though rather more expected. \"Cheers\", he means. \"Raise a toast.\"{p}\nAfter this scavenger hunt is sorted, perhaps..."
     hide thanos with moveoutright
 
     show willow_m at my_moveinright
-    willow "Mr. Minski, where should we go with this one?"
+    willow "Mr. Minski, any hint of where to go with this one?"
 
     show typewriter with vpunch
     tp "{cps=[cps]}MUU SC H L{/cps}"
@@ -169,12 +169,12 @@ label woodwind_willow:
 label woodwind_redd:
     $ gui.custom.textbox_position = "centre"
     show redd_m at my_moveinright
-    redd "Off the top of my head - or rather from a good look around -\n{p}Flute, clarinet, oboe. Saxophone, bassoon.{p}\nOcarina and bagpipe - those too. And they all sound like an unfortunate goose, at least the ones I've ever tried my hand at."
+    redd "Off the top of my head - or rather from a good look around -\n{p}Flute, clarinet, bassoon, oboe, saxophone.{p}\nOcarina and bagpipe - those too.\n\nAnd they all sound like an unfortunate goose, at least the ones I've ever tried my hand at. Piano doesn't translate to the wind bit."
     show thanos_r at my_moveinleft
     thanos "A bagpipe? In here? That doesn't seem so acoustically wise."
     hide redd_m with moveoutright
     show aurum_m at my_moveinright
-    aurum "That doesn't seem so wise at all, with that stained glass mural just built. One banger of a note and -"
+    aurum "That doesn't seem so wise at all, with that stained glass mural just put in behind the stage. One banger of a note and -"
     hide aurum_m with moveoutright
     show greyson at my_moveinright
     greyson "But that is just like the Marquis, isn't it? Quite fitting, really, for such a windbag."
@@ -201,20 +201,146 @@ label woodwind_process_answer:
     hide screen woodwind_name
     show redd_m at my_moveinright
     redd "Bassoon - of course - a double read denotes a double reed. Took me a moment to catch that, sad to say."
+    show reggie_m_r at my_moveinleft
+    reggie "I don't see any buttons nearby, or switches - though perhaps the display mount is pressure sensitive -"
+    hide reggie_m_r with moveoutleft
+
     show thanos_r at my_moveinleft
-    thanos "Why that choice of instrument in particular? That display cabinet doesn't conceal any secret that I'm privy to. Though perhaps it did - past tense being the operative here. And here we are, in the here and now, on the hunt for wild geese."
+    thanos "A switch for what, though? This room doesn't hide any secrets.\n\nUnless it did - past tense being the operative here. And here we are, in the here and now, on the hunt for wild geese."
     redd "If that's what we're after, I can give it a good honk and declare victory."
     thanos "With the utmost caution, I trust."
+    redd "Actually - Tequila, if you would - you're the one with the most lung power."
     hide redd_m with moveoutright 
+
+    show tequila_m at my_moveinright
+
+    tequila "You know, I played recorder way back when. I had a solo at the spring recital and all that. Oh, what the heck. Let's take this thing out for a toot.\n\nDon't expect I'll be any good at it, but at least I won't get hollered at for making noise inside."
+
     hide thanos_r with moveoutleft
-    "To be continued when we sort the solution..."
+    hide tequila_m with moveoutright
+
+    "SQUEEEEEEEEEEEAK!"
+
+    show kingclubs_r at my_moveinleft
+    king "You rang? Or rather produced whatever fractured note that was."
+
+    show twodiamonds at my_moveinright
+    two "You could have just knocked. Did you not get the memo?"
+
+    hide kingclubs_r with moveoutleft
+    show reggie_m_r at my_moveinleft
+    reggie "There's a memo? Somehow we all managed to miss it."
+    two "It's right here in your hands. Now, where's my torch...\n\nOh dear...it fell down the bell. The full way, too. That will require some disassembly..."
+
+    hide reggie_m_r with moveoutleft
+    show thanos_r at my_moveinleft
+    thanos "Not by any means whatsoever. That instrument dates to the 19th century, bespoke for the director of the Paris Conservatory.\n\nIt stays in one piece, end of story."
+    two "Then that poses somewhat of a problem."
+
+    hide thanos_r with moveoutleft
+    show redd_m_r at my_moveinleft
+    redd "Let me guess. That memo had some key information?"
+    two "You could say that. Quite literally."
+
+    hide redd_m_r with moveoutleft
+    show thanos_r at my_moveinleft
+    thanos "Please tell me that was key information you were privy to. At least partially."
+    two "It's a card game, or the start of it. A set of rules for a winning hand."
+
+    hide thanos_r with moveoutleft
+    show clay_m_r happy at my_moveinleft
+
+    clay "Not 52 Pickup? Thank hell. Then we'd really be bloody well in it."
+
+    hide clay_m_r happy with moveoutleft
+    show kingclubs_r upset at my_moveinleft
+
+    king "It was meant to be a game, rather. It's now a - situation."
+
+    hide twodiamonds with moveoutright
+    show willow_m at my_moveinright
+    show willow_m thinking
+
+    willow "Maybe it's been a situation. And that's why Mr. Minski's been so insistent."
+
+    show willow_m
+    
+    show typewriter with vpunch
+    tp "{cps=[cps]}Y U G OT T AT ST RA GGHT{/cps}"
+   
+    willow "What exactly is this game for, anyhow?"
+    show kingclubs_r
+    king "For the staff door. The new one. That none of us know how to open. Only our part of the combination."
+    show kingclubs_r upset
+    king "Or we {i}did{/i}, before the Marquis changed it..."
+    pause
+
+    # Compute total number of cards found for subsequent dialogue.
+
+    $cards_found = 0
+
+    python:
+        for index in card_images_found:
+            if card_images_found[index]:
+                cards_found += 1 
+
+    $arrangement = "Each suit is only used once. He also likes to mix up the colors. You won't see both red then both black, or vice versa."
+
+    show kingclubs_r
+    if cards_found > 0: # At least 1
+        $old_combination = ""
+        if card_images_found[0]:
+            $old_combination = "That Jack of Diamonds wasn't in the old combination."
+        else:
+            $which = "any of these" if cards_found > 1 else "this one"
+            $old_combination = "I don't recall " + which + " in the old combination."
+        willow "So that's what's been scattered about, yes?"
+        king "Perhaps. Hopefully. [old_combination] And the Marquis is in the habit of changing it entirely."
+        willow "A rare bit of foresight come back to haunt him. I'll take it in the spirit he intended."
+        if cards_found == 4 and not card_images_found[4]: # Jack, Queen, King, Joker
+            willow "Do you suppose these might lay it all out for us?"
+            king "Almost. There is a wild card.{p}\nI can't recall who'd know which one it isn't -"
+        elif cards_found == 5: # The full hand!
+            willow "Please tell me we managed to find them all."
+            king "Five all told, so it seems so. Shall we move on, then?"
+            pause
+            $ gui.custom.textbox_position = "left"
+            jump cardsuit_start
+        willow "Is there anything else you have for us to go on?"
+        king "The Marquis is most aesthetically particular. [arrangement]"
+    else:
+        willow "Do you know of any guidelines we could go on?"
+        king "The Marquis always changes it entirely. The Jack won't be Clubs, then."
+        willow "I suppose that's a semblance of a start."
+        king "He's also most aesthetically particular. [arrangement]"
+
+    hide willow_m with moveoutright
+    show greyson at my_moveinright 
+
+    greyson "Seems we'd best start with a look, then."
+    king "Of course. Right this way, all."
+
+    hide greyson with moveoutright
+    hide kingclubs_r with moveoutleft
+
     $ gui.custom.textbox_position = "left"
     jump cardsuit_start
 
 label woodwind_process_secret:
     hide screen woodwind_name
-    "Indeed, the Marquis is a windbag, and considers such to be a point of pride.{p}
-    \n\nA card was tucked under the tartan bag of the Great Highland bagpipe." 
+    "Indeed, the Marquis is a windbag, and considers such to be a point of pride."
+
+    $ card_index = 4
+    $ card_images_found[ card_index ] = True
+    $ card_image = card_images[ card_index ]
+
+    show expression [card_image] as card at screen_centre with spiral
+    pause
+
+    "A card was tucked under the tartan bag of the Great Highland bagpipe." 
+    
+    hide card
+
     jump woodwind_menu
 
 label woodwind_exit:

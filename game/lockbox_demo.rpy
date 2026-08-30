@@ -12,7 +12,9 @@ K I E Y
 S I E N
 G * M A
 
-Cipher key - """ + lockbox.cipher_answer
+Cipher key - """ + lockbox.cipher_answer + """
+
+Arrange the columns in that order"""
 
 default lockbox.cipher_descrambled = """1 3 4 2
 K E Y I
@@ -243,14 +245,14 @@ label lockbox_start:
     tequila "Six letters from all that, somehow. And I don't see any C in these dials."
     greyson "You wouldn't. It's a transposition cipher. Rather classic - or extremely antiquated - but anyhow. All the letters we need are up at the top."
     tequila "And I reckon you know how to order them?"
-    greyson "I will when we know the code. One number for each phrase, so some permutation of 1,2,3,4. Not in that same order, though - that would be just too trivial."
+    greyson "I will when we know the code. One number for each three-letter phrase, so some permutation of 1,2,3,4. Not in that same order, though - that would be just too trivial."
     tequila "What sort of lock isn't too trivial for you?"
     greyson "This right here, I suppose - I was never brilliant at bashing through these in my head. If I was sat with pen and paper, I could take a good crack at it. But why hog all the fun around here, eh?"
 
     hide greyson_r with moveoutleft
     hide tequila_m with moveoutright
 
-    $ lockbox.puzzle_text += "\n\nNeeds a 4-digit code including 1,2,3,4"
+    $ lockbox.puzzle_text += "\n\nNeeds a 4-digit code made of 1,2,3,4"
 
     $ gui.custom.textbox_position = "left"
     jump lockbox_menu
@@ -262,7 +264,7 @@ label lockbox_menu:
             jump lockbox_cipher_give_answer
         "The cipher contains a music note. Might that be of significance?" if not lockbox.cipher_solved and not lockbox.password_solved:
             jump lockbox_tequila
-        "1,5,6,4 - I could use some locksmith's hands here" if lockbox.asked_tequila and not lockbox.cipher_solved and not lockbox.password_solved:
+        "1,5,6,4 - I could use some locksmith's eyes here" if lockbox.asked_tequila and not lockbox.cipher_solved and not lockbox.password_solved:
             jump lockbox_greyson_cipher
         "I'm rather scrambled trying to descramble this" if lockbox.cipher_solved and not lockbox.password_solved and not lockbox.asked_greyson_descramble:
             jump lockbox_greyson_descramble
@@ -283,9 +285,9 @@ label lockbox_tequila:
     tequila "Jump on C, hop to G. Sounds like a piece of a chord progression."
 
     show redd_m_r at my_moveinleft
-    redd "And a subtler hint at the rest. If we {b}add{/b} one - go up to A - then {b}fall{/b} back two down the scale -"
+    redd "And a subtler hint at the rest. If we {i}add{/i} one - go up to A - then {i}fall{/i} back two down the scale -"
     tequila "Then we have C, G, A, F, and our numbers are chord notation."
-    redd "We started with C, so we should be in that key. C is 1."
+    redd "We started with C, so we should be in that key. Therefore, C is 1."
     tequila "So C, G, A, F gives us 1, 5, 6, 4.{p}\n...{p}\nAnd of course it couldn't be all nice and literal."
     hide tequila_m with moveoutright
     hide redd_m_r with moveoutleft
@@ -300,7 +302,7 @@ label lockbox_greyson_cipher:
     show greyson at my_moveinright
     greyson "Ah, there's the fun, relatively speaking. We need to number those numbers. If we start with 1, what's the next largest? The 2 goes in that position. And so on to 4.{p}\nSo, to start - 1 * * 2 -"
     if not lockbox.asked_greyson_cipher:
-        $ lockbox.puzzle_text += " - to be numbered from smallest to largest. 1 is 1, 4 is 2 -"
+        $ lockbox.puzzle_text += " - to be numbered from smallest to largest. To start, looks like 1 * * 2"
     $ lockbox.asked_greyson_cipher = True
     hide greyson
     jump lockbox_menu
@@ -382,11 +384,22 @@ label lockbox_process_password_answer:
 label lockbox_process_password_secret:
     hide screen lockbox_password
 
+    "Sneaky sneaky. Well done! The secret compartment contains a card for your collection."
+    
+    $ card_index = 3
+    $ card_images_found[ card_index ] = True
+    $ card_image = card_images[ card_index ]
+
+    show expression [card_image] as card at screen_centre with spiral
+    pause
+
     if lockbox.password_solved:
-        "Sneaky sneaky. Well done! The secret compartment contains a card for your collection.\n\nNow on to the riddle at hand..."
+        "Now on to the riddle at hand..."
+        hide card
         jump woodwind_start
 
     menu( screen="choice_h" ):
-        "Sneaky sneaky. Well done! The secret compartment contains a card for your collection.\n\nThough there's still more to be found here..."
-        "Back to Clues" if not lockbox.password_solved:
+        "Though there's still more to be found here..."
+        "Back to Clues":
+            hide card
             jump lockbox_menu

@@ -297,6 +297,7 @@ label cocktail_start:
 
     hide aurum_m with moveoutright
 
+    show typewriter with vpunch
     tp "{cps=[cps]}I t w as bot tm sh llf! Th t's h gh pr i see!{/cps}"
 
     ace "Bottom - shelf? Oh - right - it would be. Now what all do I have in there?"
@@ -319,6 +320,7 @@ label cocktail_start:
     show clay_m sober at my_moveinright
     clay "I'd try my luck with that. Line 'em up, knock 'em back, right? Knock myself out - I've had worse.{p}\nBut not right now. We've got work to do."
 
+    show typewriter with vpunch
     tp "{cps=[cps]}It k n oc edd me o t! Tw c e o vv r! F ur sho s d wn fo t e co nnt!{p}\n[cocktail.typewriter_message]{/cps}"
 
     show acespades_r upset
@@ -364,7 +366,7 @@ label cocktail_clay:
 label cocktail_mix_help:
     $ gui.custom.textbox_position = "centre"
     show clay_m happy at my_moveinright
-    clay "Don't ask me. What I get, I get, and it's all good. I'm the last to be faffing about with a beaker."
+    clay "Don't ask me. What I get, I get, and it's all good. I'm the last one to be faffing about with a beaker."
     show aurum_m_r at my_moveinleft
     aurum "I'm one to put the fun in formulation - but I doubt we need to be exact. Just close enough according to some measure."
 
@@ -432,8 +434,15 @@ label cocktail_process_choice_secret:
     show screen cocktail_ingredient_answer( grid_xalign = 0.5, grid_yalign = 0.5, grid_x = 2, grid_y = 2, answer = cocktail.ingredient.secret )
     show acespades at my_moveinright
     ace "Doubling down on that hot stuff with a hat tip to fire safety. Well done.\n{p}Have a card."
-    hide acespades
     hide screen cocktail_ingredient_answer
+
+    $ card_index = 2
+    $ card_images_found[ card_index ] = True
+    $ card_image = card_images[ card_index ]
+    show expression [card_image] as card at screen_centre with spiral
+    pause
+    hide acespades
+    hide card
     jump cocktail_menu
 
 label cocktail_give_mix_answer:
@@ -462,7 +471,7 @@ label cocktail_process_mix_answer:
     show aurum_m_r at my_moveinleft
     aurum "Mr. Minski's on a rather tight schedule - swinging by more so than settling in. He'd like to settle with this."
 
-    ace "A token of the Marquis' appreciation. But of course. This one in particular was taken in trade for a party favor.{p}\nWhich should be securely locked up in here -"
+    ace "A token of the Marquis' appreciation. But of course. This one in particular was taken in trade for a party favor.{p}\nWhich I was told to trade back for some purpose, and should be securely locked up in here -"
 
     hide acespades with moveoutright
     hide aurum_m_r with moveoutleft
