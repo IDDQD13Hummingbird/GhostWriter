@@ -1,4 +1,5 @@
-default keypad.typewriter_message = "o be pre c sse{p}Do he ' s, c rro s he ' s"
+default keypad.typewriter_message_start = "o be pre c sse{p}Do he ' s, c rro s he ' s"
+default keypad.typewriter_message = keypad.typewriter_message_start
 
 default keypad.keypad_xsize = 400
 default keypad.keypad_ysize = 600
@@ -36,6 +37,16 @@ init python:
                 renpy.jump( "keypad_process_answer" )
             case _:
                 return
+
+    def keypad_reinit():
+        keypad.typewriter_message = keypad.typewriter_message_start
+        keypad.combination = ""
+
+        keypad.asked_reggie = False
+        keypad.asked_trinity = False
+        keypad.asked_willow = False
+
+        keypad.secret_solved = False
 
 image numpad_0:
     "images/numpad_0.png"
@@ -211,6 +222,7 @@ screen keypad_interactive:
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
+    $ keypad_reinit()
     $ flag_keypad = True
     $ gui.custom.textbox_position = "centre"
 
@@ -276,18 +288,10 @@ label keypad_start:
     jump keypad_menu
 
 label keypad_menu:
-    #n "You have [turns] turns left."
-    if turns == 20:
-        tp "W e do 't hav e much t me. Hurry."
-    if turns == 15:
-        n "The typewriter seems rather restless."
-    if turns == 10:
-        n "The typewriter is clacking worryingly..."
-    if turns == 5:
-        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
-        n "...should you worry?"
-    if turns < 1:
-        jump gameover
+    
+    $ check_turns()
+    pause
+
     menu:    
         "[keypad.typewriter_message]"
         "Reggie, any thoughts on the gaps in this garble?":

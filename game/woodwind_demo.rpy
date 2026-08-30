@@ -36,7 +36,18 @@ init python:
         elif woodwind.input.strip().casefold() == woodwind.secret:
             woodwind.secret_solved = True
             renpy.jump( "woodwind_process_secret" )
-           
+
+    def woodwind_reinit():
+        woodwind.puzzle_text = woodwind.poem 
+        woodwind.input = ""
+
+        woodwind.asked_thanos = False
+        woodwind.asked_redd = False
+        woodwind.asked_willow = False
+
+        woodwind.solved = False
+        woodwind.secret_solved = False
+
 screen woodwind_name:
     frame:
         xpos 0.6
@@ -56,6 +67,7 @@ screen woodwind_name:
                 action Function( check_woodwind )
 
 label woodwind_start:
+    $ woodwind_reinit()
     $ gui.custom.textbox_position = "centre"
 
     show reggie_m at my_moveinright
@@ -119,18 +131,9 @@ label woodwind_start:
     jump woodwind_menu
 
 label woodwind_menu:
-    #n "You have [turns] turns left."
-    if turns == 20:
-        tp "W e do 't hav e much t me. Hurry."
-    if turns == 15:
-        n "The typewriter seems rather restless."
-    if turns == 10:
-        n "The typewriter is clacking worryingly..."
-    if turns == 5:
-        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
-        n "...should you worry?"
-    if turns < 1:
-        jump gameover
+    $ check_turns()
+    pause
+
     menu:
         "[woodwind.puzzle_intro]\n\n[woodwind.puzzle_text]"
         "This verse seems rather oddly repetitive.":

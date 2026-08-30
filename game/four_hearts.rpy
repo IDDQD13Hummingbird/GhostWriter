@@ -116,7 +116,8 @@ image bbutterfly_r animated:
     pause .025
     repeat
 
-default four_hearts.puzzle_text = "La fée verte - that is all.\n\nAb s ntt? A b s in? A n thee?"
+default four_hearts.puzzle_text_start = "La fée verte - that is all.\n\nAb s ntt? A b s in? A n thee?"
+default four_hearts.puzzle_text = four_hearts.puzzle_text_start
 
 default four_hearts.answer = "absinthe"
 default four_hearts.secret = "trinity"
@@ -138,6 +139,16 @@ init python:
             four_hearts.secret_solved = True
             renpy.jump( "four_hearts_process_secret" )
 
+    def four_hearts_reinit():
+        four_hearts.puzzle_text = four_hearts.puzzle_text_start
+        four_hearts.input = ""
+
+        four_hearts.asked_willow = False
+        four_hearts.asked_tequila = False
+
+        four_hearts.solved = False
+        four_hearts.secret_solved = False 
+
 screen four_hearts_name:
     frame:
         xpos 0.6
@@ -157,6 +168,7 @@ screen four_hearts_name:
                 action Function( check_four_hearts_answer )
 
 label four_hearts_start:
+    $ four_hearts_reinit()
     $ flag_quiz = True
     $ gui.custom.textbox_position = "centre"
 
@@ -284,18 +296,9 @@ label four_hearts_start:
     jump four_hearts_menu
 
 label four_hearts_menu:
-    #n "You have [turns] turns left."
-    if turns == 20:
-        tp "W e do 't hav e much t me. Hurry."
-    if turns == 15:
-        n "The typewriter seems rather restless."
-    if turns == 10:
-        n "The typewriter is clacking worryingly..."
-    if turns == 5:
-        tp " T'S TOO LAT E. W E'R E DOOM ED. RU ."
-        n "...should you worry?"
-    if turns < 1:
-        jump gameover
+    $ check_turns()
+    pause
+
     menu:
         "[four_hearts.puzzle_text]"
         "That's French - that much is clear. Anyone care to translate?":
@@ -318,7 +321,6 @@ label four_hearts_willow:
     if not four_hearts.asked_willow:
         $ four_hearts.puzzle_text += "\n\n\"The Green Fairy\" - a name for an alcoholic drink, or a guest with a winged mask"
         $ four_hearts.asked_willow = True
-        $ turns -= 1
     jump four_hearts_menu
 
 label four_hearts_tequila:
@@ -328,7 +330,6 @@ label four_hearts_tequila:
     if not four_hearts.asked_tequila:
         $ four_hearts.puzzle_text += "\n\n{b}Ab{/b}solutely {b}Sin{/b}ful, says Tequila"
         $ four_hearts.asked_tequila = True
-        $ turns -= 1
     jump four_hearts_menu
 
 label four_hearts_give_answer:

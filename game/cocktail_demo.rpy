@@ -67,6 +67,21 @@ init python:
             cocktail.mix_solved = True
             renpy.jump( "cocktail_process_mix_answer" )
 
+    def cocktail_reinit():
+        cocktail.typewriter_message = cocktail.typewriter_message_start
+
+        cocktail.ingredient.input = [ 0, 0, 0, 0 ]
+        cocktail.mix1 = 1
+        cocktail.mix2 = 1
+        cocktail.mix3 = 1
+        cocktail.mix4 = 1
+
+        cocktail.choice_answer_solved = False
+        cocktail.choice_secret_solved = False
+        cocktail.mix_solved = False
+
+        cocktail.asked_mix_help = False
+
 screen cocktail_ingredient_interactive:
     grid 4 3:
         xalign 0.75
@@ -262,10 +277,7 @@ screen cocktail_mix_interactive:
                 yalign 0.5
 
 label cocktail_start:
-    $ cocktail.choice_answer_solved = False
-    $ cocktail.choice_secret_solved = False
-    $ cocktail.mix_solved = False
-    $ cocktail.typewriter_message = cocktail.typewriter_message_start
+    $ cocktail_reinit()
     $ flag_bar = True
     $ gui.custom.textbox_position = "centre"
 
@@ -342,18 +354,9 @@ label cocktail_start:
     jump cocktail_menu
 
 label cocktail_menu:
-    #n "You have [turns] turns left."
-    if turns == 20:
-        tp "W e do 't hav e much t me. Hurry."
-    if turns == 15:
-        n "The typewriter seems rather restless."
-    if turns == 10:
-        n "The typewriter is clacking worryingly..."
-    if turns == 5:
-        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
-        n "...should you worry?"
-    if turns < 1:
-        jump gameover
+    $ check_turns()
+    pause
+    
     menu:
         "[cocktail.typewriter_message]"
         "I'm rather at a loss here. Clay, you look as if this might ring a bell -" if not cocktail.choice_answer_solved:

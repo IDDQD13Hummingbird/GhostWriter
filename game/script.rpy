@@ -131,6 +131,22 @@ define card_images = [
 "the_fool.png"
 ]
 
+# Doom doom doom doom doom
+
+init python:
+    def check_turns():
+        if turns == 20:
+            renpy.say( tp, "W e do 't hav e much t me. Hur ry." )
+        if turns == 15:
+            renpy.say( n, "The typewriter seems rather restless." )
+        if turns == 10:
+            renpy.say( n, "The typewriter is clacking worryingly..." )
+        if turns == 5:
+            renpy.say( tp, "T'S TOO LAT E. W E'R E DO MED. RU" )
+            renpy.say( n, "...should you worry?" )
+        if turns < 1:
+            renpy.jump( "gameover" )
+
 # The game starts here.
 
 label start:
@@ -246,39 +262,24 @@ label start:
     redd "The game is ghost whispering. The prize is - unspecified. Perhaps just a \"Jolly Good Show\" if we crack what it is that he's on about?"
     trinity "Fair enough, I suppose. It is a lark, if nothing else.{p}\nHow about it, Laffy? Fancy a game of Ghost Detective?"
 
-    menu( screen="choice_h" ):
-        "You won't leave me any real choice, will you?":
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+    hide redd_m_r with moveoutleft
+    hide trinity_m with moveoutright
+
+    menu:
+        "You leave me no choice, do you not?":
             jump adventure_start
-        "I think we're supposed to check a keypad door..." if flag_keypad:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "We unlocked a forbidden door." if flag_keypad:
             jump keypad_start
-        "Actually, Four Hearts had a quiz prepared for us." if flag_quiz:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "Four of Hearts surprised us with a quiz, much to his displeasure." if flag_quiz:
             jump four_hearts_start
-        "Didn't we have to go to the bar and ask for a special?" if flag_bar:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "There was still time to break for a cocktail." if flag_bar:
             jump cocktail_start
-        "Ace Spades had a puzzle box prepared for us." if flag_cipher:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "Ace of Spades procured a puzzle box in trade." if flag_cipher:
             jump lockbox_start
-        "We need to head over to Tequila's stage!" if flag_woodwind:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "A riddle awaited in the music hall." if flag_woodwind:
             jump woodwind_start
-        "I know which door Lucas is hiding behind." if flag_card:
-            hide redd_m_r with moveoutleft
-            hide trinity_m with moveoutright
+        "I know where the Marquis might be hiding..." if flag_card:
             jump cardsuit_demo
-
-
-        #if possible, implement a few gates allowing to skip puzzles player already completed. 
-        #The maximum allowed amount of turns is going to come into play here.
 
 label adventure_start:
     

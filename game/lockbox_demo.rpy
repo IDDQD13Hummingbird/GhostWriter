@@ -88,6 +88,21 @@ init python:
             lockbox.password_secret_solved = True
             renpy.jump( "lockbox_process_password_secret" )
 
+    def lockbox_reinit():
+        lockbox.puzzle_text = lockbox.puzzle_text_start
+
+        lockbox.cipher = ""
+        lockbox.password.input = [ 0, 0, 0, 0, 0, 0 ]
+
+        lockbox.asked_tequila = False
+        lockbox.asked_greyson_cipher = False
+        lockbox.asked_greyson_descramble = False
+        lockbox.asked_redd = False
+
+        lockbox.cipher_solved = False
+        lockbox.password_solved = False
+        lockbox.password_secret_solved = False
+
 screen lockbox_cipher:
     frame:
         xpos 0.6
@@ -237,6 +252,7 @@ screen lockbox_password:
             action Function( password_set_combination_input, 5, "down" )
 
 label lockbox_start:
+    $ lockbox_reinit()
     $ flag_cipher = True
     $ gui.custom.textbox_position = "centre"
     show greyson_r at my_moveinleft
@@ -259,18 +275,9 @@ label lockbox_start:
     jump lockbox_menu
 
 label lockbox_menu:
-    #n "You have [turns] turns left."
-    if turns == 20:
-        tp "W e do 't hav e much t me. Hurry."
-    if turns == 15:
-        n "The typewriter seems rather restless."
-    if turns == 10:
-        n "The typewriter is clacking worryingly..."
-    if turns == 5:
-        tp " T'S TOO LAT E. W E'R E DOOM ED. RU ."
-        n "...should you worry?"
-    if turns < 1:
-        jump gameover
+    $ check_turns()
+    pause
+
     menu:
         "[lockbox.puzzle_text]"
         "Let's settle this 4-digit cipher code" if not lockbox.cipher_solved and not lockbox.password_solved:
