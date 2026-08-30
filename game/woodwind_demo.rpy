@@ -280,8 +280,8 @@ label woodwind_process_answer:
     $cards_found = 0
 
     python:
-        for index in card_images_found:
-            if card_images_found[index]:
+        for flag in card_images_found:
+            if flag:
                 cards_found += 1 
 
     $arrangement = "Each suit is only used once. He also likes to mix up the colors. You won't see both red then both black, or vice versa."

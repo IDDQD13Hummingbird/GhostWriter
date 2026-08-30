@@ -1,4 +1,4 @@
-﻿#default card.puzzle_text = ""
+﻿default card.puzzle_text = ""
 
 default card.suit.input = [ 0, 0, 0, 0 ] #Jack, Queen, King, Joker
 default card.suit.answer = "1230" # Up the chapel
@@ -260,11 +260,7 @@ screen card_suit_answer( grid_xalign, grid_yalign, grid_x, grid_y, answer ):
                 yalign 0.5
 
 label cardsuit_start:
-    python:
-        for index in card_images_found:
-            if card_images_found[index]:
-                cards_found += 1
-
+   
     $ gui.custom.textbox_position = "centre"
 
     stop music fadeout 3.0
@@ -279,7 +275,7 @@ label cardsuit_start:
 
     $ text = "Get it wrong, and it locks for an hour. Or worse.{p}\nThe Marquis did mention a new measure of extra security."
 
-    if cards_found >= 5:
+    if cards_found == 5:
         king "Do be careful to match the exact combination. [text]"
     else:
         show greyson_r at my_moveinleft
@@ -309,6 +305,10 @@ label cardsuit_start:
         two "There is one thing - could be nothing - but it's something. The Marquis was humming a song the other day.{p}\nSomething about a diamond, and a spade.{p}\nIf the first then goes before the other..."
         hide twodiamonds_r with moveoutleft
         $card.puzzle_text += "\n\nDiamonds perhaps followed by Spades?"
+
+        if not card_images_found[4]:
+            king "What manner of a fool would come up with this whole scheme, anyhow?"
+            $card.puzzle_text += "\n\nFoolish business, all told"
 
     hide kingclubs with moveoutright
     
