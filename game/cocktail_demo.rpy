@@ -355,7 +355,6 @@ label cocktail_start:
 
 label cocktail_menu:
     $ check_turns()
-    pause
     
     menu:
         "[cocktail.typewriter_message]"

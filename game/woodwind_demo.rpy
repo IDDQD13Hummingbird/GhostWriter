@@ -132,7 +132,6 @@ label woodwind_start:
 
 label woodwind_menu:
     $ check_turns()
-    pause
 
     menu:
         "[woodwind.puzzle_intro]\n\n[woodwind.puzzle_text]"

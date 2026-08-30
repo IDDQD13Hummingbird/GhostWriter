@@ -137,13 +137,17 @@ init python:
     def check_turns():
         if turns == 20:
             renpy.say( tp, "W e do 't hav e much t me. Hur ry." )
+            renpy.pause()
         if turns == 15:
             renpy.say( n, "The typewriter seems rather restless." )
+            renpy.pause()
         if turns == 10:
             renpy.say( n, "The typewriter is clacking worryingly..." )
+            renpy.pause()
         if turns == 5:
             renpy.say( tp, "T'S TOO LAT E. W E'R E DO MED. RU" )
             renpy.say( n, "...should you worry?" )
+            renpy.pause()
         if turns < 1:
             renpy.jump( "gameover" )
 

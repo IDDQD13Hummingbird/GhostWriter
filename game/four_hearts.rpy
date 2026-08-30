@@ -297,7 +297,6 @@ label four_hearts_start:
 
 label four_hearts_menu:
     $ check_turns()
-    pause
 
     menu:
         "[four_hearts.puzzle_text]"

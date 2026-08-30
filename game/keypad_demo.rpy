@@ -243,7 +243,7 @@ label keypad_start:
     tequila "Do I want to know what he was known for? Aside from the diamonds and all."
     willow "Bad business deals, for the most part. For those on the other end, mostly. And for the deals he was on the bad end of..."
     tequila "...I reckon I'm good to imagine. Or not."
-    willow "Mr. Minski did have his upsides. He was generous with the village he was born in, and also a patron of the arts. A sponsor of the Bolshoi Ballet, where his favorite niece was a soloist."
+    willow "Mr. Minski did have a softer side. He was generous with the village he was born in, and also a patron of the arts. A sponsor of the Bolshoi Ballet, where his favorite niece was a soloist."
     hide tequila_m with moveoutright
     show trinity_m at my_moveinright
     trinity "If only I could have made him a commission. Something all bloody and torn and dismembered. Now, how could marble be carved into puddles..."
@@ -290,7 +290,6 @@ label keypad_start:
 label keypad_menu:
     
     $ check_turns()
-    pause
 
     menu:    
         "[keypad.typewriter_message]"

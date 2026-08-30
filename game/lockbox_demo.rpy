@@ -276,7 +276,6 @@ label lockbox_start:
 
 label lockbox_menu:
     $ check_turns()
-    pause
 
     menu:
         "[lockbox.puzzle_text]"
