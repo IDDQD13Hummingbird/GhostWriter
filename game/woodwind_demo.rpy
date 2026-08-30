@@ -253,6 +253,7 @@ label woodwind_process_answer:
     hide reggie_m_r with moveoutleft
     show thanos_r at my_moveinleft
     thanos "Not by any means whatsoever. That instrument dates to the 19th century, bespoke for the director of the Paris Conservatory.\n\nIt stays in one piece, end of story."
+    show twodiamonds upset
     two "Then that poses somewhat of a problem."
 
     hide thanos_r with moveoutleft
@@ -263,6 +264,7 @@ label woodwind_process_answer:
     hide redd_m_r with moveoutleft
     show thanos_r at my_moveinleft
     thanos "Please tell me that was key information you were privy to. At least partially."
+    show twodiamonds
     two "It's a card game, or the start of it. A set of rules for a winning hand."
 
     hide thanos_r with moveoutleft

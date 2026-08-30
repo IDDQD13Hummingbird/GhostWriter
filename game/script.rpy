@@ -105,6 +105,7 @@ transform button_zoom( amount ):
     # important
 default turns = 25
 
+default Disclaimer = True
 
 # Flags!
 
@@ -159,6 +160,12 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
+    # COPYRIGHT DISCLAIMER!
+    if Disclaimer:
+        scene bg burned_room
+        n "This is a fangame dedicated to {b}The Sexy Brutale{/b}.\nAll featured characters are the property of {b}Tequila Works{/b} and {b}Cavalier Game Studios{/b}.\nGreyson Grayson sprite has been taken from The Sexy Brutale artbook.\nThis version of the game is {b}spoiler-free!{/b} Enjoy!"
+        $ Disclaimer = False
+
     $ turns = 25
 
     scene bg room with spiral
@@ -191,7 +198,7 @@ label start:
     show typewriter with vpunch
 
     n "With a metallic {i}thud{/i}, the typewriter plopped down on the worn inlaid table.\n\nIn it was jammed a piece of paper spelling \"H ELP\".\n\nSomehow, it almost looked sympathetic."
-
+    
     show willow_m at my_moveinright #at right
 
     willow "I present Alexander Minski, \"The Thunderous\". A notorious Russian dealer in diamonds, and a mainstay on the Marquis' guest list.{p}\nOr rather he was before I was. His acquaintance is new to me."
@@ -230,16 +237,19 @@ label start:
     show typewriter with vpunch
     tp "F D LU CAS"
 
-    show greyson_r at my_moveinleft
+    #show greyson_r at my_moveinleft - visual hiccup
     greyson "Flaming Daft Lucas? Spot on."
-    hide greyson_r with moveoutleft
 
-    show redd_m_r at my_moveinleft
+    hide willow_m with moveoutright
+    show redd_m at my_moveinright #visual hiccup
     redd "A game of anagrams, perhaps? Scald, laud, clad, calf - I'm not seeing much here to go on -"
-    hide redd_m_r with moveoutleft
+    #hide redd_m_r with moveoutleft
 
+    hide greyson_r with moveoutleft
     show clay_m_r sober at my_moveinleft
     clay "Come on, bruv. Don't hurt yourself overthinking. It's just missing letters.{p}\n\"Feed Lucas\"? Right. Sorted.{p}\nThough we would have to find him to feed him..."
+    hide redd_m with moveoutright
+    show willow_m at my_moveinright
     willow "That does seem to be the implication, yes.{p}\nThe finding part, that is. Mr. Minski hasn't been forthcoming with a menu."
     hide clay_m_r sober with moveoutleft
 
@@ -249,11 +259,12 @@ label start:
     hide reggie_m_r with moveoutleft
     show greyson_r at my_moveinleft
     greyson "I'd have all those cracked before elevenses, if not for that matter of needing direction."
-    hide greyson_r with moveoutleft
-    show thanos_r at my_moveinleft
-    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means, or at least some significant number thereof. The idioms strike once again."
     hide willow_m with moveoutright
-    hide thanos_r with moveoutleft
+    show thanos at my_moveinright
+    thanos "I wouldn't be so flagrantly confident. \"Behind seven seals\", he means, or at least some significant number thereof. The idioms strike once again."
+
+    hide greyson_r with moveoutleft
+    hide thanos with moveoutright
 
     show trinity_m at my_moveinright
     trinity "So we've already begun with the party games? What a time to be fashionably late."
@@ -358,8 +369,6 @@ label adventure_after_spider_room:
     stop music fadeout 0.5
 
     n "Wow, that was an adventure!"
-    $ turns_taken = 25-turns
-    n "You managed in [turns_taken] turns, too. \nGood job!"
 
     jump tutorial_no
 
@@ -385,7 +394,13 @@ label adventure_after_spider_room:
 
     #Select 
     label end:
-        "This concludes the tech demo."
+        scene bg burned_room with spiral
+        $ turns_taken = 25-turns
+        n "This concludes the game. You managed to complete it with \n[turns] remaining ([turns_taken] turns total). \nWay to go!"
+        n "This game has been made for \n{a=https://itch.io/jam/ssjmystery}PIGSquad Summer Slow Jam August : Mystery{/a}, \nsubtheme \"I can explain!\". \nFor some of us, it's been the first time jamming and working together. \nPersonal thank you to {a=https://pigsquad.com/}Portland Indie Game Squad{/a} for organizing SSJ's year after year."
+        n "And big thanks to \n{b}our Developer team!{/b}\nProgrammer and writer : {a=https://rydain.org/}Rydain{/a}\nArtist and game designer : {a=https://thenorthernharpy.newgrounds.com/}TheNorthernHarpy{/a}\nBackground artist : {a=https://x.com/NostalgiaTree}NostalgicTree{/a}\nMusic : {a=https://itch.io/profile/fionnectomy}fionnectomy{/a}"
+        n "Would you like to find out \nhow the story ended?\nPlay our source material, \n{b}The Sexy Brutale!{/b}"
+        n "Until we meet again!"
 
     # This ends the game.
 

@@ -599,8 +599,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
+            text _("Developed by:\nProgrammer and writer : {a=https://rydain.org/}Rydain{/a}\nArtist and game designer : {a=https://thenorthernharpy.newgrounds.com/}TheNorthernHarpy{/a}\nBackground artist : {a=https://x.com/NostalgiaTree}NostalgicTree{/a}\nMusic : {a=https://itch.io/profile/fionnectomy}fionnectomy{/a}\n\nThis game has been made for \n{a=https://itch.io/jam/ssjmystery}PIGSquad Summer Slow Jam August : Mystery{/a}, subtheme \"I can explain!\". \nThanks to {a=https://pigsquad.com/}Portland Indie Game Squad{/a} for organizing SSJ's year after year.\n\nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 style about_label is gui_label
 style about_label_text is gui_label_text

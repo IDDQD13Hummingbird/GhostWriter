@@ -280,6 +280,7 @@ label cardsuit_start:
     else:
         show greyson_r at my_moveinleft
         greyson "Is that all? Can't we just brute force it? Or does this daft device charge per attempt?"
+        show kingclubs upset
         king "That would be very much at your own risk, sir. [text]"
         hide greyson_r with moveoutleft
 
@@ -301,7 +302,7 @@ label cardsuit_start:
             $card.puzzle_text += "\n\nJack is not Clubs"
         hide willow_m_r with moveoutleft
 
-        show twodiamonds_r at my_moveinleft
+        show twodiamonds_r upset at my_moveinleft
         two "There is one thing - could be nothing - but it's something. The Marquis was humming a song the other day.{p}\nSomething about a diamond, and a spade.{p}\nIf the first then goes before the other..."
         hide twodiamonds_r with moveoutleft
         $card.puzzle_text += "\n\nDiamonds perhaps followed by Spades?"
