@@ -102,6 +102,10 @@ transform button_zoom( amount ):
     zoom amount
 
 
+    # important
+default turns = 25
+
+
 # Flags!
 
 default flag_keypad = False
@@ -110,6 +114,8 @@ default flag_bar = False
 default flag_cipher = False
 default flag_woodwind = False
 default flag_card = False
+
+default flag_died = False
 
 # Cards!
 
@@ -265,7 +271,7 @@ label start:
             hide redd_m_r with moveoutleft
             hide trinity_m with moveoutright
             jump woodwind_start
-        "The staff is waiting for us with the final puzzle." if flag_card:
+        "I know which door Lucas is hiding behind." if flag_card:
             hide redd_m_r with moveoutleft
             hide trinity_m with moveoutright
             jump cardsuit_demo

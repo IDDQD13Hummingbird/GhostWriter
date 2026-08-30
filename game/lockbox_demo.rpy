@@ -237,6 +237,7 @@ screen lockbox_password:
             action Function( password_set_combination_input, 5, "down" )
 
 label lockbox_start:
+    $ flag_cipher = True
     $ gui.custom.textbox_position = "centre"
     show greyson_r at my_moveinleft
     greyson "Now, let's see what we have!"
@@ -258,21 +259,40 @@ label lockbox_start:
     jump lockbox_menu
 
 label lockbox_menu:
+    #n "You have [turns] turns left."
+    if turns == 20:
+        tp "W e do 't hav e much t me. Hurry."
+    if turns == 15:
+        n "The typewriter seems rather restless."
+    if turns == 10:
+        n "The typewriter is clacking worryingly..."
+    if turns == 5:
+        tp " T'S TOO LAT E. W E'R E DOOM ED. RU ."
+        n "...should you worry?"
+    if turns < 1:
+        jump gameover
     menu:
         "[lockbox.puzzle_text]"
         "Let's settle this 4-digit cipher code" if not lockbox.cipher_solved and not lockbox.password_solved:
+            $ turns -= 1
             jump lockbox_cipher_give_answer
         "The cipher contains a music note. Might that be of significance?" if not lockbox.cipher_solved and not lockbox.password_solved:
+            $ turns -= 1
             jump lockbox_tequila
         "1,5,6,4 - I could use some locksmith's eyes here" if lockbox.asked_tequila and not lockbox.cipher_solved and not lockbox.password_solved:
+            $ turns -= 1
             jump lockbox_greyson_cipher
         "I'm rather scrambled trying to descramble this" if lockbox.cipher_solved and not lockbox.password_solved and not lockbox.asked_greyson_descramble:
+            $ turns -= 1
             jump lockbox_greyson_descramble
         "Shall we crack this mystery box open, then?" if not lockbox.password_solved:
+            $ turns -= 1
             jump lockbox_password_give_answer
         "This letter set has some possibilities -" if lockbox.password_solved and not lockbox.password_secret_solved:
+            $ turns -= 1
             jump lockbox_password_give_answer
         "Redd, does that give you enough to go on?" if lockbox.password_solved and not lockbox.password_secret_solved:
+            $ turns -= 1
             jump lockbox_redd
         "Time's short - let's rather move onto that riddle -" if lockbox.password_solved and not lockbox.password_secret_solved:
             jump woodwind_start

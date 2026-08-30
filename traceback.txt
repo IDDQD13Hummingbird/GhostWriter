@@ -1,36 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/four_hearts.rpy", line 164, in script
-    show plant1s at plant_slightright
-  File "game/four_hearts.rpy", line 164, in <module>
-    show plant1s at plant_slightright
-                    ^^^^^^^^^^^^^^^^^
-NameError: name 'plant_slightright' is not defined. Did you mean: 'plant_sligthright'?
+  File "game/keypad_demo.rpy", line 299, in script
+    $ truns -= 1
+  File "game/keypad_demo.rpy", line 299, in <module>
+    $ truns -= 1
+      ^^^^^     
+NameError: name 'truns' is not defined. Did you mean: 'turns'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/four_hearts.rpy", line 164, in script
-    show plant1s at plant_slightright
-  File "renpy/ast.py", line 1364, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ast.py", line 726, in show_imspec
-    at_list = [renpy.python.py_eval(i) for i in at_list]
-               ~~~~~~~~~~~~~~~~~~~~^^^                  
-  File "renpy/python.py", line 1308, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1301, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/four_hearts.rpy", line 164, in <module>
-    show plant1s at plant_slightright
-                    ^^^^^^^^^^^^^^^^^
-NameError: name 'plant_slightright' is not defined. Did you mean: 'plant_sligthright'?
+  File "game/keypad_demo.rpy", line 299, in script
+    $ truns -= 1
+  File "renpy/ast.py", line 1193, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1276, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/keypad_demo.rpy", line 299, in <module>
+    $ truns -= 1
+      ^^^^^     
+NameError: name 'truns' is not defined. Did you mean: 'turns'?
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.5.3.26051504
 GhostTyper 1.0
-Sun Aug 30 14:21:41 2026
+Sun Aug 30 18:44:41 2026

@@ -211,6 +211,7 @@ screen keypad_interactive:
             action Function( process_keypad_input, "9" )
 
 label keypad_start:
+    $ flag_keypad = True
     $ gui.custom.textbox_position = "centre"
 
     scene bg hallway with spiral
@@ -275,15 +276,31 @@ label keypad_start:
     jump keypad_menu
 
 label keypad_menu:
-    menu:
+    #n "You have [turns] turns left."
+    if turns == 20:
+        tp "W e do 't hav e much t me. Hurry."
+    if turns == 15:
+        n "The typewriter seems rather restless."
+    if turns == 10:
+        n "The typewriter is clacking worryingly..."
+    if turns == 5:
+        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
+        n "...should you worry?"
+    if turns < 1:
+        jump gameover
+    menu:    
         "[keypad.typewriter_message]"
         "Reggie, any thoughts on the gaps in this garble?":
+            $ turns -= 1
             jump keypad_reggie
         "Trinity, you mentioned overhearing something useful?":
+            $ turns -= 1
             jump keypad_trinity
         "If only Mr. Minski saw fit to haunt an adding machine. Willow, might you translate?" if keypad.asked_reggie and keypad.asked_trinity:
+            $ turns -= 1
             jump keypad_willow
         "I suppose it's time to push these buttons.":
+            $ turns -= 1
             jump keypad_give_answer
 
 label keypad_reggie:
@@ -292,7 +309,6 @@ label keypad_reggie:
     if not keypad.asked_reggie:
         $ keypad.typewriter_message += "\n\nThis note is missing I's and T's."
         $ keypad.asked_reggie = True
-        $ turns -= 1
     hide reggie_m with moveoutright
     jump keypad_menu
 
@@ -302,7 +318,6 @@ label keypad_trinity:
     if not keypad.asked_trinity:
         $ keypad.typewriter_message += "\n\nParts of the combination - \n  *  4, 5, 6\n  *  8, 0"
         $ keypad.asked_trinity = True
-        $ turns -= 1
     hide trinity_m with moveoutright
     jump keypad_menu
 
@@ -312,12 +327,10 @@ label keypad_willow:
     if not keypad.asked_willow:
         $ keypad.typewriter_message += "\n\nTo key in the combination, dot an i or cross a T as you'd write with a pen."
         $ keypad.asked_willow = True  
-        $ turns -= 1  
     hide willow_m with moveoutright
     jump keypad_menu
 
 label keypad_process_answer:
-    $ turns -= 1
     if keypad.combination == keypad.answer:
         "You crossed the T and opened the lock. Congratulations!"
         hide screen keypad_interactive

@@ -119,18 +119,34 @@ label woodwind_start:
     jump woodwind_menu
 
 label woodwind_menu:
-
+    #n "You have [turns] turns left."
+    if turns == 20:
+        tp "W e do 't hav e much t me. Hurry."
+    if turns == 15:
+        n "The typewriter seems rather restless."
+    if turns == 10:
+        n "The typewriter is clacking worryingly..."
+    if turns == 5:
+        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
+        n "...should you worry?"
+    if turns < 1:
+        jump gameover
     menu:
         "[woodwind.puzzle_intro]\n\n[woodwind.puzzle_text]"
         "This verse seems rather oddly repetitive.":
+            $ turns -= 1
             jump woodwind_thanos
         "What's the deal with all these oughts? Perhaps there's a clue in the calligraphy?" if woodwind.asked_thanos:
+            $ turns -= 1
             jump woodwind_willow
         "Woodwind, eh? Redd, if you could - some examples would be instrumental -" if not woodwind.solved and not woodwind.secret_solved:
+            $ turns -= 1
             jump woodwind_redd
         "I think I've got it well enough to have a gander." if not woodwind.solved:
+            $ turns -= 1
             jump woodwind_give_answer
         "There might be more around here worth poking at -" if woodwind.solved and not woodwind.secret_solved:
+            $ turns -= 1
             jump woodwind_give_answer
 
 label woodwind_thanos:

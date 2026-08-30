@@ -260,7 +260,7 @@ screen card_suit_answer( grid_xalign, grid_yalign, grid_x, grid_y, answer ):
                 yalign 0.5
 
 label cardsuit_start:
-   
+    $ flag_card = true
     $ gui.custom.textbox_position = "centre"
 
     stop music fadeout 3.0
@@ -379,6 +379,10 @@ label card_process_choice_answer:
     hide screen card_suit_interactive
     show kingclubs at my_moveinright
     king "A jolly good show! Off we go, then."
+    king "Let's see where the Marquis was hiding!"
+    hide background
+
+    n "NORMAL ENDING"
 
     jump end
 
@@ -386,14 +390,23 @@ label card_process_choice_secret:
     hide screen card_suit_reference
     hide screen card_suit_interactive
     show kingclubs at my_moveinright
-    king "The true secret is where this branch actually leads."
+    #king "The true secret is where this branch actually leads."
+    king "That certainly broke the rules of how this lock operates. I'm fascinated - and somewhat worried - that it worked at all."
+    king "...how did you figure this out?"
+    king "On a second thought, I don't need to know. You all seemed in a hurry."
+    king "Wherever this door is going to take you... good luck."
+    hide background
+
+    n "SECRET ENDING"
 
     jump end
 
 label card_process_choice_wrong:
     hide screen card_suit_reference
     hide screen card_suit_interactive
-    show kingclubs at my_moveinright
-    king "I regret to inform you that...{p}\nYou get nothing! You lose! Good day, sir!"
+    show kingclubs upset at my_moveinright
+    king "That... didn't sound right. {b}Uh-oh."
+    jump gameover
+    #king "I regret to inform you that...{p}\nYou get nothing! You lose! Good day, sir!"
 
     jump end

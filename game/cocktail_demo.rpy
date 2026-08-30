@@ -262,6 +262,7 @@ screen cocktail_mix_interactive:
                 yalign 0.5
 
 label cocktail_start:
+    $ flag_bar = True
     $ gui.custom.textbox_position = "centre"
 
     play music "SlowTheme.mp3" fadein 2.0
@@ -337,17 +338,34 @@ label cocktail_start:
     jump cocktail_menu
 
 label cocktail_menu:
+    #n "You have [turns] turns left."
+    if turns == 20:
+        tp "W e do 't hav e much t me. Hurry."
+    if turns == 15:
+        n "The typewriter seems rather restless."
+    if turns == 10:
+        n "The typewriter is clacking worryingly..."
+    if turns == 5:
+        tp " T'S TOO LAT E. W E'R E DOOMED. RU ."
+        n "...should you worry?"
+    if turns < 1:
+        jump gameover
     menu:
         "[cocktail.typewriter_message]"
         "I'm rather at a loss here. Clay, you look as if this might ring a bell -" if not cocktail.choice_answer_solved:
+            $ turns -= 1
             jump cocktail_clay
         "The ingredients are sorted - now for the mix." if cocktail.choice_answer_solved and not cocktail.mix_solved:
+            $ turns -= 1
             jump cocktail_give_mix_answer
         "I'm perplexed about these proportions. The hot stuff calls for a heavy pour -" if cocktail.choice_answer_solved and not cocktail.mix_solved:
+            $ turns -= 1
             jump cocktail_mix_help
         "Let's gin this up, now, shall we?" if not cocktail.choice_answer_solved:
+            $ turns -= 1
             jump cocktail_give_choice_answer
         "A second round, perhaps? Mr. Minski seems suspiciously fond of that hot stuff -" if cocktail.choice_answer_solved and not cocktail.choice_secret_solved:
+            $ turns -= 1
             jump cocktail_give_choice_answer
 
 label cocktail_clay:

@@ -1,3 +1,5 @@
+define swave = ImageDissolve("imagedissovle wave.png", 1.0, 124)
+
 #we do a little trolling
 image butterfly animated:
     "butterfly1"
@@ -155,14 +157,15 @@ screen four_hearts_name:
                 action Function( check_four_hearts_answer )
 
 label four_hearts_start:
+    $ flag_quiz = True
     $ gui.custom.textbox_position = "centre"
 
     play music "OminousTheme.mp3" fadein 1.5
-    scene bg stage with wave
-    show plant1 at plant_right
-    show plant2s at plant_left
-    show plant2 at plant_slightright
-    show plant1s at plant_slightleft
+    scene bg stage with swave
+    show plant1 at plant_right with swave
+    show plant2s at plant_left with swave
+    show plant2 at plant_slightright with swave
+    show plant1s at plant_slightleft with swave
             
     show bbutterfly animated:
         parallel:
@@ -281,13 +284,28 @@ label four_hearts_start:
     jump four_hearts_menu
 
 label four_hearts_menu:
+    #n "You have [turns] turns left."
+    if turns == 20:
+        tp "W e do 't hav e much t me. Hurry."
+    if turns == 15:
+        n "The typewriter seems rather restless."
+    if turns == 10:
+        n "The typewriter is clacking worryingly..."
+    if turns == 5:
+        tp " T'S TOO LAT E. W E'R E DOOM ED. RU ."
+        n "...should you worry?"
+    if turns < 1:
+        jump gameover
     menu:
         "[four_hearts.puzzle_text]"
         "That's French - that much is clear. Anyone care to translate?":
+            $ turns -= 1
             jump four_hearts_willow
         "Does this verdant spirit sound familiar?" if four_hearts.asked_willow:
+            $ turns -= 1
             jump four_hearts_tequila
         "I may have enough of a clue -":
+            $ turns -= 1
             jump four_hearts_give_answer
 
 label four_hearts_willow:
