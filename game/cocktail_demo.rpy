@@ -262,6 +262,10 @@ screen cocktail_mix_interactive:
                 yalign 0.5
 
 label cocktail_start:
+    $ cocktail.choice_answer_solved = False
+    $ cocktail.choice_secret_solved = False
+    $ cocktail.mix_solved = False
+    $ cocktail.typewriter_message = cocktail.typewriter_message_start
     $ flag_bar = True
     $ gui.custom.textbox_position = "centre"
 
