@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "6.9"
+define config.version = "Greyson_Unmasked"
 
 
 ## Text that is placed on the game's about screen. Place the text between the

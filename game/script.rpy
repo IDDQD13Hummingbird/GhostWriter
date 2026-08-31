@@ -307,7 +307,7 @@ label start:
         "A riddle awaited in the music hall." if flag_woodwind:
             jump woodwind_start
         "I know where the Marquis might be hiding..." if flag_card:
-            jump cardsuit_demo
+            jump cardsuit_start
 
 label adventure_start:
     
