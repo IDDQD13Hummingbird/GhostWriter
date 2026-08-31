@@ -255,11 +255,12 @@ label lockbox_start:
     $ lockbox_reinit()
     $ flag_cipher = True
     $ gui.custom.textbox_position = "centre"
-    show greyson_r at my_moveinleft
+    show greyson_r happy at my_moveinleft
     greyson "Now, let's see what we have!"
     "[lockbox.puzzle_text]"
     show tequila_m at my_moveinright
     tequila "Six letters from all that, somehow. And I don't see any C in these dials."
+    show greyson_r
     greyson "You wouldn't. It's a transposition cipher. Rather classic - or extremely antiquated - but anyhow. All the letters we need are up at the top."
     tequila "And I reckon you know how to order them?"
     greyson "I will when we know the code. One number for each three-letter phrase, so some permutation of 1,2,3,4. Not in that same order, though - that would be just too trivial."
@@ -325,7 +326,7 @@ label lockbox_tequila:
     jump lockbox_menu
 
 label lockbox_greyson_cipher:
-    show greyson at my_moveinright
+    show greyson happy at my_moveinright
     greyson "Ah, there's the fun, relatively speaking. We need to number those numbers. If we start with 1, what's the next largest? The 2 goes in that position. And so on to 4.{p}\nSo, to start - 1 * * 2 -"
     if not lockbox.asked_greyson_cipher:
         $ lockbox.puzzle_text += " - to be numbered from smallest to largest. To start, looks like 1 * * 2"
@@ -377,10 +378,11 @@ label lockbox_password_give_answer:
 label lockbox_process_password_answer:
     $ gui.custom.textbox_position = "centre"
     hide screen lockbox_password
-    show greyson_r at my_moveinleft
+    show greyson_r happy at my_moveinleft
     greyson "Ha! Not much of an enigma now, is it?"
     show tequila_m at my_moveinright
     tequila "The password isn't, at least. We've yet to see what all it's been hiding."
+    show greyson_r
 
     if lockbox.password_secret_solved:
         greyson "There's a note, for one - another riddle, from the looks of it. Now what's to be done with that?"

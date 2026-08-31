@@ -257,12 +257,12 @@ label keypad_start:
     tequila "Well, let's hope Mr. Minski also speaks keypad. If he needs us in here for some reason, maybe there's a chance he knows how."
     
     show typewriter with vpunch
-    tp "{cps=[cps]}0{/cps}"
+    tp "{cps=[cps]}{font=Amarante-Regular.ttf}0{/font}{/cps}"
 
     willow "Is that a no? Or part of the code?"
 
     show typewriter with vpunch
-    tp "{cps=[cps]}000000000000{/cps}"
+    tp "{cps=[cps]}{font=Amarante-Regular.ttf}000000000000{/font}{/cps}"
 
     hide tequila_m with moveoutright
     show reggie_m at my_moveinright

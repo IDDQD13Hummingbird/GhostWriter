@@ -163,7 +163,7 @@ label start:
     # COPYRIGHT DISCLAIMER!
     if Disclaimer:
         scene bg burned_room
-        n "This is a fangame dedicated to {b}The Sexy Brutale{/b}.\nAll featured characters are the property of {b}Tequila Works{/b} and {b}Cavalier Game Studios{/b}.\nGreyson Grayson sprite has been taken from The Sexy Brutale artbook.\nThis version of the game is {b}spoiler-free!{/b} Enjoy!"
+        n "This is a fangame dedicated to {b}The Sexy Brutale{/b}.\n\nAll featured characters are the property of {b}Tequila Works{/b} and {b}Cavalier Game Studios{/b}.\n\nThis version of the game is {b}spoiler-free!{/b} Enjoy!"
         $ Disclaimer = False
 
     $ turns = 25
@@ -220,10 +220,23 @@ label start:
     hide aurum_m_r with moveoutleft
     show willow_m thinking
     willow "He's looking for - something. He hasn't said what yet."
+    show willow_m
     show greyson_r at my_moveinleft
     greyson "A diamond?"
-    show willow_m
-    willow "Maybe that, maybe not. Something important, yes, in any case. We had a quick look around, but nothing seemed to ring a bell."
+    hide willow_m with moveoutright
+
+    show redd_m at my_moveinright
+    redd "Your mask?"
+    greyson "Bloody hell. I knew I forgot {i}something{/i} just now."
+    redd "Better that than your trousers, right?"
+    show greyson_r happy
+    greyson "I wouldn't call those forgotten, necessarily."
+    redd "Maybe not in certain close quarters..."
+    hide redd_m with moveoutright
+
+    show greyson_r
+    show willow_m at my_moveinright
+    willow "At any rate. Maybe that, maybe not. Something important, yes, in any case. We had a quick look around, but nothing seemed to ring a bell."
     greyson "And you didn't think to call me in? Did you expect I'd nick it all? I might skim a hair off the top, but -"
     willow "We were pressed for time, as I mentioned. And it seems we still are."
     greyson "Then what's the wait? Point me in a direction, and off I'll go. I might get into a bit of a pickle - or a jam. But I'll get out straight away, or rather Redd will -"
